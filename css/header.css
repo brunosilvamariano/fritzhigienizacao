@@ -1,0 +1,111 @@
+
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1A1F1E;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: var(--z-fixed);
+  padding: 1rem 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-top.scrolled {
+  background: #1A1F1E;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo a:hover {
+  transform: translateY(-2px);
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.logo a:hover img {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  transform: scale(1.05);
+}
+
+/* Efeito de brilho sutil no logo */
+.logo::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(109, 163, 233, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.logo:hover::after {
+  opacity: 1;
+}
+
+/* Animação suave de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-top {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 0.75rem 0;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    padding: 0.5rem 0;
+  }
+  
+  .logo img {
+    height: 45px;
+  }
+}
+
