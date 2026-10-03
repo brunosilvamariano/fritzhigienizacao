@@ -117,8 +117,18 @@
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: -0.045em;
-  border-bottom: 1px solid #d8cec02b;
+  position: relative;
   transition: color 180ms;
+}
+.mobile-links > a:not(:last-child)::after,
+.mobile-links > button::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 38px;
+  height: 1px;
+  background: #d8cec02b;
 }
 .mobile-submenu-links svg {
   width: 12px;
