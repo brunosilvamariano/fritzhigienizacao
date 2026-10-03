@@ -29,4 +29,5 @@ export const navigation = [
   { href: '#servicos', label: 'Serviços' },
   { href: '#processo', label: 'O processo' },
   { href: '#estudio', label: 'Estúdio' },
+  { href: '#contato', label: 'Contato' },
 ] as const;

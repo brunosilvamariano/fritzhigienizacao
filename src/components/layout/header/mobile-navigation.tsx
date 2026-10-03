@@ -29,7 +29,7 @@ export function MobileNavigation() {
     document.body.style.overflow = 'hidden';
   }
   useEffect(() => {
-    const query = window.matchMedia('(min-width: 1024px)');
+    const query = window.matchMedia('(min-width: 1200px)');
     const handle = () => {
       if (query.matches && dialog.current?.open) dialog.current.close();
     };
@@ -108,6 +108,9 @@ export function MobileNavigation() {
             className="mobile-submenu"
             hidden={!expanded}
           >
+            <a href="#ambientes">
+              Todos os ambientes <Arrow />
+            </a>
             {environments.map((item) => (
               <a key={item.id} href={`#${item.id}`}>
                 {item.label}

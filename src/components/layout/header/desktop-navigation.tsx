@@ -68,6 +68,9 @@ export function DesktopNavigation() {
         <div id="desktop-environments" className="mega-menu" hidden={!open}>
           <div className="mega-links">
             <span className="eyebrow">Explore os espaços</span>
+            <a href="#ambientes">
+              Todos os ambientes <Arrow />
+            </a>
             {environments.map((item) => (
               <a key={item.id} href={`#${item.id}`}>
                 {item.label}

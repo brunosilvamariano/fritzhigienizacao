@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: clamp(20px, 2.5vw, 40px);
 }
 .brand {
   display: flex;
@@ -32,7 +32,7 @@
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: clamp(18px, 2.2vw, 32px);
   font-size: 12px;
 }
 .desktop-nav > a,
@@ -106,7 +106,7 @@
 .mobile-nav {
   display: none;
 }
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .desktop-nav,
   .header-cta {
     display: none;
@@ -207,7 +207,7 @@
   color: var(--muted);
   margin-top: 20px;
 }
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .header-inner .header-cta {
     display: none;
   }
@@ -269,4 +269,13 @@
   .mobile-links > button {
     font-size: 21px;
   }
+}
+
+.desktop-nav > a {
+  white-space: nowrap;
+}
+.desktop-nav > a:focus-visible,
+.nav-trigger:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 5px;
 }
