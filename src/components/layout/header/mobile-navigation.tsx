@@ -1,13 +1,19 @@
 'use client';
-import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { environments, navigation } from '@/config/navigation';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { Arrow } from '@/components/ui/arrow';
+import { environments, navigation } from '@/config/navigation';
+
 export function MobileNavigation() {
   const dialog = useRef<HTMLDialogElement>(null);
-  const [expanded, setExpanded] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const scrollArea = useRef<HTMLDivElement>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const previousOverflow = useRef('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [current, setCurrent] = useState('');
+
   const close = useCallback(() => {
     const menu = dialog.current;
     if (!menu?.open || menu.dataset.state === 'closing') return;
@@ -16,121 +22,187 @@ export function MobileNavigation() {
       return;
     }
     menu.dataset.state = 'closing';
+    timer.current = setTimeout(() => menu.close(), 260);
   }, []);
+
   function restore() {
+    if (timer.current) clearTimeout(timer.current);
     document.body.style.overflow = previousOverflow.current;
     setExpanded(false);
+    setIsOpen(false);
+    toggle.current?.focus({ preventScroll: true });
   }
+
   function open() {
-    if (!dialog.current || dialog.current.open) return;
-    dialog.current.dataset.state = 'opening';
+    const menu = dialog.current;
+    if (!menu || menu.open) return;
     previousOverflow.current = document.body.style.overflow;
-    dialog.current?.showModal();
+    menu.dataset.state = 'opening';
+    menu.showModal();
+    if (scrollArea.current) scrollArea.current.scrollTop = 0;
     document.body.style.overflow = 'hidden';
+    setIsOpen(true);
   }
+
   useEffect(() => {
     const query = window.matchMedia('(min-width: 1200px)');
-    const handle = () => {
-      if (query.matches && dialog.current?.open) dialog.current.close();
-    };
     const menu = dialog.current;
+    const handleResize = () => {
+      if (query.matches && menu?.open) menu.close();
+    };
     const handleLink = (event: MouseEvent) => {
       if (event.target instanceof Element && event.target.closest('a')) close();
     };
+    const handleBackdrop = (event: MouseEvent) => {
+      if (event.target !== menu || !menu) return;
+      const rect = menu.getBoundingClientRect();
+      if (
+        event.clientX < rect.left ||
+        event.clientX > rect.right ||
+        event.clientY < rect.top ||
+        event.clientY > rect.bottom
+      )
+        close();
+    };
+    const syncHash = () => setCurrent(window.location.hash || '#inicio');
+    syncHash();
+    window.addEventListener('hashchange', syncHash);
     menu?.addEventListener('click', handleLink);
-    query.addEventListener('change', handle);
+    menu?.addEventListener('click', handleBackdrop);
+    query.addEventListener('change', handleResize);
     return () => {
+      if (timer.current) clearTimeout(timer.current);
+      window.removeEventListener('hashchange', syncHash);
       menu?.removeEventListener('click', handleLink);
-      query.removeEventListener('change', handle);
-      if (dialog.current?.open)
-        document.body.style.overflow = previousOverflow.current;
+      menu?.removeEventListener('click', handleBackdrop);
+      query.removeEventListener('change', handleResize);
+      if (menu?.open) document.body.style.overflow = previousOverflow.current;
     };
   }, [close]);
+
   return (
     <div className="mobile-nav">
       <button
+        ref={toggle}
         type="button"
         className="menu-toggle"
         onClick={open}
         aria-label="Abrir menu"
         aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls="mobile-menu"
       >
-        <span />
-        <span />
+        <span className="menu-toggle-label">Menu</span>
+        <span className="menu-toggle-lines" aria-hidden="true">
+          <i />
+          <i />
+        </span>
       </button>
       <dialog
         ref={dialog}
+        id="mobile-menu"
         className="mobile-dialog"
         onClose={restore}
         onCancel={(event) => {
           event.preventDefault();
           close();
         }}
-        onAnimationEnd={(event) => {
-          if (event.target !== event.currentTarget) return;
-          if (event.animationName === 'mobile-panel-out')
-            dialog.current?.close();
-          if (
-            event.animationName === 'mobile-panel-in' &&
-            dialog.current?.dataset.state === 'opening'
-          )
-            dialog.current.dataset.state = 'open';
-        }}
         aria-labelledby="mobile-menu-title"
       >
-        <div className="mobile-dialog-header">
-          <span id="mobile-menu-title" className="brand-text">
-            traço.
-          </span>
-          <button
-            className="close-menu"
-            type="button"
-            onClick={close}
-            aria-label="Fechar menu"
-          >
-            ×
-          </button>
-        </div>
-        <nav aria-label="Navegação mobile" className="mobile-links">
-          <a href="#inicio">
-            Início <Arrow />
-          </a>
-          <button
-            type="button"
-            aria-expanded={expanded}
-            aria-controls="mobile-environments"
-            onClick={() => setExpanded(!expanded)}
-          >
-            Ambientes <span aria-hidden="true">{expanded ? '−' : '+'}</span>
-          </button>
-          <div
-            id="mobile-environments"
-            className="mobile-submenu"
-            hidden={!expanded}
-          >
-            <a href="#ambientes">
-              Todos os ambientes <Arrow />
+        <div className="mobile-dialog-shell">
+          <div className="mobile-dialog-header">
+            <a
+              href="#inicio"
+              className="mobile-dialog-brand"
+              aria-label="Traço — início"
+            >
+              traço<span>.</span>
             </a>
-            {environments.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>
-                {item.label}
-                <Arrow />
-              </a>
-            ))}
+            <button
+              className="close-menu"
+              type="button"
+              onClick={close}
+              aria-label="Fechar menu"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-          {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-              <Arrow />
-            </a>
-          ))}
-        </nav>
-        <WhatsAppLink className="button mobile-menu-cta">
-          Falar pelo WhatsApp
-        </WhatsAppLink>
-        <p className="small-note">
-          Traço — estudo de marca e experiência digital.
-        </p>
+          <div className="mobile-menu-scroll" ref={scrollArea}>
+            <p id="mobile-menu-title" className="mobile-menu-eyebrow">
+              Seu espaço. Seu traço.
+            </p>
+            <nav aria-label="Navegação mobile" className="mobile-links">
+              <a
+                href="#inicio"
+                aria-current={current === '#inicio' ? 'location' : undefined}
+              >
+                Início <Arrow />
+              </a>
+              <button
+                type="button"
+                className="mobile-environments-trigger"
+                aria-expanded={expanded}
+                aria-controls="mobile-environments"
+                onClick={() => setExpanded((value) => !value)}
+              >
+                Ambientes{' '}
+                <span className="mobile-expand-icon" aria-hidden="true">
+                  +
+                </span>
+              </button>
+              <div
+                id="mobile-environments"
+                className="mobile-submenu"
+                data-expanded={expanded}
+                inert={!expanded}
+                aria-hidden={!expanded}
+              >
+                <div className="mobile-submenu-clip">
+                  <div className="mobile-submenu-links">
+                    <a
+                      href="#ambientes"
+                      className="mobile-all-environments"
+                      aria-current={
+                        current === '#ambientes' ? 'location' : undefined
+                      }
+                    >
+                      Explorar ambientes <Arrow />
+                    </a>
+                    {environments.map((item) => (
+                      <a
+                        key={item.id}
+                        href={`#${item.id}`}
+                        aria-current={
+                          current === `#${item.id}` ? 'location' : undefined
+                        }
+                      >
+                        {item.label}
+                        <Arrow />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {navigation.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  aria-current={current === item.href ? 'location' : undefined}
+                >
+                  {item.label}
+                  <Arrow />
+                </a>
+              ))}
+            </nav>
+          </div>
+          <div className="mobile-menu-contact">
+            <p>Vamos dar forma ao seu espaço?</p>
+            <WhatsAppLink className="button mobile-menu-cta">
+              Conversar sobre meu projeto
+            </WhatsAppLink>
+            <span>Móveis planejados para o seu jeito de viver.</span>
+          </div>
+        </div>
       </dialog>
     </div>
   );
