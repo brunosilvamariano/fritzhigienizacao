@@ -5,10 +5,11 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { contact } from '@/config/contact';
 import { environments, navigation } from '@/config/navigation';
 import { GoogleProfile } from './google-profile';
+import { FooterReveal } from './footer-reveal';
 import './footer.css';
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <FooterReveal>
       <div className="footer-top">
         <div className="footer-introduction">
           <a
@@ -82,6 +83,6 @@ export function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </FooterReveal>
   );
 }
