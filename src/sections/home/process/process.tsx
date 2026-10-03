@@ -1,3 +1,4 @@
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { ProcessAccordion } from './process-accordion';
 import './process.css';
 export function Process() {
@@ -16,6 +17,9 @@ export function Process() {
         </p>
       </div>
       <ProcessAccordion />
+      <WhatsAppLink context="as etapas do projeto, da primeira conversa à instalação">
+        Começar meu projeto
+      </WhatsAppLink>
       <p className="process-credit">
         Estudos conceituais · Imagens geradas por IA
       </p>

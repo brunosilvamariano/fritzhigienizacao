@@ -1,4 +1,6 @@
 'use client';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { environments, navigation } from '@/config/navigation';
 import { Arrow } from '@/components/ui/arrow';
@@ -120,9 +122,9 @@ export function MobileNavigation() {
             </a>
           ))}
         </nav>
-        <a className="button mobile-menu-cta" href="#ambientes">
-          Explorar ambientes <Arrow />
-        </a>
+        <WhatsAppLink className="button mobile-menu-cta">
+          Falar pelo WhatsApp
+        </WhatsAppLink>
         <p className="small-note">
           Traço — estudo de marca e experiência digital.
         </p>

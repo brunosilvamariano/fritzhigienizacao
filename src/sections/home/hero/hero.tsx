@@ -1,5 +1,6 @@
 'use client';
-import { Arrow } from '@/components/ui/arrow';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
+
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { Reveal } from '@/animations/reveal';
 import { heroSlides } from './hero.slides';
@@ -33,10 +34,7 @@ export function Hero() {
           ))}
         </h1>
         <p className="hero-description">{heroContent.description}</p>
-        <a className="button" href="#ambientes">
-          {heroContent.cta}
-          <Arrow />
-        </a>
+        <WhatsAppLink className="button">{heroContent.cta}</WhatsAppLink>
         <div className="hero-index">
           <div className="index-heading">
             <span aria-live="off">
@@ -126,9 +124,9 @@ export function Hero() {
           Textura, luz e proporção.
           <br />O essencial encontra seu lugar.
         </p>
-        <a className="text-link" href="#processo">
-          Do desenho ao espaço <Arrow />
-        </a>
+        <WhatsAppLink context="materiais e acabamentos para meu projeto">
+          Escolher meus acabamentos
+        </WhatsAppLink>
       </Reveal>
       <div className="material-note">
         <span className="material-swatch" aria-hidden="true" />

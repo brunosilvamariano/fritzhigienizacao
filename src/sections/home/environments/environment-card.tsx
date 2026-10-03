@@ -1,3 +1,4 @@
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import type { Environment } from './environments.content';
 export function EnvironmentCard({ item }: { item: Environment }) {
@@ -17,6 +18,13 @@ export function EnvironmentCard({ item }: { item: Environment }) {
           <h3 id={`title-${item.id}`}>{item.label}</h3>
           <p className="environment-note">{item.note}</p>
           <p className="environment-description">{item.description}</p>
+          <WhatsAppLink
+            context={
+              'móveis planejados para ' + item.label.toLocaleLowerCase('pt-BR')
+            }
+          >
+            Planejar meu ambiente
+          </WhatsAppLink>
         </div>
       </div>
     </article>
