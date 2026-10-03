@@ -145,3 +145,16 @@
     padding: 14px 24px;
   }
 }
+
+/* Mobile: cada serviço cobre o anterior; a imagem segue no fluxo normal. */
+@media (max-width: 767px) and (min-height: 651px) and (prefers-reduced-motion: no-preference) {
+  .services-grid {
+    display: block;
+  }
+  .service-item {
+    position: sticky;
+    top: calc(var(--header-height) + 12px);
+    min-height: max(350px, 55svh);
+    background: var(--paper);
+  }
+}
