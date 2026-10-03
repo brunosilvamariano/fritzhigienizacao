@@ -48,7 +48,7 @@ export function Services() {
       </div>
       <figure className="services-material">
         <ResponsiveImage {...servicesImages} sizes="100vw" />
-        <figcaption>Estudo conceitual · Imagem gerada por IA</figcaption>
+        <figcaption>Traço · Materiais que dão forma ao seu espaço</figcaption>
       </figure>
     </section>
   );

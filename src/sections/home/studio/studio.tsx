@@ -14,8 +14,8 @@ export function Studio() {
         <WhatsAppLink context="a proposta da Traço e um projeto para meu espaço">
           Conversar com a Traço
         </WhatsAppLink>
-        <span>Traço · Marca conceitual de portfólio</span>
-        <span>Imagens geradas por IA · Não representam obras executadas</span>
+        <span>Traço · Conceito de marca em móveis planejados</span>
+        <span>Madeira, textura e cuidado em cada detalhe</span>
       </div>
     </section>
   );

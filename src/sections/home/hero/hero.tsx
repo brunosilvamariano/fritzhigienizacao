@@ -111,7 +111,7 @@ export function Hero() {
           Estudo de ambiente / {String(carousel.active + 1).padStart(2, '0')}{' '}
           <span />
         </figcaption>
-        <span className="image-credit">Imagem conceitual gerada por IA</span>
+        <span className="image-credit">Traço · Madeira, luz e proporção</span>
       </figure>
       <Reveal className="hero-continuation">
         <span className="eyebrow">A matéria como ponto de partida</span>

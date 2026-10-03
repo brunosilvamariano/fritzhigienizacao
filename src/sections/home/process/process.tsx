@@ -21,7 +21,7 @@ export function Process() {
         Começar meu projeto
       </WhatsAppLink>
       <p className="process-credit">
-        Estudos conceituais · Imagens geradas por IA
+        Traço · Do primeiro desenho aos últimos detalhes
       </p>
     </section>
   );

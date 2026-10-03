@@ -39,7 +39,7 @@ export function Environments() {
       </div>
       <div className="environment-endnote">
         <span>Cinco ambientes. Um olhar para o essencial.</span>
-        <p>Estudos conceituais · Imagens geradas por IA</p>
+        <p>Traço · Ambientes pensados para viver</p>
       </div>
     </section>
   );
