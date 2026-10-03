@@ -182,3 +182,16 @@ h3 {
     transition: none !important;
   }
 }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}

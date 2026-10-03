@@ -6,6 +6,7 @@ type Props = {
   alt: string;
   className?: string;
   eager?: boolean;
+  sizes?: string;
   onLoad?: () => void;
 };
 export function ResponsiveImage({
@@ -15,6 +16,7 @@ export function ResponsiveImage({
   alt,
   className,
   eager = false,
+  sizes,
   onLoad,
 }: Props) {
   const common = {
@@ -26,14 +28,18 @@ export function ResponsiveImage({
   const large = getImageProps({
     ...common,
     src: desktop,
-    sizes: '(min-width: 1600px) 960px, 62vw',
+    sizes: sizes ?? '(min-width: 1600px) 960px, 62vw',
   }).props;
   const medium = getImageProps({
     ...common,
     src: tablet,
-    sizes: '100vw',
+    sizes: sizes ?? '100vw',
   }).props;
-  const small = getImageProps({ ...common, src: mobile, sizes: '100vw' }).props;
+  const small = getImageProps({
+    ...common,
+    src: mobile,
+    sizes: sizes ?? '100vw',
+  }).props;
   return (
     <picture className={className}>
       <source

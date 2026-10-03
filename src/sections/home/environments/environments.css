@@ -131,10 +131,11 @@
   margin-top: 12px;
   border-top: 1px solid var(--line);
 }
-.environment-number {
-  font-size: 10px;
-  color: var(--copper);
-  padding-top: 8px;
+.environment-marker {
+  width: 18px;
+  height: 1px;
+  background: var(--copper);
+  margin-top: 17px;
 }
 .environment-caption h3 {
   font-size: clamp(27px, 2.8vw, 42px);

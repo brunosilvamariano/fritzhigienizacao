@@ -1,12 +1,6 @@
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import type { Environment } from './environments.content';
-export function EnvironmentCard({
-  item,
-  index,
-}: {
-  item: Environment;
-  index: number;
-}) {
+export function EnvironmentCard({ item }: { item: Environment }) {
   return (
     <article
       id={item.id}
@@ -18,9 +12,7 @@ export function EnvironmentCard({
         <figcaption>{item.material}</figcaption>
       </figure>
       <div className="environment-caption">
-        <span className="environment-number">
-          {String(index + 1).padStart(2, '0')}
-        </span>
+        <span className="environment-marker" aria-hidden="true" />
         <div>
           <h3 id={`title-${item.id}`}>{item.label}</h3>
           <p className="environment-note">{item.note}</p>

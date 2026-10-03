@@ -16,7 +16,7 @@ export function Environments() {
     >
       <EnvironmentMessage />
       <div className="environment-collection-heading">
-        <span className="eyebrow">01 / Ambientes para viver</span>
+        <span className="eyebrow section-label">Ambientes para viver</span>
         <nav className="environment-nav" aria-label="Escolher ambiente">
           {environmentCollection.map((item) => (
             <a key={item.id} href={`#${item.id}`}>
@@ -32,11 +32,7 @@ export function Environments() {
             key={group[0].id}
           >
             {group.map((item) => (
-              <EnvironmentCard
-                key={item.id}
-                item={item}
-                index={environmentCollection.indexOf(item)}
-              />
+              <EnvironmentCard key={item.id} item={item} />
             ))}
           </div>
         ))}
