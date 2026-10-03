@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { environments, navigation } from '@/config/navigation';
+import { navigation } from '@/config/navigation';
 import { kitchenStudyImages } from '@/content/kitchen-study.images';
+import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
 export function DesktopNavigation() {
   const [open, setOpen] = useState(false);
@@ -67,16 +68,8 @@ export function DesktopNavigation() {
         </button>
         <div id="desktop-environments" className="mega-menu" hidden={!open}>
           <div className="mega-links">
-            <span className="eyebrow">Explore os espaços</span>
-            <a href="#ambientes">
-              Todos os ambientes <Arrow />
-            </a>
-            {environments.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>
-                {item.label}
-                <Arrow />
-              </a>
-            ))}
+            <span className="eyebrow">Perguntas frequentes</span>
+            <EnvironmentFaq group="desktop" />
           </div>
           <Image
             className="mega-image"
@@ -91,7 +84,7 @@ export function DesktopNavigation() {
               <br />
               para viver.
             </p>
-            <a className="text-link" href="#cozinhas">
+            <a className="text-link" href="/#cozinhas">
               Explorar cozinhas <Arrow />
             </a>
           </div>

@@ -1,8 +1,9 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
+import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
-import { environments, navigation } from '@/config/navigation';
+import { navigation } from '@/config/navigation';
 
 export function MobileNavigation() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -64,7 +65,12 @@ export function MobileNavigation() {
       )
         close();
     };
-    const syncHash = () => setCurrent(window.location.hash || '#inicio');
+    const syncHash = () =>
+      setCurrent(
+        window.location.pathname +
+          (window.location.hash ||
+            (window.location.pathname === '/' ? '#inicio' : '')),
+      );
     syncHash();
     window.addEventListener('hashchange', syncHash);
     menu?.addEventListener('click', handleLink);
@@ -112,7 +118,7 @@ export function MobileNavigation() {
         <div className="mobile-dialog-shell">
           <div className="mobile-dialog-header">
             <a
-              href="#inicio"
+              href="/#inicio"
               className="mobile-dialog-brand"
               aria-label="Traço — início"
             >
@@ -133,8 +139,8 @@ export function MobileNavigation() {
             </p>
             <nav aria-label="Navegação mobile" className="mobile-links">
               <a
-                href="#inicio"
-                aria-current={current === '#inicio' ? 'location' : undefined}
+                href="/#inicio"
+                aria-current={current === '/#inicio' ? 'location' : undefined}
               >
                 Início <Arrow />
               </a>
@@ -159,27 +165,8 @@ export function MobileNavigation() {
               >
                 <div className="mobile-submenu-clip">
                   <div className="mobile-submenu-links">
-                    <a
-                      href="#ambientes"
-                      className="mobile-all-environments"
-                      aria-current={
-                        current === '#ambientes' ? 'location' : undefined
-                      }
-                    >
-                      Explorar ambientes <Arrow />
-                    </a>
-                    {environments.map((item) => (
-                      <a
-                        key={item.id}
-                        href={`#${item.id}`}
-                        aria-current={
-                          current === `#${item.id}` ? 'location' : undefined
-                        }
-                      >
-                        {item.label}
-                        <Arrow />
-                      </a>
-                    ))}
+                    <p className="mobile-faq-title">Perguntas frequentes</p>
+                    <EnvironmentFaq group="mobile" />
                   </div>
                 </div>
               </div>

@@ -89,9 +89,11 @@
   flex: 1;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #d8cec055 transparent;
+  scrollbar-width: none;
   padding: 26px 24px 20px;
+}
+.mobile-menu-scroll::-webkit-scrollbar {
+  display: none;
 }
 .mobile-menu-eyebrow {
   font-size: 10px;

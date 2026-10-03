@@ -1,6 +1,6 @@
 export function Brand() {
   return (
-    <a className="brand" href="#inicio" aria-label="Traço — início">
+    <a className="brand" href="/#inicio" aria-label="Traço — início">
       <svg
         className="brand-mark"
         width="36"

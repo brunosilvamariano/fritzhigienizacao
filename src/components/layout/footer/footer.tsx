@@ -14,7 +14,7 @@ export function Footer() {
         <div className="footer-introduction">
           <a
             className="footer-brand"
-            href="#inicio"
+            href="/#inicio"
             aria-label="Traço — voltar ao início"
           >
             traço.
@@ -28,7 +28,7 @@ export function Footer() {
         <nav className="footer-nav" aria-label="Ambientes no rodapé">
           <h2>Ambientes</h2>
           {environments.map((item) => (
-            <a key={item.id} href={'#' + item.id}>
+            <a key={item.id} href={item.href}>
               {item.label}
             </a>
           ))}
