@@ -1,0 +1,39 @@
+.process {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 70px;
+}
+.process .eyebrow {
+  color: #d4ad8e;
+}
+.process-steps {
+  display: grid;
+  gap: 28px;
+}
+.process-steps article {
+  border-top: 1px solid #f2efe736;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 8px 18px;
+}
+.process-steps h3 {
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.process-steps p {
+  grid-column: 2;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbcbbf;
+  max-width: 340px;
+}
+@media (max-width: 767px) {
+  .process {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -1,0 +1,9 @@
+:root {
+  --paper: #f2efe7;
+  --ink: #242720;
+  --copper: #855132;
+  --muted: #64665d;
+  --line: #2427202b;
+  --gutter: clamp(24px, 5vw, 88px);
+  --header-height: 92px;
+}
