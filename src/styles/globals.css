@@ -133,6 +133,7 @@ h3 {
   transform: translateY(0);
 }
 .site-footer {
+  background: var(--ink);
   border-top: 1px solid var(--line);
   padding: 35px var(--gutter);
   display: flex;
@@ -140,13 +141,16 @@ h3 {
   justify-content: space-between;
   gap: 24px;
   font-size: 12px;
-  color: var(--muted);
+  color: var(--on-dark-muted);
 }
 .brand-text {
   font-size: 36px;
   color: var(--ink);
   letter-spacing: -0.06em;
   line-height: 1;
+}
+.site-footer .brand-text {
+  color: var(--paper);
 }
 @media (min-width: 1800px) {
   body {

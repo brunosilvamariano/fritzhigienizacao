@@ -1,4 +1,7 @@
 .process {
+  --paper: var(--taupe);
+  --muted: var(--taupe-text);
+  --copper: var(--copper-deep);
   border-top: 1px solid var(--line);
   background: var(--paper);
 }

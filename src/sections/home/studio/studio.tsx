@@ -1,26 +1,22 @@
-import { Arrow } from '@/components/ui/arrow';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
+import { studioContent } from './studio.content';
+import { StudioPanels } from './studio-panels';
 import './studio.css';
 export function Studio() {
   return (
-    <section
-      className="section studio"
-      id="estudio"
-      aria-labelledby="studio-title"
-    >
-      <span className="eyebrow">Sobre este projeto</span>
-      <h2 id="studio-title">
-        Uma ideia de morar.
-        <br />
-        Um estudo de design.
-      </h2>
-      <p>
-        Traço é uma marca fictícia criada para explorar a experiência digital de
-        um estúdio de móveis planejados. As imagens são estudos gerados por
-        inteligência artificial e não representam obras executadas.
-      </p>
-      <a href="#inicio" className="text-link">
-        Voltar ao primeiro traço <Arrow />
-      </a>
+    <section className="studio" id="estudio" aria-labelledby="studio-title">
+      <header className="studio-intro">
+        <span className="eyebrow section-label">Estúdio</span>
+        <h2 id="studio-title">{studioContent.title}</h2>
+      </header>
+      <StudioPanels />
+      <div className="studio-caption">
+        <WhatsAppLink context="a proposta da Traço e um projeto para meu espaço">
+          Conversar com a Traço
+        </WhatsAppLink>
+        <span>Traço · Marca conceitual de portfólio</span>
+        <span>Imagens geradas por IA · Não representam obras executadas</span>
+      </div>
     </section>
   );
 }
