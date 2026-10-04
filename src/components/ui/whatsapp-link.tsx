@@ -10,7 +10,7 @@ export function WhatsAppLink({
 }: Props) {
   return (
     <a
-      className={className + ' whatsapp-link'}
+      className={`${className} whatsapp-link`}
       href={whatsappUrl(context)}
       data-track-contact={context || 'projeto geral'}
       target="_blank"

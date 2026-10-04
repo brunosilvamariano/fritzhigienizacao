@@ -36,9 +36,7 @@ export function Services() {
               <h3 id={`service-${item.id}`}>{item.title}</h3>
               <p>{item.text}</p>
               <WhatsAppLink
-                context={
-                  'o serviço de ' + item.title.toLocaleLowerCase('pt-BR')
-                }
+                context={`o serviço de ${item.title.toLocaleLowerCase('pt-BR')}`}
               >
                 Conversar sobre este serviço
               </WhatsAppLink>

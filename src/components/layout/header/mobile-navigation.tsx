@@ -4,6 +4,7 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
 import { navigation } from '@/config/navigation';
+import { focusAnchor } from '@/lib/focus-anchor';
 
 export function MobileNavigation() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -11,6 +12,7 @@ export function MobileNavigation() {
   const scrollArea = useRef<HTMLDivElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const previousOverflow = useRef('');
+  const destination = useRef('');
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [current, setCurrent] = useState('');
@@ -31,7 +33,10 @@ export function MobileNavigation() {
     document.body.style.overflow = previousOverflow.current;
     setExpanded(false);
     setIsOpen(false);
-    toggle.current?.focus({ preventScroll: true });
+    if (destination.current) {
+      focusAnchor(destination.current);
+      destination.current = '';
+    } else toggle.current?.focus({ preventScroll: true });
   }
 
   function open() {
@@ -52,7 +57,17 @@ export function MobileNavigation() {
       if (query.matches && menu?.open) menu.close();
     };
     const handleLink = (event: MouseEvent) => {
-      if (event.target instanceof Element && event.target.closest('a')) close();
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest<HTMLAnchorElement>('a');
+      if (!link) return;
+      const url = new URL(link.href);
+      if (
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname &&
+        url.hash
+      )
+        destination.current = url.hash;
+      close();
     };
     const handleBackdrop = (event: MouseEvent) => {
       if (event.target !== menu || !menu) return;

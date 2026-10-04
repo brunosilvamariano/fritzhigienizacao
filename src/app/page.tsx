@@ -6,7 +6,7 @@ import { Process } from '@/sections/home/process/process';
 import { Studio } from '@/sections/home/studio/studio';
 export default function Home() {
   return (
-    <main id="conteudo" className="home-content">
+    <main id="conteudo" className="home-content" tabIndex={-1}>
       <Hero />
       <Environments />
       <Services />

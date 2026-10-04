@@ -10,11 +10,11 @@ export function ProcessAccordion() {
   function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown')
-      next = (index + 1) % 3;
+      next = (index + 1) % processSteps.length;
     else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
-      next = (index + 2) % 3;
+      next = (index + processSteps.length - 1) % processSteps.length;
     else if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = 2;
+    else if (event.key === 'End') next = processSteps.length - 1;
     else return;
     event.preventDefault();
     buttons.current[next]?.focus();

@@ -5,6 +5,7 @@ import { navigation } from '@/config/navigation';
 import { kitchenStudyImages } from '@/content/kitchen-study.images';
 import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
+import { focusAnchor } from '@/lib/focus-anchor';
 export function DesktopNavigation() {
   const [open, setOpen] = useState(false);
   const region = useRef<HTMLDivElement>(null);
@@ -29,8 +30,19 @@ export function DesktopNavigation() {
         event.target instanceof Element &&
         event.target.closest('a') &&
         region.current?.contains(event.target)
-      )
+      ) {
         setOpen(false);
+        const link = event.target.closest<HTMLAnchorElement>('a');
+        if (link) {
+          const url = new URL(link.href);
+          if (
+            url.origin === location.origin &&
+            url.pathname === location.pathname &&
+            url.hash
+          )
+            requestAnimationFrame(() => focusAnchor(url.hash));
+        }
+      }
     }
     function focusOutside(event: FocusEvent) {
       if (

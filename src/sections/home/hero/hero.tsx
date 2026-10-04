@@ -37,7 +37,10 @@ export function Hero() {
         <WhatsAppLink className="button">{heroContent.cta}</WhatsAppLink>
         <div className="hero-index">
           <div className="index-heading">
-            <span aria-live="off">
+            <span
+              aria-live={carousel.stopped ? 'polite' : 'off'}
+              aria-atomic="true"
+            >
               {String(carousel.active + 1).padStart(2, '0')} — {current.label}
             </span>
             {!carousel.reduced && (

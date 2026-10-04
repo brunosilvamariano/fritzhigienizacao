@@ -19,9 +19,7 @@ export function EnvironmentCard({ item }: { item: Environment }) {
           <p className="environment-note">{item.note}</p>
           <p className="environment-description">{item.description}</p>
           <WhatsAppLink
-            context={
-              'móveis planejados para ' + item.label.toLocaleLowerCase('pt-BR')
-            }
+            context={`móveis planejados para ${item.label.toLocaleLowerCase('pt-BR')}`}
           >
             Planejar meu ambiente
           </WhatsAppLink>

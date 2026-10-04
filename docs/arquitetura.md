@@ -65,10 +65,24 @@ Na raiz estão `package.json`, `package-lock.json`, `tsconfig.json`, `next-env.d
 `next.config.ts`, `postcss.config.mjs`, `biome.json` e as configurações de
 formatação. A CI executa lint, checagem de tipos e formatação.
 
-Os arquivos `src/app/layout.tsx` e `src/app/page.tsx` serão criados com as primeiras telas.
-`src/styles/globals.css` e `src/styles/fonts.ts` já preparam estilos e fonte local.
+Os arquivos `src/app/layout.tsx` e `src/app/page.tsx` compõem a Home já implementada.
+`src/styles/globals.css` e `src/styles/fonts.ts` definem os estilos e a fonte local.
 O alias `@/*` aponta para `src/*`.
 
 Antes de implementar a interface, documentar em `docs/design-brief.md` o nome do
 projeto, nicho, referências, paleta, tipografia, animações, seções e diferencial visual.
-Essas decisões ainda dependem da definição do produto.
+As decisões vigentes estão registradas no Design Brief.
+
+## Estado após auditoria de 2026-10-03
+
+A tabela de responsabilidades inclui possibilidades futuras. `providers`, `hooks`,
+`types` compartilhados e `assets/icons` não são pastas necessárias ao build atual;
+não foram mantidos marcadores vazios para elas. Hooks exclusivos permanecem na
+seção. Ícones da UI são SVGs locais nos componentes; favicon está em `app`.
+`components/analytics` reúne consentimento e medição. `lib/focus-anchor.ts` controla
+o foco de links internos dos menus. A estrutura existente completa está em
+`estrutura-completa.txt`. Não foram criadas novas páginas nem alterada a ordem das seções.
+
+O projeto usa folhas CSS por seção e componentes, com tokens compartilhados.
+CSS Modules podem ser adotados em componentes futuros se houver necessidade;
+não houve migração geral durante a auditoria para preservar o comportamento atual.

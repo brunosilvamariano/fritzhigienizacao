@@ -11,7 +11,7 @@ export function FooterReveal({ children }: { children: ReactNode }) {
       const available =
         document.documentElement.clientHeight - (header?.offsetHeight ?? 0);
       const bottom = Math.min(0, available - element.offsetHeight);
-      element.style.setProperty('--footer-reveal-bottom', bottom + 'px');
+      element.style.setProperty('--footer-reveal-bottom', `${bottom}px`);
       element.dataset.reveal = 'ready';
     };
     const observer = new ResizeObserver(update);

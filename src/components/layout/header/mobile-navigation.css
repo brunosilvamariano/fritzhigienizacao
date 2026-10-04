@@ -214,13 +214,6 @@
   line-height: 1.4;
 }
 
-.mobile-submenu-links .mobile-all-environments {
-  grid-column: 1 / -1;
-  padding-inline: 0;
-  background: transparent;
-  border: 0;
-  color: var(--taupe);
-}
 .mobile-menu-contact {
   flex-shrink: 0;
   padding: 20px 24px;

@@ -1,116 +1,153 @@
-traco-moveis-planejados/
-  .editorconfig
-  .github/
-    workflows/
-      ci.yml
-  .gitignore
-  .node-version
-  .npmrc
-  .prettierignore
-  AGENTS.md
-  biome.json
-  docs/
-    .gitkeep
-    arquitetura.md
-    dependencias.md
-    design-brief.md
-    estrutura-completa.txt
-    imagens-geradas.md
-    imagens.md
-    secao-modelo.md
-    validacao.md
-  next-env.d.ts
-  next.config.ts
-  package-lock.json
-  package.json
-  postcss.config.mjs
-  prettier.config.mjs
-  README.md
-  src/
-    animations/
-      .gitkeep
-      reveal.tsx
-    app/
-      .gitkeep
-      layout.tsx
-      page.tsx
-    assets/
-      fonts/
-        .gitkeep
-        geist/
-          geist-latin-wght-normal.woff2
-          LICENSE
-          README.md
-      icons/
-        .gitkeep
-      images/
-        pages/
-          .gitkeep
-          home/
-            hero/
-              desktop.webp
-              mobile.webp
-              tablet.webp
-        shared/
-          .gitkeep
-    components/
-      layout/
-        .gitkeep
-        footer/
-          .gitkeep
-          footer.tsx
-        header/
-          .gitkeep
-          brand.tsx
-          desktop-navigation.tsx
-          header.css
-          header.tsx
-          mobile-navigation.tsx
-      media/
-        .gitkeep
-        responsive-image.tsx
-      ui/
-        .gitkeep
-        arrow.tsx
-    config/
-      .gitkeep
-      navigation.ts
-    content/
-      .gitkeep
-      kitchen-study.images.ts
-    hooks/
-      .gitkeep
-    lib/
-      .gitkeep
-    providers/
-      .gitkeep
-    sections/
-      .gitkeep
-      home/
-        .gitkeep
-        environments/
-          environments.css
-          environments.tsx
-        hero/
-          hero.content.ts
-          hero.css
-          hero.images.ts
-          hero.tsx
-        process/
-          process.css
-          process.tsx
-        studio/
-          studio.css
-          studio.tsx
-    styles/
-      .gitkeep
-      fonts.ts
-      globals.css
-      tokens.css
-    types/
-      .gitkeep
-  tests/
-    e2e/
-      .gitkeep
-  tsconfig.json
-node_modules/ (dependências instaladas)
+traco-moveis-planejados/ — arquivos existentes (2026-10-03)
+.editorconfig
+.env.example
+.github\workflows\ci.yml
+.gitignore
+.node-version
+.npmrc
+.prettierignore
+AGENTS.md
+biome.json
+docs\ambientes.md
+docs\arquitetura.md
+docs\auditoria-2026-10-03.md
+docs\contato-footer.md
+docs\contato.md
+docs\dependencias.md
+docs\design-brief.md
+docs\estrutura-completa.txt
+docs\estudio.md
+docs\google-vbg.md
+docs\imagens-geradas.md
+docs\imagens.md
+docs\processo.md
+docs\secao-modelo.md
+docs\seo-e-mensuracao.md
+docs\servicos.md
+docs\validacao.md
+next-env.d.ts
+next.config.ts
+package-lock.json
+package.json
+postcss.config.mjs
+prettier.config.mjs
+README.md
+src\animations\reveal.tsx
+src\app\apple-icon.png
+src\app\favicon.ico
+src\app\icon.svg
+src\app\layout.tsx
+src\app\page.tsx
+src\app\robots.ts
+src\app\sitemap.ts
+src\assets\fonts\geist\geist-latin-wght-normal.woff2
+src\assets\fonts\geist\LICENSE
+src\assets\fonts\geist\README.md
+src\assets\images\pages\home\environments\banheiros\desktop.webp
+src\assets\images\pages\home\environments\banheiros\mobile.webp
+src\assets\images\pages\home\environments\banheiros\tablet.webp
+src\assets\images\pages\home\environments\cozinhas\desktop.webp
+src\assets\images\pages\home\environments\cozinhas\mobile.webp
+src\assets\images\pages\home\environments\cozinhas\tablet.webp
+src\assets\images\pages\home\environments\dormitorios\desktop.webp
+src\assets\images\pages\home\environments\dormitorios\mobile.webp
+src\assets\images\pages\home\environments\dormitorios\tablet.webp
+src\assets\images\pages\home\environments\home-office\desktop.webp
+src\assets\images\pages\home\environments\home-office\mobile.webp
+src\assets\images\pages\home\environments\home-office\tablet.webp
+src\assets\images\pages\home\environments\salas\desktop.webp
+src\assets\images\pages\home\environments\salas\mobile.webp
+src\assets\images\pages\home\environments\salas\tablet.webp
+src\assets\images\pages\home\hero\bedroom\desktop.webp
+src\assets\images\pages\home\hero\bedroom\mobile.webp
+src\assets\images\pages\home\hero\bedroom\tablet.webp
+src\assets\images\pages\home\hero\desktop.webp
+src\assets\images\pages\home\hero\living\desktop.webp
+src\assets\images\pages\home\hero\living\mobile.webp
+src\assets\images\pages\home\hero\living\tablet.webp
+src\assets\images\pages\home\hero\mobile.webp
+src\assets\images\pages\home\hero\tablet.webp
+src\assets\images\pages\home\process\dar-forma\desktop.webp
+src\assets\images\pages\home\process\dar-forma\mobile.webp
+src\assets\images\pages\home\process\dar-forma\tablet.webp
+src\assets\images\pages\home\process\desenhar\desktop.webp
+src\assets\images\pages\home\process\desenhar\mobile.webp
+src\assets\images\pages\home\process\desenhar\tablet.webp
+src\assets\images\pages\home\process\escutar\desktop.webp
+src\assets\images\pages\home\process\escutar\mobile.webp
+src\assets\images\pages\home\process\escutar\tablet.webp
+src\assets\images\pages\home\services\desktop.webp
+src\assets\images\pages\home\services\mobile.webp
+src\assets\images\pages\home\services\tablet.webp
+src\assets\images\pages\home\studio\desktop.webp
+src\assets\images\pages\home\studio\mobile.webp
+src\assets\images\pages\home\studio\tablet.webp
+src\assets\images\shared\social\traco-compartilhamento.jpg
+src\assets\images\shared\vbg\logo.webp
+src\assets\images\shared\vbg\original.svg
+src\components\analytics\consent.css
+src\components\analytics\consent.tsx
+src\components\analytics\tracking-runtime.ts
+src\components\layout\footer\footer-reveal.tsx
+src\components\layout\footer\footer.css
+src\components\layout\footer\footer.tsx
+src\components\layout\footer\google-profile.tsx
+src\components\layout\header\brand.tsx
+src\components\layout\header\desktop-navigation.tsx
+src\components\layout\header\environment-faq.content.ts
+src\components\layout\header\environment-faq.css
+src\components\layout\header\environment-faq.tsx
+src\components\layout\header\header.css
+src\components\layout\header\header.tsx
+src\components\layout\header\mobile-navigation.css
+src\components\layout\header\mobile-navigation.tsx
+src\components\media\responsive-image.tsx
+src\components\ui\arrow.tsx
+src\components\ui\floating-whatsapp.css
+src\components\ui\floating-whatsapp.tsx
+src\components\ui\social-icons.tsx
+src\components\ui\whatsapp-link.css
+src\components\ui\whatsapp-link.tsx
+src\config\contact.ts
+src\config\developer.ts
+src\config\metadata.ts
+src\config\navigation.ts
+src\config\site.ts
+src\config\tracking.ts
+src\content\kitchen-study.images.ts
+src\lib\focus-anchor.ts
+src\sections\home\contact\contact.content.ts
+src\sections\home\contact\contact.css
+src\sections\home\contact\contact.tsx
+src\sections\home\environments\environment-card.tsx
+src\sections\home\environments\environment-message.tsx
+src\sections\home\environments\environments.content.ts
+src\sections\home\environments\environments.css
+src\sections\home\environments\environments.images.ts
+src\sections\home\environments\environments.tsx
+src\sections\home\hero\hero.content.ts
+src\sections\home\hero\hero.css
+src\sections\home\hero\hero.images.ts
+src\sections\home\hero\hero.slides.ts
+src\sections\home\hero\hero.tsx
+src\sections\home\hero\use-hero-carousel.ts
+src\sections\home\process\process-accordion.tsx
+src\sections\home\process\process.content.ts
+src\sections\home\process\process.css
+src\sections\home\process\process.images.ts
+src\sections\home\process\process.tsx
+src\sections\home\services\service-icon.tsx
+src\sections\home\services\services.content.ts
+src\sections\home\services\services.css
+src\sections\home\services\services.images.ts
+src\sections\home\services\services.tsx
+src\sections\home\studio\studio-panels.tsx
+src\sections\home\studio\studio.content.ts
+src\sections\home\studio\studio.css
+src\sections\home\studio\studio.images.ts
+src\sections\home\studio\studio.tsx
+src\styles\fonts.ts
+src\styles\globals.css
+src\styles\tokens.css
+tests\unit\tracking.test.cjs
+tsconfig.json

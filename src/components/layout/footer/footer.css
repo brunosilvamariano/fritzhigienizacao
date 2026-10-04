@@ -111,19 +111,6 @@
   background: var(--paper);
   color: var(--ink);
 }
-.google-rating {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  font-size: 11px;
-  margin-top: 8px;
-}
-.google-rating span {
-  color: #e7c887;
-  letter-spacing: 1px;
-}
 .google-profile small {
   font-size: 9px;
   line-height: 1.6;

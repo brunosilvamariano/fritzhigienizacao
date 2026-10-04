@@ -31,17 +31,6 @@
   text-transform: uppercase;
   max-width: 250px;
 }
-.index-line {
-  height: 1px;
-  background: var(--line);
-  margin-top: 12px;
-}
-.index-line i {
-  display: block;
-  width: 23%;
-  height: 2px;
-  background: var(--copper);
-}
 .hero-visual {
   grid-column: 2;
   grid-row: 1 / 3;
