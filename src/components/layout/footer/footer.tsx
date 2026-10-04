@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { InstagramIcon } from '@/components/ui/social-icons';
 import { PrivacyPreferences } from '@/components/analytics/consent';
 import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
 import { developer } from '@/config/developer';
@@ -56,7 +57,8 @@ export function Footer() {
             rel="noopener noreferrer"
             aria-label="Traço no Instagram — abrir em nova aba"
           >
-            Traço no Instagram <span aria-hidden="true">↗</span>
+            <InstagramIcon /> Traço no Instagram{' '}
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>

@@ -1,0 +1,100 @@
+.floating-whatsapp {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 35;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 24px #0003;
+  transition:
+    background 180ms,
+    transform 180ms;
+}
+.floating-whatsapp:hover {
+  background: #128c7e;
+  transform: translateY(-3px);
+}
+.floating-whatsapp:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+.floating-whatsapp-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 180ms,
+    visibility 180ms;
+}
+.floating-whatsapp:is(:hover, :focus-visible) .floating-whatsapp-label {
+  opacity: 1;
+  visibility: visible;
+}
+body:has(.consent-panel) .floating-whatsapp,
+body:has(#mobile-menu[open]) .floating-whatsapp {
+  visibility: hidden;
+}
+.floating-back-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: auto;
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid #d8cec066;
+  box-shadow: 0 4px 16px #0002;
+}
+.back-top-text {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.floating-back-top svg {
+  flex-shrink: 0;
+  color: var(--taupe);
+  transition: transform 200ms;
+}
+.floating-back-top:hover {
+  background: var(--copper-deep);
+  transform: none;
+}
+.floating-back-top:hover svg {
+  transform: translateY(-3px);
+}
+.floating-back-top:focus-visible {
+  outline-color: var(--taupe);
+}
+@media (max-width: 767px) {
+  .floating-whatsapp {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: 54px;
+    height: 54px;
+  }
+  .site-footer {
+    padding-bottom: 88px;
+  }
+  .floating-back-top {
+    width: auto;
+    height: 48px;
+    padding-inline: 16px;
+    gap: 16px;
+  }
+}
