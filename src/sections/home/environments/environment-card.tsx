@@ -5,6 +5,7 @@ export function EnvironmentCard({ item }: { item: Environment }) {
   return (
     <article
       id={item.id}
+      data-scroll-mobile={`position-${item.id}`}
       className={`environment-card environment-card--${item.id}`}
       aria-labelledby={`title-${item.id}`}
     >

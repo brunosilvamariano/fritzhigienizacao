@@ -72,6 +72,18 @@
 .environment-stack {
   position: relative;
 }
+.environment-group,
+.environment-entry {
+  display: contents;
+}
+.environment-position {
+  display: block;
+  height: 0;
+  scroll-margin-top: 0;
+}
+.environment-entry > .environment-position {
+  display: none;
+}
 .environment-panel {
   position: sticky;
   top: var(--header-height);
@@ -182,6 +194,9 @@
   color: var(--muted);
 }
 @media (max-width: 767px) {
+  .environment-entry > .environment-position {
+    display: block;
+  }
   .environment-message {
     height: 160svh;
   }

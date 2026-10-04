@@ -27,13 +27,26 @@ export function Environments() {
       </div>
       <div className="environment-stack">
         {groups.map((group, index) => (
-          <div
-            className={`environment-panel environment-panel--${index + 1}`}
-            key={group[0].id}
-          >
-            {group.map((item) => (
-              <EnvironmentCard key={item.id} item={item} />
-            ))}
+          <div className="environment-group" key={group[0].id}>
+            <span
+              id={`position-group-${index + 1}`}
+              className="environment-position"
+              aria-hidden="true"
+            />
+            <div
+              className={`environment-panel environment-panel--${index + 1}`}
+            >
+              {group.map((item) => (
+                <div className="environment-entry" key={item.id}>
+                  <span
+                    id={`position-${item.id}`}
+                    className="environment-position"
+                    aria-hidden="true"
+                  />
+                  <EnvironmentCard item={item} />
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

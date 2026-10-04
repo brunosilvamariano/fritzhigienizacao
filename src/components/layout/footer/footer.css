@@ -238,7 +238,4 @@
     position: sticky;
     bottom: var(--footer-reveal-bottom, 0px);
   }
-  .site-footer[data-reveal='ready']:focus-within {
-    position: relative;
-  }
 }

@@ -4,7 +4,7 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
 import { navigation } from '@/config/navigation';
-import { focusAnchor } from '@/lib/focus-anchor';
+import { navigateAnchor } from '@/lib/navigate-anchor';
 
 export function MobileNavigation() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -34,7 +34,7 @@ export function MobileNavigation() {
     setExpanded(false);
     setIsOpen(false);
     if (destination.current) {
-      focusAnchor(destination.current);
+      navigateAnchor(destination.current);
       destination.current = '';
     } else toggle.current?.focus({ preventScroll: true });
   }
@@ -57,6 +57,15 @@ export function MobileNavigation() {
       if (query.matches && menu?.open) menu.close();
     };
     const handleLink = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
       if (!(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>('a');
       if (!link) return;
@@ -64,9 +73,12 @@ export function MobileNavigation() {
       if (
         url.origin === window.location.origin &&
         url.pathname === window.location.pathname &&
+        url.search === window.location.search &&
         url.hash
-      )
+      ) {
+        event.preventDefault();
         destination.current = url.hash;
+      }
       close();
     };
     const handleBackdrop = (event: MouseEvent) => {

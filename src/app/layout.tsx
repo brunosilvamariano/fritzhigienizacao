@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer/footer';
 import { ConsentManager } from '@/components/analytics/consent';
 import { siteMetadata } from '@/config/metadata';
 import { FloatingWhatsApp } from '@/components/ui/floating-whatsapp';
+import { AnchorNavigation } from '@/components/layout/anchor-navigation';
 import '@/styles/globals.css';
 export const viewport: Viewport = { themeColor: '#242720' };
 export const metadata: Metadata = siteMetadata;
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         {children}
         <Footer />
+        <AnchorNavigation />
         <FloatingWhatsApp />
         <ConsentManager />
       </body>
