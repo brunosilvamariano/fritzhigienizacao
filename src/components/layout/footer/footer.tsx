@@ -77,10 +77,10 @@ export function Footer() {
         <div className="footer-developer">
           <a
             className="footer-developer-brand"
-            href={developer.instagram}
+            href={developer.website}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Created by VBG Agency — Instagram em nova aba"
+            aria-label="Created by VBG Agency — visitar site em nova aba"
           >
             <span>CREATED BY</span>
             <Image src={vbgLogo} alt="VBG Agency" width={112} height={42} />

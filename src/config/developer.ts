@@ -1,5 +1,6 @@
 export const developer = {
   name: 'VBG Agency',
+  website: 'https://vbg-agency.vercel.app/',
   instagram: 'https://www.instagram.com/vbgagency/',
   googleName: 'Bruno Mariano Silva',
   googleProfile: 'https://www.google.com/maps?cid=2840198399177290731',
