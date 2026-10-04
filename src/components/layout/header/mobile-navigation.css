@@ -1,27 +1,47 @@
 .menu-toggle {
-  min-height: 48px;
+  min-height: 44px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 0 8px 12px;
+  gap: 16px;
+  padding: 12px 0 12px 15px;
+  border: 0;
+  background: transparent;
+  transition: color 200ms;
+}
+.menu-toggle:hover {
+  color: var(--copper);
+}
+.menu-toggle:focus-visible {
+  outline-offset: 4px;
 }
 .menu-toggle-label {
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
+  font-weight: 500;
 }
 .menu-toggle-lines {
-  width: 26px;
+  width: 20px;
   display: grid;
   gap: 6px;
 }
 .menu-toggle-lines i {
   height: 1px;
   background: var(--ink);
+  transition:
+    transform 240ms,
+    width 240ms;
 }
 .menu-toggle-lines i:last-child {
-  width: 18px;
+  width: 14px;
   justify-self: end;
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-lines i:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-lines i:last-child {
+  width: 20px;
+  transform: translateY(-3.5px) rotate(-45deg);
 }
 .mobile-dialog {
   position: fixed;

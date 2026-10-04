@@ -118,10 +118,13 @@
     padding-inline: 24px;
   }
   .brand {
-    font-size: 34px;
+    font-size: 32px;
+    gap: 10px;
+    min-height: 44px;
   }
   .brand-mark {
-    width: 28px;
+    width: 25px;
+    height: 30px;
   }
 }
 .desktop-nav > a {

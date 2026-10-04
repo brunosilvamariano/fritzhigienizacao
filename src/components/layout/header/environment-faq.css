@@ -93,6 +93,9 @@
 .mobile-dialog .environment-faq-item {
   border: 0;
 }
+.mobile-dialog .environment-faq-item:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
 .mobile-dialog .environment-faq-item + .environment-faq-item {
   margin-top: 6px;
 }
