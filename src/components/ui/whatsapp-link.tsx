@@ -12,6 +12,7 @@ export function WhatsAppLink({
     <a
       className={className + ' whatsapp-link'}
       href={whatsappUrl(context)}
+      data-track-contact={context || 'projeto geral'}
       target="_blank"
       rel="noopener noreferrer"
       title="Conversar pelo WhatsApp (abre em nova aba)"

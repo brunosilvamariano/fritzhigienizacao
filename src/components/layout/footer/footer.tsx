@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PrivacyPreferences } from '@/components/analytics/consent';
 import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
 import { developer } from '@/config/developer';
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
@@ -47,6 +48,7 @@ export function Footer() {
             Falar pelo WhatsApp
           </WhatsAppLink>
           <p>{contact.whatsappDisplay}</p>
+          <PrivacyPreferences />
           <a
             className="footer-instagram"
             href={contact.instagram}

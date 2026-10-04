@@ -3,22 +3,11 @@ import type { ReactNode } from 'react';
 import { geist } from '@/styles/fonts';
 import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer/footer';
+import { ConsentManager } from '@/components/analytics/consent';
+import { siteMetadata } from '@/config/metadata';
 import '@/styles/globals.css';
 export const viewport: Viewport = { themeColor: '#242720' };
-export const metadata: Metadata = {
-  applicationName: 'Traço',
-  title: 'Traço — móveis sob medida | Projeto conceitual',
-  description:
-    'Um estudo de design e experiência digital para móveis planejados. Madeira, luz e proporção em uma marca conceitual.',
-  robots: { index: false, follow: false },
-  openGraph: {
-    title: 'Traço — Seu espaço, no seu traço.',
-    description:
-      'Projeto conceitual de móveis planejados e experiência digital.',
-    locale: 'pt_BR',
-    type: 'website',
-  },
-};
+export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={geist.variable}>
@@ -30,6 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         {children}
         <Footer />
+        <ConsentManager />
       </body>
     </html>
   );
