@@ -1,5 +1,5 @@
 const configuredUrl =
-  process.env.SITE_URL || 'https://tracomoveisplanejados.netlify.app';
+  process.env.SITE_URL || 'https://tracomoveisplanejados.vercel.app';
 const url = new URL(configuredUrl);
 if (
   url.protocol !== 'https:' ||

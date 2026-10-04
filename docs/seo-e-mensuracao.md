@@ -26,16 +26,16 @@ tests/unit/tracking.test.cjs    # Verificações locais, sem enviar eventos reai
 
 ## Estado atual
 
-URL oficial informada: https://tracomoveisplanejados.netlify.app.
+URL oficial informada: https://tracomoveisplanejados.vercel.app.
 O site continua conceitual, com `noindex, follow`. Isso é intencional; imagem social e anúncios não exigem indexação orgânica. Não foram adicionadas avaliações, endereço comercial, credenciais ou dados estruturados de uma empresa inexistente.
 
 Metadados são renderizados pelo servidor. A imagem de compartilhamento é o JPEG fornecido pelo usuário, em 1200 × 630, mantido sem alterações em `src/assets/images/shared/social/traco-compartilhamento.jpg`. É importado como módulo nos metadados e servido pelo próprio site com nome versionado pelo build. Open Graph e Twitter usam o mesmo arquivo. A página continua usando Geist local.
 
 `robots.txt` permite leitura, inclusive do noindex e dos metadados sociais. O sitemap fica vazio enquanto a indexação estiver desativada. Quando ativada, lista apenas a Home: âncoras não são páginas independentes. A página antiga de cozinhas não entra no sitemap.
 
-## Publicação no Netlify
+## Publicação na Vercel
 
-1. Publicar o código atualizado no repositório conectado ao Netlify, usando a integração de Next.js. Não usar exportação estática simples para essa aplicação.
+1. Publicar o código atualizado no repositório conectado à Vercel, usando a integração de Next.js. Não usar exportação estática simples para essa aplicação.
 2. Configurar as variáveis de `.env.example` nas variáveis de ambiente do site, disponíveis no build. Os IDs públicos não são senhas; tokens privados nunca devem receber o prefixo `NEXT_PUBLIC_`.
 3. Manter `SITE_URL` na origem principal HTTPS, sem parâmetros ou caminhos. Alterar ao conectar domínio próprio e republicar.
 4. Para a empresa real: revisar título/descrição em `src/config/site.ts`, substituir dados conceituais e definir `SITE_INDEXABLE=true` quando a indexação for aprovada.
@@ -59,7 +59,7 @@ Pendências reais: IDs das contas, label da conversão do Google Ads e política
 - `NEXT_PUBLIC_PRIVACY_URL`: URL HTTPS da política publicada. Obrigatória quando a medição está ativa.
 - `NEXT_PUBLIC_TRACKING_ENABLED=true`: habilita o sistema de escolhas quando há IDs configurados.
 
-Não preencher com identificadores de exemplo. Sem habilitação e IDs, não aparecem banner ou preferências e nenhum SDK é carregado. Não instalar também as mesmas tags no painel Netlify, outro plugin ou GTM: isso duplicaria os eventos.
+Não preencher com identificadores de exemplo. Sem habilitação e IDs, não aparecem banner ou preferências e nenhum SDK é carregado. Não instalar também as mesmas tags no painel da hospedagem, outro plugin ou GTM: isso duplicaria os eventos.
 
 ## Consentimento e exceção aos recursos locais
 
