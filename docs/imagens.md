@@ -37,3 +37,6 @@ src/assets/images/shared/
 - Guardar originais de edição fora de `public`; publicar somente os recursos finais.
 
 As imagens finais da Hero estão em src/assets/images/pages/home/hero, com variantes desktop, tablet e mobile. O registro compartilhado fica em src/content/kitchen-study.images.ts. Consulte imagens-geradas.md para origem e prompts.
+
+A página Sobre possui três estudos com variantes por dispositivo em
+`src/assets/images/pages/about`. Dimensões, origem e enquadramentos em [sobre.md](sobre.md).

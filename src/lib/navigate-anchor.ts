@@ -1,7 +1,11 @@
 import { focusAnchor } from './focus-anchor';
 
 /** Ancora a navegação no fluxo do documento, mesmo quando o card está sticky. */
-export function navigateAnchor(hash: string, updateHistory = true) {
+export function navigateAnchor(
+  hash: string,
+  updateHistory = true,
+  behavior: ScrollBehavior = 'smooth',
+) {
   let target: HTMLElement | null;
   try {
     target = document.getElementById(decodeURIComponent(hash.slice(1)));
@@ -11,13 +15,16 @@ export function navigateAnchor(hash: string, updateHistory = true) {
   if (!hash.startsWith('#') || !target) return false;
 
   const mobilePosition = target.dataset.scrollMobile;
-  const position = mobilePosition
-    ? window.matchMedia('(max-width: 767px)').matches
-      ? document.getElementById(mobilePosition)
-      : target
-          .closest('.environment-group')
-          ?.querySelector<HTMLElement>(':scope > .environment-position')
-    : target;
+  const scrollPosition = target.dataset.scrollPosition;
+  const position = scrollPosition
+    ? document.getElementById(scrollPosition)
+    : mobilePosition
+      ? window.matchMedia('(max-width: 767px)').matches
+        ? document.getElementById(mobilePosition)
+        : target
+            .closest('.environment-group')
+            ?.querySelector<HTMLElement>(':scope > .environment-position')
+      : target;
   if (!position) return false;
 
   if (updateHistory && location.hash !== hash) {
@@ -41,7 +48,7 @@ export function navigateAnchor(hash: string, updateHistory = true) {
     top,
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
       ? 'instant'
-      : 'smooth',
+      : behavior,
   });
   return true;
 }

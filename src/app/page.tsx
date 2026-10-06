@@ -4,13 +4,16 @@ import { Environments } from '@/sections/home/environments/environments';
 import { Services } from '@/sections/home/services/services';
 import { Process } from '@/sections/home/process/process';
 import { Studio } from '@/sections/home/studio/studio';
+import { ServicesProcessTransition } from '@/components/layout/services-process-transition';
 export default function Home() {
   return (
     <main id="conteudo" className="home-content" tabIndex={-1}>
       <Hero />
       <Environments />
-      <Services />
-      <Process />
+      <ServicesProcessTransition
+        services={<Services />}
+        process={<Process />}
+      />
       <Studio />
       <Contact />
     </main>

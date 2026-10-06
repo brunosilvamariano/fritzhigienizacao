@@ -18,7 +18,7 @@ Uma experiência digital inspirada na arquitetura, na luz e na materialidade dos
 
 Traço é um projeto conceitual de portfólio para uma marca fictícia de móveis planejados. A Home combina direção de arte editorial, imagens com enquadramentos por dispositivo e interações que apresentam ambientes, serviços, processo e identidade do estúdio.
 
-A proposta visual usa marfim, carvão e cobre, tipografia Geist local e fotografias arquitetônicas geradas por IA. As imagens representam estudos de ambiente; não são registros de obras executadas por uma empresa real.
+A proposta visual usa marfim, carvão e cobre, tipografia Plus Jakarta Sans local e fotografias arquitetônicas geradas por IA. As imagens representam estudos de ambiente; não são registros de obras executadas por uma empresa real.
 
 O desenvolvimento prioriza organização por seção, manutenção do conteúdo e navegação por teclado. O projeto também reúne metadados para compartilhamento e uma integração opcional de medição, condicionada às escolhas de consentimento.
 
@@ -75,7 +75,7 @@ Fontes e recursos visuais da interface são locais. As capturas em `docs/readme`
 | TypeScript                     | Tipagem dos componentes, conteúdo e configurações.          |
 | Tailwind CSS 4 / CSS por seção | Base de estilos, tokens e composição visual.                |
 | Framer Motion                  | Revelações e transições da interface.                       |
-| Geist variável                 | Tipografia local com arquivo WOFF2 e licença junto à fonte. |
+| Plus Jakarta Sans variável     | Tipografia local com arquivo WOFF2 e licença junto à fonte. |
 | Biome / Prettier               | Lint e padronização de código.                              |
 | GitHub Actions                 | Verificações automáticas em pushes e pull requests.         |
 | Vercel                         | Hospedagem escolhida para a aplicação.                      |
@@ -92,17 +92,9 @@ cd traco-moveis-planejados
 npm ci
 ```
 
-Copie `.env.example` para `.env.local`:
-
-```powershell
-# Windows / PowerShell
-Copy-Item .env.example .env.local
-```
-
-```bash
-# macOS / Linux
-cp .env.example .env.local
-```
+Configure `.env.local` na raiz com as variáveis descritas em [Configuração](#configuração).
+O Next.js carrega esse arquivo automaticamente; ele é local e não entra no Git.
+Em uma nova cópia do repositório, crie-o com as configurações do ambiente.
 
 Inicie o desenvolvimento:
 
@@ -121,7 +113,10 @@ npm start
 
 ## Configuração
 
-O arquivo [.env.example](.env.example) contém a configuração de referência. O estado padrão mantém a indexação e a medição desativadas.
+A configuração local fica em `.env.local`, ignorado pelo Git. As variáveis disponíveis
+estão documentadas abaixo. O estado padrão mantém a indexação e a medição desativadas.
+Na Vercel, configure os valores nas variáveis de ambiente do projeto; o arquivo local
+não é enviado pelo repositório.
 
 | Variável                               | Finalidade                                                                                            |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -210,7 +205,7 @@ Ainda não foram realizados Lighthouse, certificação WCAG, testes com NVDA/JAW
 ## Publicação na Vercel
 
 1. Conecte o repositório à Vercel e use a integração para Next.js.
-2. Configure as variáveis de `.env.example` nos ambientes apropriados.
+2. Configure as variáveis documentadas em [Configuração](#configuração) nos ambientes apropriados da Vercel.
 3. Confirme `SITE_URL` com a origem pública final, especialmente ao conectar domínio próprio.
 4. Mantenha a medição desligada nos previews e a indexação desligada enquanto o site for conceitual.
 5. Publique o código e confira navegação, imagens e metadados de compartilhamento no novo deploy.
@@ -222,6 +217,7 @@ Ao transformar o conceito em um site de empresa real, revise conteúdo, imagens,
 | Documento                                         | Conteúdo                                         |
 | ------------------------------------------------- | ------------------------------------------------ |
 | [Design brief](docs/design-brief.md)              | Conceito, identidade e direção visual.           |
+| [Estrutura completa](docs/estrutura-completa.txt) | Inventário dos arquivos existentes no projeto.   |
 | [Arquitetura](docs/arquitetura.md)                | Responsabilidades e organização do código.       |
 | [Modelo de seção](docs/secao-modelo.md)           | Convenções para implementar e manter seções.     |
 | [Dependências](docs/dependencias.md)              | Escolhas e orientação de recursos locais.        |
@@ -234,7 +230,7 @@ Ao transformar o conceito em um site de empresa real, revise conteúdo, imagens,
 
 Desenvolvido por **[VBG Agency](https://www.instagram.com/vbgagency/)** como projeto conceitual de portfólio.
 
-A licença da fonte Geist está em [src/assets/fonts/geist/LICENSE](src/assets/fonts/geist/LICENSE). Este repositório não contém uma licença geral de distribuição do projeto; qualquer reutilização deve observar a autorização dos responsáveis e as licenças dos recursos envolvidos.
+A licença da Plus Jakarta Sans está em [src/assets/fonts/plus-jakarta-sans/LICENSE](src/assets/fonts/plus-jakarta-sans/LICENSE). Este repositório não contém uma licença geral de distribuição do projeto; qualquer reutilização deve observar a autorização dos responsáveis e as licenças dos recursos envolvidos.
 
 ---
 

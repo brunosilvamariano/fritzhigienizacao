@@ -1,5 +1,6 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
@@ -7,6 +8,7 @@ import { navigation } from '@/config/navigation';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 
 export function MobileNavigation() {
+  const pathname = usePathname();
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const scrollArea = useRef<HTMLDivElement>(null);
@@ -94,7 +96,7 @@ export function MobileNavigation() {
     };
     const syncHash = () =>
       setCurrent(
-        window.location.pathname +
+        pathname +
           (window.location.hash ||
             (window.location.pathname === '/' ? '#inicio' : '')),
       );
@@ -111,7 +113,7 @@ export function MobileNavigation() {
       query.removeEventListener('change', handleResize);
       if (menu?.open) document.body.style.overflow = previousOverflow.current;
     };
-  }, [close]);
+  }, [close, pathname]);
 
   return (
     <div className="mobile-nav">

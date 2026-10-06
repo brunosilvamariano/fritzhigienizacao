@@ -1,8 +1,8 @@
 import localFont from 'next/font/local';
 
-export const geist = localFont({
-  src: '../assets/fonts/geist/geist-latin-wght-normal.woff2',
-  variable: '--font-geist-sans',
+export const plusJakartaSans = localFont({
+  src: '../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-latin-wght-normal.woff2',
+  variable: '--font-plus-jakarta-sans',
   display: 'swap',
-  weight: '100 900',
+  weight: '200 800',
 });

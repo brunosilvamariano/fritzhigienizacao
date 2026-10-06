@@ -4,3 +4,5 @@ package-lock.json
 next-env.d.ts
 coverage/
 *.woff2
+.font-package-temp/
+.npm-cache-fonts/

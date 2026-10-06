@@ -1,6 +1,5 @@
-traco-moveis-planejados/ — arquivos existentes (2026-10-03)
+traco-moveis-planejados/ — arquivos do projeto, sem arquivos locais privados ou gerados (2026-10-06)
 .editorconfig
-.env.example
 .github\workflows\ci.yml
 .gitignore
 .node-version
@@ -11,6 +10,7 @@ biome.json
 docs\ambientes.md
 docs\arquitetura.md
 docs\auditoria-2026-10-03.md
+docs\auditoria-navegacao-2026-10-04.md
 docs\contato-footer.md
 docs\contato.md
 docs\dependencias.md
@@ -21,11 +21,15 @@ docs\google-vbg.md
 docs\imagens-geradas.md
 docs\imagens.md
 docs\processo.md
+docs\readme\ambientes.png
+docs\readme\desktop.png
+docs\readme\estudio.png
+docs\readme\menu-mobile.png
 docs\secao-modelo.md
 docs\seo-e-mensuracao.md
 docs\servicos.md
+docs\sobre.md
 docs\validacao.md
-next-env.d.ts
 next.config.ts
 package-lock.json
 package.json
@@ -40,9 +44,19 @@ src\app\layout.tsx
 src\app\page.tsx
 src\app\robots.ts
 src\app\sitemap.ts
-src\assets\fonts\geist\geist-latin-wght-normal.woff2
-src\assets\fonts\geist\LICENSE
-src\assets\fonts\geist\README.md
+src\app\sobre\page.tsx
+src\assets\fonts\plus-jakarta-sans\LICENSE
+src\assets\fonts\plus-jakarta-sans\plus-jakarta-sans-latin-wght-normal.woff2
+src\assets\fonts\plus-jakarta-sans\README.md
+src\assets\images\pages\about\detail\desktop.webp
+src\assets\images\pages\about\detail\mobile.webp
+src\assets\images\pages\about\detail\tablet.webp
+src\assets\images\pages\about\kitchen\desktop.webp
+src\assets\images\pages\about\kitchen\mobile.webp
+src\assets\images\pages\about\kitchen\tablet.webp
+src\assets\images\pages\about\living\desktop.webp
+src\assets\images\pages\about\living\mobile.webp
+src\assets\images\pages\about\living\tablet.webp
 src\assets\images\pages\home\environments\banheiros\desktop.webp
 src\assets\images\pages\home\environments\banheiros\mobile.webp
 src\assets\images\pages\home\environments\banheiros\tablet.webp
@@ -88,6 +102,7 @@ src\assets\images\shared\vbg\original.svg
 src\components\analytics\consent.css
 src\components\analytics\consent.tsx
 src\components\analytics\tracking-runtime.ts
+src\components\layout\anchor-navigation.tsx
 src\components\layout\footer\footer-reveal.tsx
 src\components\layout\footer\footer.css
 src\components\layout\footer\footer.tsx
@@ -101,6 +116,10 @@ src\components\layout\header\header.css
 src\components\layout\header\header.tsx
 src\components\layout\header\mobile-navigation.css
 src\components\layout\header\mobile-navigation.tsx
+src\components\layout\page-transition\page-transition.css
+src\components\layout\page-transition\page-transition.tsx
+src\components\layout\services-process-transition.css
+src\components\layout\services-process-transition.tsx
 src\components\media\responsive-image.tsx
 src\components\ui\arrow.tsx
 src\components\ui\floating-whatsapp.css
@@ -116,6 +135,13 @@ src\config\site.ts
 src\config\tracking.ts
 src\content\kitchen-study.images.ts
 src\lib\focus-anchor.ts
+src\lib\navigate-anchor.ts
+src\sections\about\about.images.ts
+src\sections\about\opening\about-opening.css
+src\sections\about\opening\about-opening.tsx
+src\sections\about\opening\opening-motion.tsx
+src\sections\about\story\about-story.css
+src\sections\about\story\about-story.tsx
 src\sections\home\contact\contact.content.ts
 src\sections\home\contact\contact.css
 src\sections\home\contact\contact.tsx

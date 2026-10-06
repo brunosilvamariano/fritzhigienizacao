@@ -36,6 +36,11 @@ export function useHeroCarousel(count: number) {
       ),
     [],
   );
+  const shouldRenderImage = useCallback(
+    (index: number) =>
+      index === active || index === requested || ready.includes(index),
+    [active, requested, ready],
+  );
   useEffect(() => {
     if (ready.includes(requested)) setActive(requested);
   }, [requested, ready]);
@@ -85,6 +90,7 @@ export function useHeroCarousel(count: number) {
     restart,
     choose,
     loaded,
+    shouldRenderImage,
     setHovered,
     setFocused,
     togglePause: () => setPaused((value) => !value),

@@ -11,6 +11,9 @@ export function Studio() {
       </header>
       <StudioPanels />
       <div className="studio-caption">
+        <a href="/sobre" className="text-link">
+          Conheça a Traço <span aria-hidden="true">↗</span>
+        </a>
         <WhatsAppLink context="a proposta da Traço e um projeto para meu espaço">
           Conversar com a Traço
         </WhatsAppLink>

@@ -48,7 +48,6 @@ export function Footer() {
           <WhatsAppLink context="um projeto de móveis planejados para meu espaço">
             Falar pelo WhatsApp
           </WhatsAppLink>
-          <p>{contact.whatsappDisplay}</p>
           <PrivacyPreferences />
           <a
             className="footer-instagram"

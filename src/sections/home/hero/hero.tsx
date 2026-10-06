@@ -103,11 +103,13 @@ export function Hero() {
             }
             aria-hidden={carousel.active !== index}
           >
-            <ResponsiveImage
-              {...slide.images}
-              eager={index === 0}
-              onLoad={() => carousel.loaded(index)}
-            />
+            {carousel.shouldRenderImage(index) && (
+              <ResponsiveImage
+                {...slide.images}
+                eager={index === 0}
+                onLoad={() => carousel.loaded(index)}
+              />
+            )}
           </div>
         ))}
         <figcaption className="image-annotation">
@@ -127,9 +129,6 @@ export function Hero() {
           Textura, luz e proporção.
           <br />O essencial encontra seu lugar.
         </p>
-        <WhatsAppLink context="materiais e acabamentos para meu projeto">
-          Escolher meus acabamentos
-        </WhatsAppLink>
       </Reveal>
       <div className="material-note">
         <span className="material-swatch" aria-hidden="true" />

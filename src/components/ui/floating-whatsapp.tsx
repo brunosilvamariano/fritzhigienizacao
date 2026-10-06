@@ -1,16 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { whatsappUrl } from '@/config/contact';
 import { WhatsAppIcon } from './social-icons';
 import './floating-whatsapp.css';
 
 export function FloatingWhatsApp() {
+  const pathname = usePathname();
   const [atContact, setAtContact] = useState(false);
+  const [footerLogoVisible, setFooterLogoVisible] = useState(false);
 
   useEffect(() => {
-    const contact = document.getElementById('contato');
-    if (!contact) return;
+    const contact =
+      pathname === '/' ? document.getElementById('contato') : null;
+    if (!contact) {
+      setAtContact(false);
+      setFooterLogoVisible(false);
+      return;
+    }
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -26,19 +34,27 @@ export function FloatingWhatsApp() {
     observer.observe(document.body);
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
+    const footerLogo = document.querySelector('.footer-developer');
+    const footerObserver = footerLogo
+      ? new IntersectionObserver(([entry]) => {
+          setFooterLogoVisible(entry.isIntersecting);
+        })
+      : null;
+    if (footerLogo && footerObserver) footerObserver.observe(footerLogo);
     update();
     return () => {
       observer.disconnect();
+      footerObserver?.disconnect();
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [pathname]);
 
   if (atContact) {
     return (
       <a
-        className="floating-whatsapp floating-back-top"
+        className={`floating-whatsapp floating-back-top${footerLogoVisible ? ' floating-back-top--footer' : ''}`}
         href="/#inicio"
         aria-label="Voltar ao início da página"
       >

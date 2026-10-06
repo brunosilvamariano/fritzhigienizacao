@@ -34,10 +34,8 @@ React Three Fiber, Lenis e shadcn/ui dependem do design e dos componentes necess
 
 ## Fontes
 
-Geist variável está instalada localmente em `src/assets/fonts/geist`, com a licença
-e o arquivo WOFF2 latin. Os pesos 100–900 são atendidos pelo mesmo arquivo.
-`src/styles/fonts.ts` usa `next/font/local`; conectar essa configuração ao layout
-quando ele for implementado. A escolha final da identidade visual permanece para o Design Brief.
+Plus Jakarta Sans variável está instalada localmente em `src/assets/fonts/plus-jakarta-sans`, com a licença e o arquivo WOFF2 latin.
+Os pesos 200–800 são atendidos pelo mesmo arquivo. `src/styles/fonts.ts` usa `next/font/local`, aplicado ao layout e aos estilos globais. A família faz parte do Design Brief.
 
 ## Imagens
 
@@ -54,7 +52,7 @@ a pendência antes de implementar a seção correspondente.
 
 ## Configuração, segurança e verificação
 
-- `.env.example` documentará somente variáveis realmente utilizadas, sem segredos ou valores fictícios.
+- `.env.local` guarda a configuração local e é ignorado pelo Git. O README documenta as variáveis utilizadas; a Vercel recebe os valores nas configurações de cada ambiente.
 - Configurações privadas ficarão em módulos exclusivos de servidor, criados quando houver backend.
 - `src/providers` reunirá apenas provedores efetivamente utilizados.
 - Scripts disponíveis: `dev`, `build`, `start`, `lint`, `typecheck`, `format` e `format:check`. Scripts de testes serão adicionados junto da infraestrutura correspondente.

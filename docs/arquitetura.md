@@ -86,3 +86,16 @@ o foco de links internos dos menus. A estrutura existente completa está em
 O projeto usa folhas CSS por seção e componentes, com tokens compartilhados.
 CSS Modules podem ser adotados em componentes futuros se houver necessidade;
 não houve migração geral durante a auditoria para preservar o comportamento atual.
+
+## Página Sobre — 2026-10-06
+
+`src/app/sobre/page.tsx` compõe `sections/about/opening` e `sections/about/story`.
+O movimento exclusivo da abertura está em `opening-motion.tsx`, com filhos
+renderizados no servidor. O registro `sections/about/about.images.ts` é
+compartilhado pelas duas seções. Os nove WebP ficam em
+`assets/images/pages/about/{kitchen,living,detail}`. Header e footer continuam
+compartilhados; navegação e sitemap incluem a nova rota. Detalhes em `sobre.md`.
+
+`components/layout/page-transition` controla a cortina compartilhada entre Home
+e Sobre. A navegação mantém o layout montado, prepara a seção de destino antes
+de revelar a página e atualiza os componentes que dependem da rota.
