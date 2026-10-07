@@ -13,7 +13,7 @@
   border: 0;
   border-radius: 3px;
   background: var(--ink);
-  color: #f2efe7;
+  color: var(--taupe);
   font-size: 14px;
   line-height: 1.4;
   font-weight: 500;
@@ -23,7 +23,7 @@
 }
 :is(.home-content, .site-footer) .whatsapp-link:hover {
   background: var(--copper-deep);
-  color: #f2efe7;
+  color: var(--taupe);
 }
 :is(.contact-section, .site-footer) .whatsapp-link {
   background: var(--paper);

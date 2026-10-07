@@ -11,18 +11,58 @@ type Destination = {
   reduced: boolean;
   restoreScroll?: number;
 };
-type Phase = 'idle' | 'covering' | 'covered' | 'revealing';
+type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
 const routes = new Set(['/', '/sobre']);
 
 export function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
-  const [phase, setPhase] = useState<Phase>('idle');
+  const [phase, setPhase] = useState<Phase>('initial');
   const pending = useRef<Destination | null>(null);
-  const busy = useRef(false);
+  const busy = useRef(true);
   const currentPath = useRef(pathname);
   const positions = useRef(new Map<string, number>());
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setPhase('idle');
+      busy.current = false;
+      return;
+    }
+    let cancelled = false;
+    let frame = 0;
+    let deadline: ReturnType<typeof setTimeout> | undefined;
+    let finish: ReturnType<typeof setTimeout> | undefined;
+    frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(async () => {
+        const image = document.querySelector<HTMLImageElement>('main img');
+        // Prepare the first view without waiting for lazy images farther down.
+        await Promise.race([
+          Promise.all([
+            document.fonts.ready,
+            image?.decode().catch(() => undefined),
+          ]),
+          new Promise<void>((resolve) => {
+            deadline = setTimeout(resolve, 1200);
+          }),
+        ]);
+        if (cancelled) return;
+        clearTimeout(deadline);
+        setPhase('revealing');
+        finish = setTimeout(() => {
+          setPhase('idle');
+          busy.current = false;
+        }, 540);
+      });
+    });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      clearTimeout(deadline);
+      clearTimeout(finish);
+    };
+  }, []);
 
   useEffect(() => {
     const prefetched = new Set<string>();

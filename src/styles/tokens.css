@@ -1,13 +1,16 @@
 :root {
-  --paper: #f2efe7;
-  --taupe: #d8cec0;
-  --taupe-text: #514d46;
-  --copper-deep: #74452c;
-  --on-dark-muted: #c7c5bb;
-  --ink: #242720;
-  --copper: #855132;
-  --muted: #64665d;
-  --line: #2427202b;
+  --paper: #f5f1ea;
+  --white: #ffffff;
+  --accent-text: #27323a;
+  --taupe: #dcc5b7;
+  --taupe-text: #27323a;
+  --copper-deep: #27323a;
+  --on-dark-muted: #dcc5b7;
+  --ink: #27323a;
+  --copper: #897061;
+  --muted: #27323a;
+  --line: #27323a2b;
+  --line-on-dark: #dcc5b733;
   --gutter: clamp(24px, 5vw, 88px);
   --header-height: 92px;
 }

@@ -1,7 +1,8 @@
 .about-story {
   position: relative;
   z-index: 2;
-  background: var(--paper);
+  background: var(--taupe);
+  color: var(--ink);
   padding: 56px var(--gutter) 28px;
   border-top: 1px solid var(--line);
 }
@@ -53,7 +54,7 @@
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--ink);
 }
 .about-story-copy {
   padding-left: 42px;
@@ -89,7 +90,7 @@
   font-size: clamp(70px, 9vw, 140px);
   letter-spacing: -0.07em;
   line-height: 1.15;
-  color: var(--copper);
+  color: var(--ink);
   white-space: nowrap;
 }
 .about-story-base p {

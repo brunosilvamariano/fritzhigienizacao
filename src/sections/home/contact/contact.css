@@ -1,14 +1,14 @@
 .contact-section {
   position: relative;
-  background: var(--copper);
-  color: var(--paper);
+  background: var(--taupe);
+  color: var(--ink);
   padding: 90px var(--gutter) 100px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 48px;
 }
 .contact-section > .eyebrow {
-  color: var(--paper);
+  color: var(--ink);
   padding-top: 12px;
 }
 .contact-copy h2 {
@@ -25,23 +25,18 @@
   font-size: 16px;
   line-height: 1.7;
 }
-.contact-copy .contact-button {
+.contact-section .contact-copy .contact-button {
   margin-top: 32px;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
   min-height: 56px;
 }
-.contact-copy .contact-button:hover {
-  background: var(--taupe);
+.contact-section .contact-copy .contact-button:hover {
+  background: var(--copper);
+  color: var(--white);
 }
 .contact-section a:focus-visible {
-  outline-color: var(--paper);
-}
-.contact-phone {
-  display: block;
-  margin-top: 16px;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  outline-color: var(--ink);
 }
 @media (max-width: 767px) {
   .contact-section {

@@ -4,6 +4,7 @@ import { Environments } from '@/sections/home/environments/environments';
 import { Services } from '@/sections/home/services/services';
 import { Process } from '@/sections/home/process/process';
 import { Studio } from '@/sections/home/studio/studio';
+import { Faq } from '@/sections/home/faq/faq';
 import { ServicesProcessTransition } from '@/components/layout/services-process-transition';
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         process={<Process />}
       />
       <Studio />
+      <Faq />
       <Contact />
     </main>
   );

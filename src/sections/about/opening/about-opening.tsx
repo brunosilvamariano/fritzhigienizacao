@@ -28,12 +28,12 @@ export function AboutOpening() {
         </div>
         <div className="about-opening-overlay">
           <p>
-            Enxergar o espaço como um todo.
+            <span>Enxergar o espaço como um todo.</span>
             <br />E encontrar cuidado em cada detalhe.
           </p>
         </div>
         <span className="about-opening-credit">
-          Estudo visual · Imagem gerada por IA
+          Carvalho natural · Travertino · Luz
         </span>
       </OpeningMotion>
     </section>

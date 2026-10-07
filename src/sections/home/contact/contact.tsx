@@ -1,5 +1,4 @@
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-import { contact } from '@/config/contact';
 import { contactContent } from './contact.content';
 import './contact.css';
 export function Contact() {
@@ -19,7 +18,6 @@ export function Contact() {
         >
           Conversar pelo WhatsApp
         </WhatsAppLink>
-        <span className="contact-phone">{contact.whatsappDisplay}</span>
       </div>
     </section>
   );

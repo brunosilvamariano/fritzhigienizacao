@@ -9,7 +9,7 @@
   transition: color 200ms;
 }
 .menu-toggle:hover {
-  color: var(--copper);
+  color: var(--ink);
 }
 .menu-toggle:focus-visible {
   outline-offset: 4px;
@@ -44,6 +44,7 @@
   transform: translateY(-3.5px) rotate(-45deg);
 }
 .mobile-dialog {
+  --paper: var(--taupe);
   position: fixed;
   inset: max(12px, env(safe-area-inset-top))
     max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom))
@@ -57,7 +58,7 @@
   max-height: none;
   margin: 0;
   padding: 0;
-  border: 1px solid #d8cec026;
+  border: 1px solid #dcc5b726;
   border-radius: 8px;
   background: var(--ink);
   color: var(--paper);
@@ -65,7 +66,7 @@
   box-shadow: 0 24px 80px #0004;
 }
 .mobile-dialog::backdrop {
-  background: #16191285;
+  background: #27323a85;
   backdrop-filter: blur(6px);
 }
 .mobile-dialog-shell {
@@ -80,7 +81,7 @@
   justify-content: space-between;
   margin: 0 24px;
   padding: 18px 0 16px;
-  border-bottom: 1px solid #d8cec02b;
+  border-bottom: 1px solid #dcc5b72b;
 }
 .mobile-dialog-brand {
   font-size: 38px;
@@ -96,7 +97,7 @@
 .close-menu {
   width: 44px;
   height: 44px;
-  border: 1px solid #d8cec04d;
+  border: 1px solid #dcc5b74d;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -150,7 +151,7 @@
   bottom: 0;
   width: 38px;
   height: 1px;
-  background: #d8cec02b;
+  background: #dcc5b72b;
 }
 .mobile-submenu-links svg {
   width: 12px;
@@ -208,8 +209,8 @@
   justify-content: space-between;
   gap: 8px;
   padding: 8px 10px;
-  background: #d8cec00a;
-  border: 1px solid #d8cec024;
+  background: #dcc5b70a;
+  border: 1px solid #dcc5b724;
   font-size: 12px;
   line-height: 1.4;
 }
@@ -217,7 +218,7 @@
 .mobile-menu-contact {
   flex-shrink: 0;
   padding: 20px 24px;
-  border-top: 1px solid #d8cec02b;
+  border-top: 1px solid #dcc5b72b;
   background: #ffffff03;
 }
 .mobile-menu-contact p {
@@ -256,7 +257,7 @@
     background: var(--paper);
   }
   .close-menu:hover {
-    background: #d8cec014;
+    background: #dcc5b714;
   }
 }
 .mobile-dialog[data-state='opening'] {

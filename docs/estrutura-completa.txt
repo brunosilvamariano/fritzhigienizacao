@@ -17,6 +17,7 @@ docs\dependencias.md
 docs\design-brief.md
 docs\estrutura-completa.txt
 docs\estudio.md
+docs\faq.md
 docs\google-vbg.md
 docs\imagens-geradas.md
 docs\imagens.md
@@ -109,9 +110,6 @@ src\components\layout\footer\footer.tsx
 src\components\layout\footer\google-profile.tsx
 src\components\layout\header\brand.tsx
 src\components\layout\header\desktop-navigation.tsx
-src\components\layout\header\environment-faq.content.ts
-src\components\layout\header\environment-faq.css
-src\components\layout\header\environment-faq.tsx
 src\components\layout\header\header.css
 src\components\layout\header\header.tsx
 src\components\layout\header\mobile-navigation.css
@@ -151,6 +149,9 @@ src\sections\home\environments\environments.content.ts
 src\sections\home\environments\environments.css
 src\sections\home\environments\environments.images.ts
 src\sections\home\environments\environments.tsx
+src\sections\home\faq\faq.content.ts
+src\sections\home\faq\faq.css
+src\sections\home\faq\faq.tsx
 src\sections\home\hero\hero.content.ts
 src\sections\home\hero\hero.css
 src\sections\home\hero\hero.images.ts

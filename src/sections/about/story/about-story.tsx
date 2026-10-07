@@ -57,9 +57,9 @@ export function AboutStory() {
           Nosso traço.
         </span>
         <p>
-          Estudos de ambientes gerados por IA.
+          Madeira, luz e proporção.
           <br />
-          Imagens conceituais, sem representação de obras executadas.
+          Texturas que dão sentido ao morar.
         </p>
       </div>
     </section>

@@ -48,28 +48,26 @@ body:has(#mobile-menu[open]) .floating-whatsapp {
   visibility: hidden;
 }
 .floating-back-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  width: auto;
-  height: 52px;
-  padding: 0 18px;
-  border-radius: 3px;
   background: var(--ink);
   color: var(--paper);
-  border: 1px solid #d8cec066;
+  border: 1px solid #dcc5b766;
   box-shadow: 0 4px 16px #0002;
-}
-.back-top-text {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
 }
 .floating-back-top svg {
   flex-shrink: 0;
   color: var(--taupe);
   transition: transform 200ms;
+}
+.back-top-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 .floating-back-top:hover {
   background: var(--copper-deep);
@@ -90,11 +88,5 @@ body:has(#mobile-menu[open]) .floating-whatsapp {
   }
   .site-footer {
     padding-bottom: 88px;
-  }
-  .floating-back-top {
-    width: auto;
-    height: 48px;
-    padding-inline: 16px;
-    gap: 16px;
   }
 }

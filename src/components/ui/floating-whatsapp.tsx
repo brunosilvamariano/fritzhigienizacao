@@ -8,23 +8,27 @@ import './floating-whatsapp.css';
 
 export function FloatingWhatsApp() {
   const pathname = usePathname();
-  const [atContact, setAtContact] = useState(false);
+  const [showBackTop, setShowBackTop] = useState(false);
   const [footerLogoVisible, setFooterLogoVisible] = useState(false);
 
   useEffect(() => {
     const contact =
       pathname === '/' ? document.getElementById('contato') : null;
-    if (!contact) {
-      setAtContact(false);
+    const main = document.querySelector('main');
+    if (!contact && !main) {
+      setShowBackTop(false);
       setFooterLogoVisible(false);
       return;
     }
     let frame = 0;
     const update = () => {
       frame = 0;
-      // Trocar ao entrar na área de contato; o rodapé continua abaixo dela.
-      setAtContact(
-        contact.getBoundingClientRect().top < window.innerHeight - 80,
+      // O footer sticky fica atrás do conteúdo; usar o fim do main em Sobre.
+      const boundary = contact
+        ? contact.getBoundingClientRect().top
+        : main?.getBoundingClientRect().bottom;
+      setShowBackTop(
+        boundary !== undefined && boundary < window.innerHeight - 80,
       );
     };
     const schedule = () => {
@@ -51,14 +55,14 @@ export function FloatingWhatsApp() {
     };
   }, [pathname]);
 
-  if (atContact) {
+  if (showBackTop) {
     return (
       <a
         className={`floating-whatsapp floating-back-top${footerLogoVisible ? ' floating-back-top--footer' : ''}`}
-        href="/#inicio"
+        href={`${pathname}#inicio`}
         aria-label="Voltar ao início da página"
       >
-        <span className="back-top-text">Topo</span>
+        <span className="back-top-label">Voltar ao início da página</span>
         <svg
           viewBox="0 0 24 24"
           width="20"

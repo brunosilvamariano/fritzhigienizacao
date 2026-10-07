@@ -2,9 +2,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
-import { navigation } from '@/config/navigation';
+import { environments, navigation } from '@/config/navigation';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 
 export function MobileNavigation() {
@@ -194,8 +193,12 @@ export function MobileNavigation() {
               >
                 <div className="mobile-submenu-clip">
                   <div className="mobile-submenu-links">
-                    <p className="mobile-faq-title">Perguntas frequentes</p>
-                    <EnvironmentFaq group="mobile" />
+                    {environments.map((item) => (
+                      <a key={item.id} href={item.href}>
+                        {item.label}
+                        <Arrow />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -57,12 +57,12 @@ h3 {
   display: none !important;
 }
 ::selection {
-  background: #bcb09b;
+  background: var(--taupe);
   color: var(--ink);
 }
 .eyebrow {
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--accent-text);
   font-size: 10px;
   letter-spacing: 0.13em;
   font-weight: 550;

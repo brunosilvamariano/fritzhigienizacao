@@ -26,6 +26,7 @@
   object-position: center;
 }
 .about-opening-copy {
+  color: var(--ink);
   grid-column: 1;
   grid-row: 1;
   padding: clamp(64px, 8vh, 110px) 42px 48px var(--gutter);
@@ -71,7 +72,7 @@
   bottom: 22px;
   right: 96px;
   z-index: 3;
-  background: rgb(36 39 32 / 0.75);
+  background: rgb(39 50 58 / 0.75);
   color: var(--paper);
   padding: 6px 10px;
   font-size: 9px;
@@ -104,16 +105,21 @@
   position: absolute;
   inset: 0;
   padding: var(--gutter);
-  background: linear-gradient(90deg, rgb(36 39 32 / 0.7), transparent 80%);
+  background: linear-gradient(90deg, rgb(39 50 58 / 0.7), transparent 80%);
   opacity: var(--opening-overlay, 0);
   color: var(--paper);
   pointer-events: none;
 }
 .about-opening-overlay p {
-  max-width: 520px;
+  max-width: 760px;
   font-size: clamp(25px, 2.6vw, 42px);
   letter-spacing: -0.045em;
   line-height: 1.35;
+}
+@media (min-width: 1024px) {
+  .about-opening-overlay p > span {
+    white-space: nowrap;
+  }
 }
 @media (max-width: 1023px) {
   .about-opening-stage {
@@ -149,4 +155,14 @@
     right: 84px;
     bottom: 14px;
   }
+}
+
+.about-opening-copy .eyebrow,
+.about-opening-copy > p,
+.about-opening-note,
+.about-opening-note > span:last-child {
+  color: var(--ink);
+}
+.about-opening-note {
+  border-top-color: var(--line);
 }

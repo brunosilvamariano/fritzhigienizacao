@@ -22,6 +22,13 @@
   pointer-events: auto;
   transform: translateY(0);
 }
+.page-transition[data-phase='initial'] {
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  /* Release the page even if JavaScript never hydrates. */
+  animation: page-transition-release 0s 2s forwards;
+}
 .page-transition[data-phase='revealing'] {
   visibility: visible;
   pointer-events: auto;
@@ -64,8 +71,23 @@
     opacity: 1;
   }
 }
+@keyframes page-transition-release {
+  to {
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .page-transition {
     display: none;
   }
+}
+
+.page-transition {
+  background: var(--taupe);
+}
+.page-transition-symbol,
+.page-transition-wordmark > span {
+  color: var(--ink);
 }

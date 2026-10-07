@@ -4,6 +4,9 @@
 .environment-message {
   height: 180svh;
   position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  --accent-text: var(--paper);
 }
 .message-sticky {
   position: sticky;
@@ -28,18 +31,18 @@
 .message-word {
   display: inline-block;
   position: relative;
-  color: #aaa99f;
+  color: rgb(245 241 234 / 0.6);
   margin-right: 0.22em;
 }
 .message-ink {
   position: absolute;
   inset: 0;
-  color: var(--ink);
+  color: var(--paper);
 }
 .message-scroll {
   margin-top: 10px;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--paper);
   display: flex;
   align-items: center;
   gap: 18px;
@@ -67,7 +70,9 @@
   font-size: 13px;
 }
 .environment-nav a:hover {
-  color: var(--copper);
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .environment-stack {
   position: relative;
@@ -94,7 +99,7 @@
   padding: 24px var(--gutter) 28px;
   background: var(--paper);
   border-top: 1px solid var(--line);
-  box-shadow: 0 -20px 40px #2427200a;
+  box-shadow: 0 -20px 40px #27323a0a;
 }
 .environment-panel--2 {
   grid-template-columns: 1fr 1.35fr;
@@ -110,7 +115,7 @@
   position: relative;
   overflow: hidden;
   height: clamp(210px, 52svh, 650px);
-  background: #ded8cc;
+  background: var(--taupe);
 }
 .environment-photo picture,
 .environment-photo img {
@@ -225,7 +230,7 @@
     padding: 20px 24px 26px;
     background: var(--paper);
     border-top: 1px solid var(--line);
-    box-shadow: 0 -16px 32px #2427200a;
+    box-shadow: 0 -16px 32px #27323a0a;
   }
   .environment-photo,
   .environment-card--dormitorios .environment-photo,
@@ -259,7 +264,7 @@
     min-height: 380px;
   }
   .message-word {
-    color: var(--ink);
+    color: var(--paper);
   }
   .message-ink {
     display: none;

@@ -1,9 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { navigation } from '@/config/navigation';
+import { environments, navigation } from '@/config/navigation';
 import { kitchenStudyImages } from '@/content/kitchen-study.images';
-import { EnvironmentFaq } from './environment-faq';
 import { Arrow } from '@/components/ui/arrow';
 export function DesktopNavigation() {
   const [open, setOpen] = useState(false);
@@ -63,14 +62,16 @@ export function DesktopNavigation() {
           onClick={() => setOpen(!open)}
         >
           Ambientes{' '}
-          <span className={open ? 'plus is-open' : 'plus'} aria-hidden="true">
-            +
-          </span>
+          <span className={open ? 'plus is-open' : 'plus'} aria-hidden="true" />
         </button>
         <div id="desktop-environments" className="mega-menu" hidden={!open}>
           <div className="mega-links">
-            <span className="eyebrow">Perguntas frequentes</span>
-            <EnvironmentFaq group="desktop" />
+            <span className="eyebrow">Explore os ambientes</span>
+            {environments.map((item) => (
+              <a key={item.id} href={item.href}>
+                {item.label} <Arrow />
+              </a>
+            ))}
           </div>
           <Image
             className="mega-image"

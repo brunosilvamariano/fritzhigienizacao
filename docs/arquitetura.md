@@ -99,3 +99,13 @@ compartilhados; navegação e sitemap incluem a nova rota. Detalhes em `sobre.md
 `components/layout/page-transition` controla a cortina compartilhada entre Home
 e Sobre. A navegação mantém o layout montado, prepara a seção de destino antes
 de revelar a página e atualiza os componentes que dependem da rota.
+
+## FAQ e paleta — 2026-10-06
+
+`src/sections/home/faq` reúne `faq.tsx`, `faq.content.ts` e `faq.css`.
+Substitui o FAQ que ficava no header e ocupa a Home entre Estúdio e Contato.
+Ambientes passa a links diretos; Dúvidas aponta para `/#duvidas` no header e
+footer. O título usa sticky limitado à seção, sem listener de scroll.
+Tokens globais concentram marfim, branco de apoio, bege, marrom e azul-ardósia;
+overlays, aberturas, menus, footer e transição de página usam a mesma paleta.
+Marfim predomina nas aberturas e áreas de leitura; FAQ mantém branco.

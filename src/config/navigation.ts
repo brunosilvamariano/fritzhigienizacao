@@ -35,5 +35,6 @@ export const navigation = [
   { href: '/#processo', label: 'O processo' },
   { href: '/#estudio', label: 'Estúdio' },
   { href: '/sobre', label: 'Sobre a Traço' },
+  { href: '/#duvidas', label: 'Dúvidas' },
   { href: '/#contato', label: 'Contato' },
 ] as const;

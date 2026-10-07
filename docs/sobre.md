@@ -3,6 +3,10 @@
 Rota: `/sobre`. Header e footer compartilhados com a Home. Abertura inspirada
 na Home One de Archiesta, preservando paleta e Plus Jakarta Sans da Traço.
 
+A seção “O olhar da Traço”, incluindo “Nosso traço.”, usa bege #DCC5B7
+com texto azul-ardósia #27323A. O footer compartilhado mantém fundo
+azul-ardósia e textos claros, distinguindo os dois blocos durante a revelação.
+
 ## Movimento
 
 Desktop a partir de 1024px, com altura acima de 650px: o painel de texto sai pela
@@ -16,7 +20,7 @@ telas baixas e preferência de movimento reduzido usam fluxo vertical.
 
 Três estudos visuais gerados por IA com autorização do usuário em 2026-10-06.
 Não representam obras executadas, instalações reais nem fotos da equipe.
-O aviso aparece na página e os textos alternativos identificam os estudos.
+Por solicitação do usuário, as legendas e textos alternativos descrevem os materiais e ambientes. A origem das imagens permanece registrada aqui.
 Originais de geração permanecem fora do repositório; só WebP é importado.
 
 | Imagem     | Desktop    | Tablet      | Mobile    |
@@ -44,3 +48,7 @@ cortina foi pintada; a seção solicitada é posicionada antes da revelação.
 Os links na própria Home continuam com rolagem suave. Movimento reduzido
 desativa a cortina. Voltar e avançar entre as páginas também são tratados.
 Nenhuma dependência foi adicionada.
+
+## Botão flutuante
+
+WhatsApp durante a leitura. Ao revelar o rodapé, o controle muda para a seta circular de voltar ao início de Sobre (/sobre#inicio), com rolagem suave. O fim do conteúdo principal controla a troca para evitar que o footer sticky acione a seta enquanto ainda estiver coberto. A logo mantém o respiro do botão, inclusive no celular.

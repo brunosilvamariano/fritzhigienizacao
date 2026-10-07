@@ -5,6 +5,8 @@
   position: relative;
 }
 .hero-copy {
+  background: var(--paper);
+  color: var(--ink);
   padding: 70px 38px 38px var(--gutter);
 }
 .hero h1 {
@@ -54,7 +56,7 @@
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #f9f4e8;
+  color: var(--taupe);
   writing-mode: vertical-rl;
   display: flex;
   gap: 15px;
@@ -64,19 +66,21 @@
   display: block;
   width: 1px;
   height: 140px;
-  background: #f9f4e890;
+  background: #dcc5b790;
 }
 .image-credit {
   position: absolute;
   right: 20px;
   bottom: 18px;
   color: #fff;
-  background: #24272090;
+  background: #27323a90;
   padding: 5px 8px;
   font-size: 9px;
   letter-spacing: 0.03em;
 }
 .hero-continuation {
+  background: var(--paper);
+  color: var(--ink);
   padding: 35px 50px 45px var(--gutter);
   border-top: 1px solid var(--line);
 }
@@ -97,26 +101,27 @@
   position: absolute;
   left: calc(39% - 26px);
   bottom: 42px;
-  background: var(--paper);
+  background: var(--ink);
+  color: var(--taupe);
   padding: 10px 15px 10px 10px;
   display: flex;
   gap: 12px;
   align-items: center;
   font-size: 10px;
   line-height: 1.7;
-  box-shadow: 0 2px 12px #2427200a;
+  box-shadow: 0 2px 12px #27323a0a;
 }
 .material-note small {
-  color: var(--muted);
+  color: var(--taupe);
 }
 .material-swatch {
   width: 34px;
   height: 44px;
   background: repeating-linear-gradient(
     91deg,
-    #8c613d,
-    #a67d55 3px,
-    #98704a 5px
+    var(--copper),
+    var(--taupe) 3px,
+    var(--copper) 5px
   );
 }
 @media (min-width: 1600px) {
@@ -244,7 +249,7 @@
   background: var(--line);
 }
 .slide-selector[aria-pressed='true'] .slide-track {
-  background: #85513245;
+  background: #89706145;
 }
 .slide-progress {
   display: block;
@@ -291,4 +296,23 @@
   .slide-progress {
     transform: scaleX(1);
   }
+}
+
+.hero .eyebrow,
+.hero .rotation-toggle {
+  color: var(--ink);
+}
+.hero .slide-progress {
+  background: var(--copper);
+}
+.hero .hero-continuation {
+  border-top-color: var(--line);
+}
+.hero .hero-copy .whatsapp-link {
+  background: var(--ink);
+  color: var(--paper);
+}
+.hero .hero-copy .whatsapp-link:hover {
+  background: var(--copper);
+  color: var(--white);
 }

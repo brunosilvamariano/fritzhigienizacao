@@ -13,18 +13,18 @@ export const aboutImages = {
     desktop: kitchenDesktop,
     tablet: kitchenTablet,
     mobile: kitchenMobile,
-    alt: 'Estudo de cozinha em carvalho com ilha de travertino e luz natural, gerado por IA.',
+    alt: 'Cozinha em carvalho com ilha de travertino e luz natural.',
   },
   living: {
     desktop: livingDesktop,
     tablet: livingTablet,
     mobile: livingMobile,
-    alt: 'Estudo de sala com estante planejada em carvalho e sofá de linho, gerado por IA.',
+    alt: 'Sala com estante planejada em carvalho e sofá de linho.',
   },
   detail: {
     desktop: detailDesktop,
     tablet: detailTablet,
     mobile: detailMobile,
-    alt: 'Estudo de marcenaria em carvalho com puxadores em cobre e tampo em travertino, gerado por IA.',
+    alt: 'Marcenaria em carvalho com puxadores em cobre e tampo em travertino.',
   },
 } as const;
