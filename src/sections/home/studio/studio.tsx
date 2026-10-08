@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Reveal } from '@/animations/reveal';
 import { Arrow } from '@/components/ui/arrow';
 import { DemoNote } from '@/components/ui/demo-note';
-import pattern from '@/assets/images/shared/ariyana-demo/pattern.avif';
+import fritzLogo from '@/assets/images/shared/fritz/fritz-mark.png';
 import { StudioPanels } from './studio-panels';
 import { StudioTitle } from './studio-title';
 import './studio.css';
@@ -18,22 +18,24 @@ export function Studio() {
       <div className="studio-intro section tw:flex">
         <Reveal>
           <span className="section-kicker">
-            Por dentro <i>da</i> Traço
+            Conheça <i>a</i> Fritz
           </span>
           <StudioTitle />
           <Link href="/sobre" className="pill-link">
-            Saiba mais <Arrow />
+            Conheça a Fritz <Arrow />
           </Link>
         </Reveal>
         <Image
-          src={pattern}
-          alt="Composição geométrica em branco, vermelho e laranja"
+          src={fritzLogo}
+          alt="Logo da Fritz Higienização e Impermeabilização"
           className="studio-pattern"
+          sizes="(min-width: 992px) 27vw, 1px"
         />
       </div>
       <div className="studio-demo">
         <DemoNote>
-          Histórico demonstrativo do Ariyana — imagens de ambientes da Traço.
+          Conheça os serviços. As imagens são ilustrativas e não representam
+          antes e depois.
         </DemoNote>
       </div>
       <StudioPanels />

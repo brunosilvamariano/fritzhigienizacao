@@ -14,25 +14,25 @@ export function AboutStory() {
       </figure>
       <div className="about-story-grid tw:grid">
         <Reveal>
-          <span className="section-kicker">O olhar da Traço</span>
+          <span className="section-kicker">O cuidado Fritz</span>
           <h2 id="about-story-title">
-            Seu jeito de viver.
+            Sua peça.
             <br />
             Nosso ponto de partida.
           </h2>
         </Reveal>
         <Reveal className="about-story-copy">
           <p>
-            Uma bancada que aproxima. Um armário que organiza. Uma textura que
-            acolhe. O olhar da Traço reúne marcenaria, luz e proporção para
-            pensar o espaço como um todo.
+            A limpeza e a proteção começam pela avaliação do tecido e das
+            condições da peça. Conte à Fritz quais estofados precisam de
+            cuidado.
           </p>
           <p>
-            Da primeira ideia aos encontros entre madeira e pedra, o cuidado
-            está nas escolhas que dão sentido ao morar.
+            Envie fotos e sua localização para receber orientação sobre o
+            serviço e consultar a disponibilidade de atendimento.
           </p>
-          <WhatsAppLink context="o olhar da Traço e um projeto para meu espaço">
-            Conversar com a Traço
+          <WhatsAppLink context="higienização ou impermeabilização do meu estofado">
+            Consultar agenda
           </WhatsAppLink>
         </Reveal>
       </div>
@@ -42,7 +42,7 @@ export function AboutStory() {
             {...aboutImages.kitchen}
             sizes="(min-width:768px) 44vw, 100vw"
           />
-          <figcaption>Enxergar o espaço como um todo.</figcaption>
+          <figcaption>Avaliar o tecido e a peça.</figcaption>
         </figure>
         <figure>
           <ResponsiveImage
@@ -53,7 +53,7 @@ export function AboutStory() {
         </figure>
       </div>
       <div className="about-story-wordmark" aria-hidden="true">
-        Nosso traço.
+        Cuidado Fritz.
       </div>
     </section>
   );

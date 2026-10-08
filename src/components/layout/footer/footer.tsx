@@ -16,34 +16,52 @@ export function Footer() {
           <div className="footer-contact">
             <h2>Contato</h2>
             <p>
-              Traço Móveis Planejados
+              Fritz Higienização
               <br />
-              Espaços pensados para viver.
+              Higienização e impermeabilização.
             </p>
-            <WhatsAppLink>WhatsApp</WhatsAppLink>
+            <WhatsAppLink context="higienização ou impermeabilização. Quero consultar a agenda">
+              Consultar agenda
+            </WhatsAppLink>
             <a href={`tel:+${contact.whatsappNumber}`}>
               {contact.whatsappDisplay}
             </a>
           </div>
           <nav aria-label="Páginas principais">
-            <h2>Páginas</h2>
+            <h2>Navegue</h2>
             <Link href="/">Início</Link>
             <Link href="/sobre">Sobre</Link>
             <Link href="/servicos">Serviços</Link>
             <Link href="/contato">Contato</Link>
           </nav>
           <nav aria-label="Projetos e artigos">
-            <h2>Páginas</h2>
-            <Link href="/projetos">Projetos</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/blog/conversa-com-a-fwa">Artigo</Link>
-            <Link href="/projetos/cozinha-encontro">Detalhe do projeto</Link>
+            <h2>Navegue</h2>
+            <Link href="/projetos">Cuidados</Link>
+            <Link href="/blog">Dicas</Link>
+            <Link href="/blog/como-solicitar-orcamento">
+              Como pedir orçamento
+            </Link>
+            <Link href="/projetos/higienizacao-sofas">Limpeza de sofás</Link>
           </nav>
           <nav aria-label="Informações e privacidade">
             <h2>Informações</h2>
-            <Link href="/informacoes/estilos">Guia de estilos</Link>
-            <Link href="/informacoes/licencas">Licenças</Link>
-            <Link href="/informacoes/alteracoes">Alterações</Link>
+            <a
+              href={contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram da Fritz
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Higieniza%C3%A7%C3%A3o%20e%20Impermeabiliza%C3%A7%C3%A3o%20Fritz%2C%20R.%20Octac%C3%ADlio%20Jos%C3%A9%20de%20Souza%2C%2025%20-%20Jarivatuba%2C%20Joinville%20-%20SC%2C%2089230-435"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver perfil no Google
+            </a>
+            <Link href="/blog/secagem-de-estofados">
+              Cuidados após a limpeza
+            </Link>
             <PrivacyPreferences />
           </nav>
         </div>
@@ -51,10 +69,12 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <Link className="footer-wordmark" href="/">
-          {'//TRAÇO'}
+          {'FRITZ'}
         </Link>
         <div className="footer-credits">
-          <p>© {new Date().getFullYear()} Traço. Conceito demonstrativo.</p>
+          <p>
+            © {new Date().getFullYear()} Fritz Higienização e Impermeabilização.
+          </p>
           <a
             href={developer.website}
             target="_blank"

@@ -92,12 +92,17 @@ export const projects: readonly Project[] = [
   {
     id: '01',
     slug: projectSlugs[0],
-    title: 'Encontro',
-    category: 'Cozinha ampla',
-    introduction: 'Uma cozinha para preparar, receber e permanecer.',
+    title: 'Higienização',
+    category: 'Sofás',
+    introduction:
+      'Limpeza de sofás com atenção ao seu tecido e à rotina da casa.',
     description:
-      'O carvalho dá continuidade à parede de armários, enquanto a ilha em travertino organiza o centro do ambiente. A luz lateral revela a textura da madeira e acompanha os momentos à mesa.',
-    features: ['Ilha em travertino', 'Marcenaria integrada', 'Luz natural'],
+      'A avaliação da peça orienta o método de limpeza. Envie fotos do sofá e informe a quantidade de assentos, seu bairro e os pontos que precisam de atenção.',
+    features: [
+      'Avaliação do tecido',
+      'Limpeza do revestimento',
+      'Orientação de secagem',
+    ],
     images: {
       capa: {
         desktop: p01capadesktop,
@@ -124,12 +129,13 @@ export const projects: readonly Project[] = [
   {
     id: '02',
     slug: projectSlugs[1],
-    title: 'Essencial',
-    category: 'Cozinha compacta',
-    introduction: 'Tudo encontra seu lugar, mesmo em poucos metros.',
+    title: 'Limpeza',
+    category: 'Tapetes',
+    introduction:
+      'Cuidado para tapetes conforme suas fibras e condições de uso.',
     description:
-      'Uma composição linear reúne preparo e armazenamento. A bancada em travertino, a prateleira aberta e a mesa redonda aproximam a cozinha da rotina, com leveza e proporção.',
-    features: ['Composição linear', 'Prateleira aberta', 'Mesa de apoio'],
+      'Informe o material, as medidas aproximadas e sua localização. A equipe orienta sobre a limpeza indicada e combina as condições de atendimento para o seu tapete.',
+    features: ['Avaliação das fibras', 'Medidas da peça', 'Cuidado adequado'],
     images: {
       capa: {
         desktop: p02capadesktop,
@@ -156,12 +162,17 @@ export const projects: readonly Project[] = [
   {
     id: '03',
     slug: projectSlugs[2],
-    title: 'Refúgio',
-    category: 'Quarto principal',
-    introduction: 'Organização que deixa espaço para descansar.',
+    title: 'Higienização',
+    category: 'Colchões',
+    introduction:
+      'Limpeza do revestimento para cuidar do seu espaço de descanso.',
     description:
-      'O armário de portas alinhadas acompanha a arquitetura do quarto. Cabeceira, mesas suspensas e roupa de cama em linho criam uma composição tranquila, com madeira e pedra em equilíbrio.',
-    features: ['Armário sob medida', 'Cabeceira integrada', 'Linho natural'],
+      'Envie fotos e informe o tamanho do colchão. A higienização considera o tecido e as condições da peça, com orientações sobre ventilação, secagem e retorno ao uso.',
+    features: [
+      'Avaliação do tecido',
+      'Tamanho do colchão',
+      'Ventilação e secagem',
+    ],
     images: {
       capa: {
         desktop: p03capadesktop,
@@ -188,12 +199,16 @@ export const projects: readonly Project[] = [
   {
     id: '04',
     slug: projectSlugs[3],
-    title: 'Convívio',
-    category: 'Sala de estar',
-    introduction: 'Um lugar para reunir histórias e objetos.',
+    title: 'Higienização',
+    category: 'Poltronas',
+    introduction: 'Atenção aos detalhes de cada poltrona.',
     description:
-      'A estante organiza livros e cerâmicas sem preencher todos os espaços. O painel ripado e os armários baixos dão unidade à parede, em diálogo com o sofá de linho e a mesa de travertino.',
-    features: ['Estante integrada', 'Painel ripado', 'Armazenamento discreto'],
+      'Braços, assento e encosto recebem cuidado de acordo com o revestimento. Mostre a peça à equipe e consulte a disponibilidade de atendimento no seu endereço.',
+    features: [
+      'Braços e encosto',
+      'Cuidado com o assento',
+      'Avaliação da peça',
+    ],
     images: {
       capa: {
         desktop: p04capadesktop,
@@ -220,12 +235,16 @@ export const projects: readonly Project[] = [
   {
     id: '05',
     slug: projectSlugs[4],
-    title: 'Equilíbrio',
-    category: 'Banheiro',
-    introduction: 'Precisão nos encontros. Leveza no conjunto.',
+    title: 'Proteção',
+    category: 'Impermeabilização',
+    introduction: 'Proteção para ajudar a reduzir a absorção de líquidos.',
     description:
-      'A bancada suspensa combina gavetas em carvalho e uma cuba integrada ao travertino. O espelho e o nicho de toalhas completam um espaço de linhas limpas e luz acolhedora.',
-    features: ['Bancada suspensa', 'Cuba integrada', 'Nicho em carvalho'],
+      'A impermeabilização depende da compatibilidade do tecido. A equipe avalia a indicação e orienta sobre uso e conservação. O tratamento não dispensa os cuidados do dia a dia.',
+    features: [
+      'Compatibilidade do tecido',
+      'Proteção do estofado',
+      'Orientações de uso',
+    ],
     images: {
       capa: {
         desktop: p05capadesktop,
@@ -252,12 +271,16 @@ export const projects: readonly Project[] = [
   {
     id: '06',
     slug: projectSlugs[5],
-    title: 'Concentração',
-    category: 'Escritório integrado',
-    introduction: 'Um espaço de trabalho que pertence à casa.',
+    title: 'Higienização',
+    category: 'Cadeiras',
+    introduction: 'Limpeza de cadeiras estofadas para casa e trabalho.',
     description:
-      'A mesa faz parte da estante e preserva espaço livre para a cadeira. Armários fechados, livros e uma iluminação pontual aproximam o trabalho do ambiente de estar, sem interromper sua linguagem.',
-    features: ['Mesa integrada', 'Cabos ocultos', 'Estante sob medida'],
+      'Informe a quantidade e envie fotos dos assentos e encostos. O orçamento considera as peças e o cuidado adequado ao material, para combinar o atendimento com clareza.',
+    features: [
+      'Assentos e encostos',
+      'Quantidade de peças',
+      'Avaliação do revestimento',
+    ],
     images: {
       capa: {
         desktop: p06capadesktop,

@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/config/metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { projects } from '@/content/projects';
@@ -15,13 +16,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
-  if (!project) return { title: 'Projeto não encontrado' };
-  return {
+  if (!project) return { title: 'Serviço não encontrado' };
+  return withSocialMetadata({
     title: `${project.title} — ${project.category}`,
-    description: `${project.introduction} Estudo conceitual de marcenaria da Traço.`,
+    description: `${project.introduction} Conheça o cuidado da Fritz em Joinville e região.`,
     alternates: { canonical: `/projetos/${slug}` },
     openGraph: {
-      title: `${project.title} — Traço`,
+      title: `${project.title} — Fritz`,
       description: project.introduction,
       url: `/projetos/${slug}`,
       images: [
@@ -29,11 +30,11 @@ export async function generateMetadata({
           url: project.images.capa.desktop.src,
           width: 2048,
           height: 1365,
-          alt: `${project.category} em carvalho e travertino`,
+          alt: `${project.category} — imagem ilustrativa do serviço`,
         },
       ],
     },
-  };
+  });
 }
 export default async function ProjectPage({
   params,

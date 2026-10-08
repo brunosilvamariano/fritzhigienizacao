@@ -1,6 +1,6 @@
 .project-ticker {
   overflow: clip;
-  background: #121212;
+  background: var(--ink);
   color: white;
   padding: 28px 0;
 }
@@ -56,7 +56,7 @@
   gap: 8px;
 }
 .project-card-tags span {
-  border: 1px solid #000;
+  border: 1px solid var(--brand-deep);
   border-radius: 999px;
   padding: 4px 20px;
   font-size: 16px;
@@ -68,7 +68,7 @@
   margin-top: 12px;
 }
 .project-collection .reference-badge {
-  background: #e8ff76;
+  background: var(--amber);
   left: auto;
   right: 15%;
 }

@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/config/metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { articles } from '@/content/articles';
@@ -13,10 +14,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const article = articles.find((item) => item.slug === slug);
-  return {
+  return withSocialMetadata({
     title: article?.title ?? 'Artigo',
-    robots: { index: false, follow: true },
-  };
+    description: article?.summary,
+    alternates: { canonical: `/blog/${slug}` },
+  });
 }
 export default async function ArticlePage({
   params,

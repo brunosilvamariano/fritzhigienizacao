@@ -1,25 +1,22 @@
 export const servicesContent = {
-  title: ['Do espaço que você tem.', 'Ao lugar que você imagina.'],
+  title: ['Do primeiro contato', 'ao cuidado com seu estofado.'],
   introduction:
-    'Um olhar completo para transformar ideias em espaços feitos para a sua rotina.',
+    'Um atendimento que começa pela atenção à sua peça. Veja como solicitar o cuidado que seu estofado precisa.',
   items: [
     {
-      id: 'projeto',
-      title: 'Projeto sob medida',
-      features: ['Layout', 'Soluções sob medida', 'Sua rotina'],
-      text: 'Layout e soluções pensadas para aproveitar cada espaço e acompanhar sua rotina.',
+      id: 'contato',
+      title: 'Você mostra a peça',
+      text: 'Envie fotos pelo WhatsApp e conte qual cuidado procura. Informe também sua localização para consultar o atendimento.',
     },
     {
-      id: 'materiais',
-      title: 'Curadoria de materiais',
-      features: ['Madeiras', 'Acabamentos', 'Ferragens'],
-      text: 'Madeiras, acabamentos e ferragens escolhidos para criar harmonia entre beleza e uso.',
+      id: 'avaliacao',
+      title: 'A Fritz avalia',
+      text: 'A partir das informações da peça, a Fritz orienta sobre o serviço e o orçamento. O tecido e as condições do estofado ajudam a definir o cuidado adequado.',
     },
     {
-      id: 'execucao',
-      title: 'Execução e instalação',
-      features: ['Produção', 'Montagem', 'Acabamentos'],
-      text: 'Da produção à montagem, cuidado com os encaixes, os acabamentos e o resultado final.',
+      id: 'cuidado',
+      title: 'O cuidado acontece',
+      text: 'Com o serviço combinado e o atendimento agendado, sua peça recebe o cuidado indicado. Você recebe orientações para secagem e conservação.',
     },
   ],
 } as const;

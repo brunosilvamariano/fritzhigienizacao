@@ -1,25 +1,25 @@
 export const studioContent = {
-  title: 'Um olhar atento ao seu jeito de viver.',
+  title: 'Quem cuida, olha de perto.',
   items: [
     {
-      id: 'olhar',
-      title: 'Nosso olhar',
-      text: 'Enxergar o espaço como um todo. Luz, proporção e marcenaria em uma mesma composição.',
+      id: 'fritz',
+      title: 'A Fritz',
+      text: 'Higienização e impermeabilização de estofados em Joinville e região. Um atendimento que começa pela avaliação da peça e pela atenção ao cuidado que ela precisa.',
     },
     {
-      id: 'rotina',
-      title: 'Sua rotina',
-      text: 'O que você guarda, os momentos que compartilha, o tempo para descansar. Tudo começa no seu jeito de viver.',
+      id: 'peca',
+      title: 'Cada peça importa',
+      text: 'Sofás, colchões, cadeiras e poltronas têm características próprias. O tecido e as condições de cada peça orientam a escolha do serviço.',
     },
     {
-      id: 'materia',
-      title: 'A matéria',
-      text: 'Madeira, pedra e texturas naturais. Materiais que conversam entre si e convidam ao toque.',
+      id: 'casa',
+      title: 'Cuidado na sua casa',
+      text: 'Converse com a Fritz para combinar o atendimento no local. Informe quais peças precisam de cuidado e receba orientações para preparar o ambiente.',
     },
     {
-      id: 'detalhe',
-      title: 'Cada detalhe',
-      text: 'Nos encontros, nos encaixes e nos acabamentos, o cuidado que transforma uma ideia em espaço.',
+      id: 'regiao',
+      title: 'Joinville e região',
+      text: 'Envie sua localização pelo WhatsApp para consultar a disponibilidade de atendimento e combinar o melhor horário.',
     },
   ],
-} as const;
+};

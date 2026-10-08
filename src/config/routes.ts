@@ -1,11 +1,11 @@
 /** Rotas de página. Fonte única para o sitemap e a transição entre páginas. */
 export const projectSlugs = [
-  'cozinha-encontro',
-  'cozinha-essencial',
-  'quarto-refugio',
-  'sala-convivio',
-  'banheiro-equilibrio',
-  'office-concentracao',
+  'higienizacao-sofas',
+  'limpeza-tapetes',
+  'higienizacao-colchoes',
+  'higienizacao-poltronas',
+  'impermeabilizacao-estofados',
+  'higienizacao-cadeiras',
 ] as const;
 
 export const routes = [
@@ -16,10 +16,10 @@ export const routes = [
   { path: '/contato', priority: 0.7 },
   { path: '/blog', priority: 0.5 },
   ...[
-    'conversa-com-a-fwa',
-    'excelencia-digital',
-    'site-do-mes',
-    'revolt-holographik',
+    'como-solicitar-orcamento',
+    'secagem-de-estofados',
+    'higienizacao-ou-impermeabilizacao',
+    'cuidados-com-tapetes',
   ].map((slug) => ({ path: `/blog/${slug}`, priority: 0.4 })),
   ...['estilos', 'licencas', 'alteracoes'].map((slug) => ({
     path: `/informacoes/${slug}`,

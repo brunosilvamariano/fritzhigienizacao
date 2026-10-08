@@ -13,18 +13,18 @@ export const processImages = [
     desktop: img0desktop,
     tablet: img0tablet,
     mobile: img0mobile,
-    alt: 'Plantas desenhadas a lápis e amostras de madeira, linho e pedra sobre uma mesa.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   {
     desktop: img1desktop,
     tablet: img1tablet,
     mobile: img1mobile,
-    alt: 'Maquete de cozinha planejada em carvalho sobre desenhos de projeto.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   {
     desktop: img2desktop,
     tablet: img2tablet,
     mobile: img2mobile,
-    alt: 'Detalhe do encontro entre gabinete em carvalho e bancada de travertino.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
 ] as const;

@@ -49,7 +49,7 @@
   margin-bottom: 32px;
 }
 .leaders-copy h2 span {
-  background: linear-gradient(#ee1515, #ff691e);
+  background: linear-gradient(var(--brand-logo), var(--brand));
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -59,7 +59,7 @@
   left: 60px;
   white-space: nowrap;
   padding: 16px 28px;
-  background: #d1aaff;
+  background: var(--mist);
   font:
     32px/1 var(--font-display),
     sans-serif;
@@ -147,7 +147,7 @@
     position: relative;
     min-height: 56px;
     padding: 12px 24px 12px 48px;
-    border: 2px solid #121212;
+    border: 2px solid var(--ink);
     font:
       22px/1 var(--font-display),
       sans-serif;
@@ -160,7 +160,7 @@
     position: absolute;
     width: 20px;
     height: 2px;
-    background: #121212;
+    background: var(--ink);
     left: 20px;
     top: 50%;
   }
@@ -202,7 +202,7 @@
     min-height: 72px;
     min-width: 220px;
     padding: 16px 28px 16px 64px;
-    border: 2px solid #121212;
+    border: 2px solid var(--ink);
     font:
       24px/1 var(--font-display),
       sans-serif;
@@ -214,7 +214,7 @@
     position: absolute;
     width: 24px;
     height: 2px;
-    background: #121212;
+    background: var(--ink);
     left: 28px;
     top: 50%;
   }

@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/config/metadata';
 import type { Metadata } from 'next';
 import { AboutOpening } from '@/sections/about/opening/about-opening';
 import {
@@ -10,27 +11,19 @@ import {
 import { Trust } from '@/sections/home/trust/trust';
 import { Leaders } from '@/sections/home/leaders/leaders';
 import { Contact } from '@/sections/home/contact/contact';
-import { siteMetadata } from '@/config/metadata';
 
-export const metadata: Metadata = {
-  title: 'Sobre a Traço',
+export const metadata: Metadata = withSocialMetadata({
+  title: 'Sobre a Fritz em Joinville',
   description:
-    'Madeira, luz e proporção. Conheça o olhar da Traço para os móveis planejados e os espaços de viver.',
+    'Conheça a Fritz: higienização e impermeabilização de estofados em Joinville e região. Saiba como consultar o serviço e combinar o atendimento.',
   alternates: { canonical: '/sobre' },
   openGraph: {
-    ...siteMetadata.openGraph,
-    title: 'Sobre a Traço',
+    title: 'Sobre a Fritz em Joinville | Fritz',
     description:
-      'Madeira, luz e proporção. Conheça o olhar da Traço para os espaços de viver.',
+      'Conheça a Fritz: higienização e impermeabilização de estofados em Joinville e região. Saiba como consultar o serviço e combinar o atendimento.',
     url: '/sobre',
   },
-  twitter: {
-    ...siteMetadata.twitter,
-    title: 'Sobre a Traço',
-    description:
-      'Madeira, luz e proporção. Conheça o olhar da Traço para os espaços de viver.',
-  },
-};
+});
 
 export default function AboutPage() {
   return (

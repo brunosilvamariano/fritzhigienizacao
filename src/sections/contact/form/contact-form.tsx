@@ -51,7 +51,7 @@ export function ContactForm() {
             setDraftUrl('');
           }}
         >
-          Diga olá
+          Consultar agenda
         </button>
         <button
           id="tab-quote"
@@ -66,7 +66,7 @@ export function ContactForm() {
             setDraftUrl('');
           }}
         >
-          Peça um orçamento
+          Solicitar orçamento
         </button>
       </div>
       <div id="contact-panel" role="tabpanel" aria-labelledby={`tab-${tab}`}>
@@ -82,13 +82,12 @@ export function ContactForm() {
               />
             </label>
             <label>
-              E-mail*
+              E-mail
               <input
                 name="email"
                 type="email"
                 autoComplete="email"
                 placeholder="Seu e-mail"
-                required
               />
             </label>
             <label>
@@ -101,35 +100,37 @@ export function ContactForm() {
               />
             </label>
             <label>
-              Empresa
+              Cidade e bairro
               <input
                 name="company"
-                autoComplete="organization"
-                placeholder="Nome da empresa"
+                autoComplete="address-level2"
+                placeholder="Sua cidade e bairro"
               />
             </label>
             {tab === 'quote' && (
               <>
                 <label>
-                  Tipo de projeto
+                  Serviço desejado
                   <span className="contact-select">
                     <select name="project">
-                      <option>Móveis planejados</option>
-                      <option>Cozinha</option>
-                      <option>Quarto</option>
-                      <option>Sala</option>
+                      <option>Higienização de sofá</option>
+                      <option>Limpeza de tapete</option>
+                      <option>Higienização de colchão</option>
+                      <option>Higienização de poltrona</option>
+                      <option>Impermeabilização de estofado</option>
+                      <option>Higienização de cadeiras</option>
                     </select>
                     <span aria-hidden="true" className="contact-select-arrow" />
                   </span>
                 </label>
                 <label>
-                  Orçamento
+                  Preferência de horário
                   <span className="contact-select">
                     <select name="budget">
-                      <option>A definir</option>
-                      <option>Até R$ 10 mil</option>
-                      <option>De R$ 10 a 30 mil</option>
-                      <option>Acima de R$ 30 mil</option>
+                      <option>A combinar com a equipe</option>
+                      <option>Manhã</option>
+                      <option>Tarde</option>
+                      <option>Tenho flexibilidade</option>
                     </select>
                     <span aria-hidden="true" className="contact-select-arrow" />
                   </span>
@@ -138,12 +139,17 @@ export function ContactForm() {
             )}
             <label className="contact-message">
               Mensagem*
-              <textarea name="message" placeholder="Conte sua ideia" required />
+              <textarea
+                name="message"
+                placeholder="Informe as peças, a quantidade e o cuidado que procura"
+                required
+              />
             </label>
           </div>
           <div className="contact-form-submit">
             <small className="demo-note">
-              Abra o WhatsApp com seus dados e confirme o envio da mensagem.
+              Confira sua solicitação no WhatsApp. O orçamento e a data são
+              confirmados pela equipe.
             </small>
             <button type="submit" className="pill-link">
               Continuar no WhatsApp ↗

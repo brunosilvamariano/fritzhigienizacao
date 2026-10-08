@@ -85,7 +85,7 @@ export function FloatingWhatsApp() {
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Conversar com a Traço pelo WhatsApp (abre em nova aba)"
+      aria-label="Conversar com a Fritz pelo WhatsApp (abre em nova aba)"
       data-track-contact="botão flutuante"
     >
       <WhatsAppIcon />

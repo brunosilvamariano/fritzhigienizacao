@@ -5,40 +5,47 @@ import { DemoNote } from '@/components/ui/demo-note';
 import './services.css';
 const services = [
   {
-    title: 'Design gráfico',
+    title: 'Higienização de sofás',
     tags: [
-      'Banners',
-      'Identidade de marca',
-      'Ilustração',
-      'Logotipos',
-      'Pôsteres',
-      'Embalagens',
+      'Sofás',
+      'Poltronas',
+      'Assentos',
+      'Encostos',
+      'Avaliação do tecido',
+      'Secagem',
     ],
   },
   {
-    title: 'Design UI/UX',
+    title: 'Limpeza de tapetes',
     tags: [
-      'Interface',
-      'Experiência do usuário',
-      'Aplicativos',
-      'Sistema de design',
-      'SaaS',
-      'Produtos',
+      'Tapetes',
+      'Fibras',
+      'Medidas',
+      'Avaliação da peça',
+      'Cuidados',
+      'Conservação',
     ],
   },
   {
-    title: 'Desenvolvimento web',
-    tags: ['WordPress', 'HTML', 'Webflow', 'Framer', 'Shopify', 'Shopware'],
+    title: 'Higienização de colchões',
+    tags: [
+      'Colchões',
+      'Revestimento',
+      'Tamanho da peça',
+      'Ventilação',
+      'Secagem',
+      'Cadeiras',
+    ],
   },
   {
-    title: 'Marketing digital',
+    title: 'Impermeabilização',
     tags: [
-      'SEO',
-      'Conteúdo',
-      'Redes sociais',
-      'Google Ads',
-      'Meta Ads',
-      'Otimização',
+      'Estofados',
+      'Proteção do tecido',
+      'Compatibilidade',
+      'Avaliação',
+      'Uso diário',
+      'Conservação',
     ],
   },
 ];
@@ -51,11 +58,10 @@ export function Services() {
       tabIndex={-1}
     >
       <div className="reference-heading">
-        <TitleReveal id="services-title" text="Soluções especializadas" />
-        <span className="reference-badge">Serviço cinco estrelas</span>
+        <TitleReveal id="services-title" text="Limpeza e proteção" />
+        <span className="reference-badge">Joinville e região</span>
         <DemoNote>
-          Serviços demonstrativos do Ariyana; não são a oferta comercial da
-          Traço.
+          A indicação do serviço depende do tecido e das condições da peça.
         </DemoNote>
       </div>
       <div className="services-list">
@@ -63,7 +69,7 @@ export function Services() {
           <article key={item.title} className="service-row tw:flex">
             <div className="service-copy">
               <h3>{item.title}</h3>
-              <p>Serviços incluídos:</p>
+              <p>Cuidados e aplicações:</p>
               <div className="service-tags">
                 {item.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
@@ -75,11 +81,11 @@ export function Services() {
                 eager
                 priority="auto"
                 unoptimized
-                {...projects[index].images.detalhe}
-                alt={`${projects[index].category} — estudo conceitual`}
+                {...projects[[0, 1, 2, 4][index]].images.detalhe}
+                alt="Imagem ilustrativa de higienização de estofados e tapetes."
                 sizes="(min-width:768px) 40vw,100vw"
               />
-              <small>Vídeo aguardando envio</small>
+              <small>Imagem ilustrativa do serviço</small>
             </div>
           </article>
         ))}
@@ -98,12 +104,11 @@ export function ServicesOpening() {
       />
       <div className="service-opening-content">
         <p className="service-opening-caption">
-          <span aria-hidden="true" />
-          Experiência <em>da</em> Traço
+          <span aria-hidden="true" />O cuidado <em>da</em> Fritz
         </p>
         <h1>
-          Descubra a criatividade
-          <br />e nossa{' '}
+          Limpeza de estofados
+          <br />e mais{' '}
           <span className="service-opening-photo">
             <ResponsiveImage
               {...projects[1].images.detalhe}
@@ -113,14 +118,14 @@ export function ServicesOpening() {
               sizes="150px"
             />
           </span>{' '}
-          experiência
+          proteção
         </h1>
         <a
           className="service-opening-down"
           href="#apresentacao-servicos"
-          aria-label="Assistir à apresentação da Traço"
+          aria-label="Assistir ao vídeo de apresentação"
         >
-          <span className="tw:sr-only">Assistir à apresentação da Traço</span>
+          <span className="tw:sr-only">Assistir ao vídeo de apresentação</span>
           <svg aria-hidden="true" viewBox="0 0 20 40" width="16" height="32">
             <path d="M10 2v32m-6-7 6 7 6-7" fill="none" stroke="currentColor" />
           </svg>

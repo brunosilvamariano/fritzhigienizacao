@@ -246,7 +246,7 @@
   top: 40px;
   left: 17%;
   padding: 20px 36px;
-  background: #fdbc53;
+  background: var(--amber);
   transform: rotate(-15deg);
   font:
     clamp(24px, 20.11px + 1.0356vw, 40px)/0.8 var(--font-display),
@@ -278,7 +278,7 @@
   flex-direction: column;
   gap: 4px;
   padding-top: 4px;
-  background: #fff;
+  background: var(--white);
   pointer-events: none;
 }
 .reference-divider i {
@@ -300,10 +300,10 @@
   height: 3px;
 }
 .reference-divider-linen {
-  color: #e9dcd2;
+  color: var(--sand);
 }
 .reference-divider-footer {
-  color: #000;
+  color: var(--brand-deep);
   flex-direction: column-reverse;
 }
 @media (max-width: 991px) {
@@ -333,5 +333,5 @@
 }
 
 .reference-divider-orange {
-  color: #ff691e;
+  color: var(--brand);
 }

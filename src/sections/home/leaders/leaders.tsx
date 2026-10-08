@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { useEffect, useRef } from 'react';
 import {
   motion,
@@ -33,23 +33,27 @@ export function Leaders() {
         const media = gsap.matchMedia();
         media.add('(prefers-reduced-motion: no-preference)', () => {
           const images = element.querySelectorAll('.leaders-image');
-          gsap.set(images, { rotation: 0, xPercent: -50, x: 0 });
-          const fan = gsap.to(images, {
-            rotation: (index) => (index === 0 ? 0 : -(10 - index) * 36),
-            duration: 1,
-            ease: 'power2.inOut',
-            paused: true,
-          });
+          const fan = gsap.fromTo(
+            images,
+            { rotation: 0, xPercent: -50, x: 0 },
+            {
+              rotation: (index) => (index === 0 ? 0 : -(10 - index) * 36),
+              duration: 1,
+              ease: 'power2.inOut',
+              paused: true,
+              immediateRender: true,
+            },
+          );
           ScrollTrigger.create({
             trigger: element,
             start: 'top 60%',
-            end: 'bottom 10%',
+            end: 'bottom top',
             onEnter: () => fan.play(),
             onEnterBack: () => fan.play(),
-            onLeave: () => fan.pause(0),
-            onLeaveBack: () => fan.pause(0),
+            onLeave: () => fan.reverse(),
+            onLeaveBack: () => fan.reverse(),
             onRefresh: (trigger) => {
-              if (trigger.progress > 0) fan.progress(1);
+              if (!trigger.isActive) fan.pause(0);
             },
           });
           return () => {
@@ -83,7 +87,7 @@ export function Leaders() {
               <div
                 className="leaders-image"
                 style={{
-                  transform: `translateX(-50%) rotate(${angle}deg)`,
+                  transform: `translateX(-50%) rotate(${reduced ? angle : 0}deg)`,
                 }}
                 key={angle}
               >
@@ -103,17 +107,22 @@ export function Leaders() {
         </div>
       </motion.div>
       <div className="leaders-copy">
-        <span className="leaders-badge">400+ grandes marcas</span>
+        <span className="leaders-badge">Joinville e região</span>
         <h2 id="leaders-title">
-          Escolhido por
+          Mais cuidado
           <br />
-          <span>líderes</span>
+          <span>para seu lar</span>
         </h2>
-        <Link href="/sobre" className="pill-link">
-          Saiba mais
-        </Link>
+        <WhatsAppLink
+          className="pill-link"
+          context="higienização ou impermeabilização. Quero consultar a disponibilidade de atendimento"
+        >
+          Consultar agenda
+        </WhatsAppLink>
       </div>
-      <DemoNote>Quantidade demonstrativa do Ariyana; fotos da Traço.</DemoNote>
+      <DemoNote>
+        Envie fotos e sua localização. A data é confirmada pela equipe.
+      </DemoNote>
     </section>
   );
 }

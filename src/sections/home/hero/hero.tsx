@@ -2,6 +2,7 @@ import { ResponsiveImage } from '@/components/media/responsive-image';
 import { heroSlides } from './hero.slides';
 import { heroContent } from './hero.content';
 import { contact } from '@/config/contact';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { InstagramIcon } from '@/components/ui/social-icons';
 import { HeroEntrance } from './hero-entrance';
 import './hero.css';
@@ -33,8 +34,12 @@ export function Hero() {
       <div className="hero-background" aria-hidden="true">
         <ResponsiveImage {...heroSlides[0].images} alt="" eager sizes="100vw" />
       </div>
-      <h1 id="hero-title" className="hero-wordmark" aria-label="Traço Studio">
-        <EntranceText text="TRAÇO STUDIO" />
+      <h1
+        id="hero-title"
+        className="hero-wordmark"
+        aria-label="Higienização de estofados em Joinville — Fritz"
+      >
+        <EntranceText text="Mais cuidado" />
       </h1>
       <div className="hero-content tw:relative tw:flex">
         <h2 aria-label={heroContent.title.join(' ')}>
@@ -61,9 +66,11 @@ export function Hero() {
         <div className="hero-stat">
           <span aria-hidden="true">✳</span>
           <div>
-            <strong>$200M+</strong>
-            <p>Captados por clientes</p>
-            <small>Demonstração do Ariyana</small>
+            <strong>Joinville</strong>
+            <p>e região</p>
+            <WhatsAppLink context="higienização ou impermeabilização do meu estofado">
+              Solicitar orçamento
+            </WhatsAppLink>
           </div>
         </div>
       </div>

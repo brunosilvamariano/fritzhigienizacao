@@ -105,7 +105,7 @@ export function Showreel({
       tabIndex={-1}
       className={`showreel ${variant === 'services' ? 'service-page-video' : ''}`}
       id={variant === 'services' ? 'apresentacao-servicos' : 'reel'}
-      aria-label={variant === 'services' ? 'Apresentação da Traço' : undefined}
+      aria-label={variant === 'services' ? 'Vídeo de apresentação' : undefined}
       aria-labelledby={variant === 'services' ? undefined : 'showreel-title'}
     >
       <div className="showreel-track" ref={track} data-reduced={!!reduced}>
@@ -123,14 +123,14 @@ export function Showreel({
                 { '--reel-label-x': reduced ? '34vw' : left } as MotionStyle
               }
             >
-              Play
+              Ver
             </motion.span>
             <motion.span
               style={
                 { '--reel-label-x': reduced ? '-34vw' : right } as MotionStyle
               }
             >
-              Reel
+              vídeo
             </motion.span>
           </motion.h2>
           <motion.div
@@ -146,14 +146,14 @@ export function Showreel({
           >
             <div className="showreel-video-wrapper">
               <video
-                id="traco-reel-video"
+                id="fritz-reel-video"
                 ref={video}
-                src="/videos/traco-showreel.mp4"
+                src="/videos/fritz-servico.mp4"
                 preload="auto"
                 muted
                 loop
                 playsInline
-                aria-label="Vídeo de apresentação enviado para a Traço"
+                aria-label="Vídeo de serviço da Fritz Higienização"
                 onPlay={() => setPlaying(true)}
                 onPause={() => setPlaying(false)}
                 onError={() => setError(true)}
@@ -163,7 +163,7 @@ export function Showreel({
               className="showreel-control"
               type="button"
               aria-label={playing ? 'Pausar vídeo' : 'Reproduzir vídeo'}
-              aria-controls="traco-reel-video"
+              aria-controls="fritz-reel-video"
               onClick={toggle}
             >
               {variant === 'services' && playing ? (

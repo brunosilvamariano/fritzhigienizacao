@@ -69,7 +69,7 @@
 }
 .studio-card-heading::after {
   content: '';
-  background: #000;
+  background: var(--brand-deep);
   width: 78px;
   height: 8px;
 }
@@ -95,7 +95,7 @@
   max-width: 100%;
   font-size: 20px;
   line-height: 1.5;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--brand-deep);
   padding-top: 40px;
   margin: 0 0 52px;
 }

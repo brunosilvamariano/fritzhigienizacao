@@ -13,18 +13,18 @@ export const aboutImages = {
     desktop: kitchenDesktop,
     tablet: kitchenTablet,
     mobile: kitchenMobile,
-    alt: 'Cozinha em carvalho com ilha de travertino e luz natural.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   living: {
     desktop: livingDesktop,
     tablet: livingTablet,
     mobile: livingMobile,
-    alt: 'Sala com estante planejada em carvalho e sofá de linho.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   detail: {
     desktop: detailDesktop,
     tablet: detailTablet,
     mobile: detailMobile,
-    alt: 'Marcenaria em carvalho com puxadores em cobre e tampo em travertino.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
 } as const;

@@ -4,9 +4,9 @@ export function DesktopNavigation() {
   const pathname = usePathname();
   const links = [
     { href: '/sobre', label: 'Sobre' },
-    { href: '/projetos', label: 'Projetos' },
+    { href: '/projetos', label: 'Cuidados' },
     { href: '/servicos', label: 'Serviços' },
-    { href: '/contato', label: 'Contato' },
+    { href: '/contato', label: 'Agendamento' },
   ];
   return (
     <nav

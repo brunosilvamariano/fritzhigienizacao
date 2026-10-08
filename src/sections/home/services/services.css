@@ -1,8 +1,8 @@
 .services {
-  background: #e9dcd2;
+  background: var(--sand);
 }
 .services .reference-badge {
-  background: #ffcb68;
+  background: var(--amber);
   left: 18%;
   top: 52px;
 }
@@ -10,11 +10,11 @@
   position: sticky;
   top: 100px;
   padding: 60px 0;
-  border-top: 1px solid #121212;
+  border-top: 1px solid var(--ink);
   gap: 40px;
   align-items: center;
   justify-content: space-between;
-  background: #e9dcd2;
+  background: var(--sand);
   flex-wrap: wrap;
 }
 .service-copy {
@@ -152,7 +152,7 @@
 .service-opening-caption > span {
   width: 0.8em;
   height: 0.8em;
-  background: #121212;
+  background: var(--ink);
   border-radius: 50%;
   margin-right: 4px;
 }
@@ -187,14 +187,14 @@
   aspect-ratio: 1;
   border-radius: 50%;
   opacity: 0.1;
-  background: linear-gradient(#fff 20%, #ff691e);
+  background: linear-gradient(var(--white) 20%, var(--mist));
 }
 .service-opening-circle-top {
   inset: 0 0 auto auto;
-  background: linear-gradient(#ff691e, #fff 70%);
+  background: linear-gradient(var(--mist), var(--white) 70%);
 }
 .service-opening-down {
-  border: 1px solid #121212;
+  border: 1px solid var(--ink);
   border-radius: 999px;
   width: 30px;
   height: 56px;
@@ -205,7 +205,7 @@
   position: absolute;
   right: 5%;
   top: 55%;
-  border-bottom: 65px solid #ffb18b;
+  border-bottom: 65px solid var(--blue-soft);
   border-right: 80px solid transparent;
 }
 @media (max-width: 991px) {
@@ -224,7 +224,7 @@
     border-right-width: 50px;
   }
   body:has(.services-page) .site-header {
-    border-bottom: 1px solid #12121240;
+    border-bottom: 1px solid #102e4a40;
   }
   body:has(.services-page) .brand {
     border-bottom: 0;
@@ -261,10 +261,10 @@
     width: 75px;
   }
   .service-opening-circle {
-    background: linear-gradient(#fff 30%, #ff691e);
+    background: linear-gradient(var(--white) 30%, var(--mist));
   }
   .service-opening-circle-top {
-    background: linear-gradient(#ff691e, #fff 70%);
+    background: linear-gradient(var(--mist), var(--white) 70%);
   }
   .service-opening-triangle {
     border-bottom-width: 34px;

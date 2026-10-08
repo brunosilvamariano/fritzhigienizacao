@@ -16,24 +16,24 @@ export const studioImages = [
     desktop: olharDesktop,
     tablet: olharTablet,
     mobile: olharMobile,
-    alt: 'Interior com estante em carvalho, mesa em travertino e poltrona de linho.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   {
     desktop: rotinaDesktop,
     tablet: rotinaTablet,
     mobile: rotinaMobile,
-    alt: 'Dormitório com marcenaria em madeira e cama em linho.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   {
     desktop: materiaDesktop,
     tablet: materiaTablet,
     mobile: materiaMobile,
-    alt: 'Composição de carvalho, travertino e linho sob luz natural.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
   {
     desktop: detalheDesktop,
     tablet: detalheTablet,
     mobile: detalheMobile,
-    alt: 'Detalhe de acabamento no encontro entre gabinete de carvalho e bancada de travertino.',
+    alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
   },
 ];

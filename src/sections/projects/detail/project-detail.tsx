@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { whatsappUrl } from '@/config/contact';
 import { type Project, projectPath } from '@/content/projects';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { DemoNote } from '@/components/ui/demo-note';
@@ -23,36 +24,43 @@ export function ProjectDetail({
         </h1>
         <div className="project-meta">
           <div>
-            <strong>Projeto</strong>
+            <strong>Serviço</strong>
             <p>{project.title}</p>
           </div>
           <div>
-            <strong>Ambiente</strong>
+            <strong>Peça</strong>
             <p>{project.category}</p>
           </div>
           <div>
-            <strong>Materiais</strong>
-            <p>Carvalho e travertino</p>
+            <strong>Atendimento</strong>
+            <p>Joinville e região</p>
           </div>
           <div>
             <strong>Tipo</strong>
-            <p>Estudo conceitual</p>
+            <p>Avaliação do tecido</p>
           </div>
-          <Link className="pill-link" href="/contato">
-            Conversar ↗
+          <Link
+            className="pill-link"
+            href={whatsappUrl(
+              `${project.title.toLowerCase()} de ${project.category.toLowerCase()}`,
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar orçamento ↗
           </Link>
         </div>
         <div className="project-cover">
           <ResponsiveImage
             {...project.images.capa}
-            alt={`${project.category} — ${project.title}`}
+            alt="Imagem ilustrativa de higienização de estofados e tapetes."
             eager
             sizes="90vw"
           />
         </div>
       </section>
       <section className="project-story section">
-        <h2>Por que este olhar</h2>
+        <h2>O cuidado indicado</h2>
         <div>
           <p className="project-lead">{project.introduction}</p>
           <p>{project.description}</p>
@@ -60,38 +68,38 @@ export function ProjectDetail({
       </section>
       <section
         className="project-showcase section"
-        aria-label="Perspectivas do projeto"
+        aria-label="Imagens ilustrativas do serviço"
       >
         <div>
           <ResponsiveImage
             {...project.images.angulo}
-            alt={`${project.category} — ${project.title}`}
+            alt="Imagem ilustrativa de higienização de estofados e tapetes."
             sizes="43vw"
           />
         </div>
         <div>
           <ResponsiveImage
             {...project.images.meio}
-            alt={`${project.category} — ${project.title}`}
+            alt="Imagem ilustrativa de higienização de estofados e tapetes."
             sizes="43vw"
           />
         </div>
       </section>
       <section className="project-overview section">
         <div>
-          <h2>Visão do projeto</h2>
+          <h2>Antes de agendar</h2>
           <p>{project.description}</p>
           <DemoNote>
-            Métricas abaixo são demonstrações do projeto da referência Ariyana,
-            sem relação com resultados da Traço.
+            Informe as características da peça para receber uma orientação
+            adequada.
           </DemoNote>
         </div>
         <div className="project-overview-stats">
           {[
-            { value: '120%', label: 'Aumento de visitas orgânicas' },
-            { value: '165%', label: 'Aumento da conversão' },
-            { value: '230%', label: 'Aumento de visitas orgânicas' },
-            { value: '125%', label: 'Aumento de visitas orgânicas' },
+            { value: '01', label: 'Envie fotos da peça' },
+            { value: '02', label: 'Informe a quantidade' },
+            { value: '03', label: 'Conte sua cidade e bairro' },
+            { value: '04', label: 'Combine a data com a equipe' },
           ].map((item) => (
             <div key={item.value}>
               <strong>{item.value}</strong>
@@ -102,20 +110,21 @@ export function ProjectDetail({
       </section>
       <section
         className="project-quote section"
-        aria-label="Madeira, luz e proporção"
+        aria-label="Cuidado com seus estofados"
       >
         <p>
-          Formas
+          Cuidado
           <br />
-          que acolhem
-          <br />e ficam
+          para as peças
           <br />
-          na memória
+          que fazem
+          <br />
+          parte do seu lar
         </p>
       </section>
       <section className="project-result section">
         <div>
-          <h2>O resultado</h2>
+          <h2>Cuidados e orientações</h2>
           <p>{project.description}</p>
         </div>
         <div className="project-result-gallery">
@@ -123,14 +132,14 @@ export function ProjectDetail({
             <div key={view}>
               <ResponsiveImage
                 {...project.images[view]}
-                alt={`${project.category} — ${view}`}
+                alt="Imagem ilustrativa de higienização de estofados e tapetes."
                 sizes="50vw"
               />
             </div>
           ))}
         </div>
         <Link className="pill-link" href={projectPath(next)}>
-          Próximo projeto: {next.title} ↗
+          Conheça também: {next.title} ↗
         </Link>
       </section>
     </>

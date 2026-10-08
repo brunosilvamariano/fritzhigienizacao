@@ -2,6 +2,7 @@ import type { articles } from '@/content/articles';
 import { projects } from '@/content/projects';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { DemoNote } from '@/components/ui/demo-note';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import './blog-article.css';
 export function BlogArticle({
   article,
@@ -16,49 +17,41 @@ export function BlogArticle({
         <span className="section-kicker">{article.date}</span>
         <h1>{article.title}</h1>
         <DemoNote>
-          Resumo demonstrativo do artigo da referência Ariyana. Imagens da
-          coleção Traço.
+          Orientações gerais de cuidado. Imagens ilustrativas dos serviços.
         </DemoNote>
       </header>
       <div className="blog-article-image">
         <ResponsiveImage
           {...projects[index].images.capa}
-          alt={`${projects[index].category} — estudo conceitual`}
+          alt="Imagem ilustrativa de higienização de estofados e tapetes."
           eager
           sizes="90vw"
         />
       </div>
       <div className="blog-richtext">
-        <h2>Um olhar sobre a criação</h2>
+        <h2>O que você precisa saber</h2>
         <p>{article.summary}</p>
-        <h2>Qualidade e intenção</h2>
-        <p>
-          A referência discute um trabalho criativo atento ao contexto, à
-          identidade e à experiência das pessoas. A apresentação visual une
-          tipografia marcante, composição e movimento.
-        </p>
-        <blockquote>
-          Criar uma experiência começa por compreender quem vai usá-la.
-        </blockquote>
-        <h2>Dentro do tema</h2>
-        <p>
-          Este resumo ocupa a estrutura editorial do artigo para demonstrar a
-          composição da página. O texto definitivo da Traço poderá ser incluído
-          nesta mesma estrutura.
-        </p>
+        <p>{article.body}</p>
+        <h2>Atenção à sua peça</h2>
+        <p>{article.detail}</p>
+        <blockquote>{article.tip}</blockquote>
+        <h2>Orientação antes do atendimento</h2>
+        <p>{article.closing}</p>
         <div className="blog-article-secondary">
           <ResponsiveImage
             {...projects[index].images.detalhe}
-            alt={`${projects[index].category} — estudo conceitual`}
+            alt="Imagem ilustrativa de higienização de estofados e tapetes."
             sizes="70vw"
           />
         </div>
-        <h2>Ideias que ganham forma</h2>
+        <h2>Converse com a Fritz</h2>
         <p>
-          O objetivo da demonstração é mostrar como título, imagens, texto e
-          destaques convivem na leitura, mantendo a linguagem visual da
-          referência.
+          Envie fotos, a quantidade de peças e sua localização para solicitar
+          uma avaliação e consultar a agenda.
         </p>
+        <WhatsAppLink context="higienização ou impermeabilização. Li as dicas e quero consultar o serviço">
+          Solicitar orçamento
+        </WhatsAppLink>
       </div>
     </article>
   );

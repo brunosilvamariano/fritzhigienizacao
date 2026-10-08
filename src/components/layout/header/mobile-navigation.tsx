@@ -73,8 +73,8 @@ export function MobileNavigation() {
       >
         <div className="mobile-menu-inner">
           <div className="mobile-menu-top">
-            <p id="mobile-menu-title">Traço Studio</p>
-            <span>Seu espaço, no seu traço.</span>
+            <p id="mobile-menu-title">Fritz Higienização</p>
+            <span>Higienização e impermeabilização</span>
           </div>
           <nav className="mobile-links" aria-label="Menu completo">
             {navigation.map((item) => (
@@ -93,7 +93,7 @@ export function MobileNavigation() {
           </nav>
           <div className="mobile-menu-contact">
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-              Vamos conversar
+              Consultar agenda
             </a>
             <a
               className="mobile-menu-social"

@@ -8,17 +8,17 @@ export function ProjectGallery() {
     <>
       <PageOpening
         id="collection-title"
-        caption="Histórico dos projetos"
-        title="Nosso olhar criativo define o que construímos."
+        caption="Conheça os cuidados"
+        title="Limpeza e proteção para as peças da sua casa."
       >
         <Link className="pill-link" href="/contato">
-          Vamos conversar ↗
+          Solicitar orçamento ↗
         </Link>
       </PageOpening>
       <div className="project-ticker" aria-hidden="true">
         <div>
           {[0, 1, 2].map((n) => (
-            <span key={n}>Cozinhas ✳ Quartos ✳ Salas ✳ </span>
+            <span key={n}>Sofás ✳ Tapetes ✳ Colchões ✳ </span>
           ))}
         </div>
       </div>
@@ -37,8 +37,8 @@ export function ProjectGallery() {
         aria-labelledby="collection-heading"
       >
         <div className="reference-heading">
-          <h2 id="collection-heading">Nossos novos projetos</h2>
-          <span className="reference-badge">Espaços sob medida</span>
+          <h2 id="collection-heading">Serviços para cada peça</h2>
+          <span className="reference-badge">Higienização e proteção</span>
         </div>
         <div className="collection-grid">
           {projects.map((project, index) => (
@@ -46,7 +46,7 @@ export function ProjectGallery() {
               <Link className="project-card-image" href={projectPath(project)}>
                 <ResponsiveImage
                   {...project.images.capa}
-                  alt={`${project.category} — ${project.title}`}
+                  alt="Imagem ilustrativa de higienização de estofados e tapetes."
                   eager={index === 0}
                   sizes="(min-width:768px) 43vw,100vw"
                 />
@@ -63,7 +63,7 @@ export function ProjectGallery() {
                   ))}
                 </div>
                 <small className="demo-note">
-                  Estudo conceitual de marcenaria
+                  Imagem ilustrativa do serviço
                 </small>
               </div>
             </article>

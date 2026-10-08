@@ -29,10 +29,10 @@ export function Process() {
       tabIndex={-1}
     >
       <div className="process-heading">
-        <TitleReveal id="process-title" text="Avaliar, implementar e operar" />
-        <p>Acompanhamos você do primeiro passo ao que vem depois.</p>
+        <TitleReveal id="process-title" text="Do orçamento ao cuidado" />
+        <p>Quatro passos para combinar o cuidado que sua peça precisa.</p>
         <small className="demo-note">
-          Demonstração — processo da referência Ariyana
+          O agendamento é confirmado pela equipe no WhatsApp.
         </small>
       </div>
       <div className="process-grid tw:grid">

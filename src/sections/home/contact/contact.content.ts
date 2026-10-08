@@ -1,7 +1,6 @@
 export const contactContent = {
-  title: 'Seu espaço começa com uma conversa.',
+  title: 'Seu estofado merece esse cuidado.',
   description:
-    'Conte sua ideia, os ambientes que deseja transformar e o que faz sentido para sua rotina.',
-  context:
-    'um novo projeto de móveis planejados. Gostaria de contar minha ideia e entender os próximos passos',
-} as const;
+    'Envie fotos da peça e sua localização pelo WhatsApp. A Fritz orienta sobre o serviço indicado, o orçamento e a disponibilidade de atendimento em Joinville e região.',
+  context: 'higienização ou impermeabilização do meu estofado',
+};

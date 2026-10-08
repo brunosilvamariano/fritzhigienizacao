@@ -44,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #121212;
+  color: var(--ink);
   font-family: var(--font-display), sans-serif;
   font-size: var(--heading-section);
   font-weight: 400;
@@ -62,7 +62,7 @@
   border: 1px solid #fff8;
   background: #fff3;
   backdrop-filter: blur(5px);
-  color: #000;
+  color: var(--brand-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,8 +78,8 @@
   bottom: 20px;
   left: 20px;
   right: 20px;
-  background: #000a;
-  color: #fff;
+  background: #102e4aaa;
+  color: var(--white);
   padding: 12px;
   text-align: center;
 }
@@ -99,7 +99,7 @@
 .showreel-track[data-reduced='true'] h2 {
   z-index: 3;
   pointer-events: none;
-  color: #121212;
+  color: var(--ink);
 }
 @media (max-width: 991px) {
   .showreel {
@@ -125,7 +125,7 @@
   .showreel h2 {
     z-index: 3;
     pointer-events: none;
-    color: #121212;
+    color: var(--ink);
     padding: 24px;
     font-size: clamp(48px, 10vw, 100px);
   }
@@ -179,9 +179,9 @@
   right: 20px;
   transform: none;
   width: 48px;
-  background: #e9dcd2;
+  background: var(--sand);
   border: 0;
-  color: #000;
+  color: var(--brand-deep);
 }
 .showreel.service-page-video .showreel-control span {
   font-size: 30px;
@@ -194,7 +194,7 @@
 
 @media (max-width: 991px) {
   .showreel h2 {
-    color: #121212;
+    color: var(--ink);
     padding: 0;
     font-size: var(--heading-section);
     opacity: 1;

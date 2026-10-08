@@ -6,5 +6,5 @@ export const servicesImages = {
   desktop,
   tablet,
   mobile,
-  alt: 'Encontro entre marcenaria em carvalho e bancada em travertino, com luz natural e amostra de linho.',
+  alt: 'Imagem ilustrativa de higienização de estofados e tapetes.',
 };

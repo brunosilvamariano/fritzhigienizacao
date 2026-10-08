@@ -10,17 +10,17 @@ test('link sem contexto usa a mensagem geral', () => {
   assert.ok(url.startsWith(`https://wa.me/${contact.whatsappNumber}?text=`));
   assert.equal(
     text(url),
-    'Olá! Conheci a Traço pelo site e gostaria de conversar sobre meu espaço.',
+    'Olá! Conheci a Fritz pelo site e gostaria de consultar a agenda para higienização ou impermeabilização.',
   );
 });
 
 test('contexto entra na mensagem e é codificado na URL', () => {
-  const url = whatsappUrl('cozinhas & salas');
+  const url = whatsappUrl('sofás & tapetes');
   assert.equal(url.includes(' '), false);
   assert.equal(url.includes('&'), false);
   assert.equal(
     text(url),
-    'Olá! Conheci a Traço pelo site e gostaria de conversar sobre cozinhas & salas.',
+    'Olá! Conheci a Fritz pelo site e gostaria de solicitar um orçamento para sofás & tapetes.',
   );
 });
 
@@ -35,28 +35,28 @@ test('orçamento envia todas as escolhas e preserva acentos e quebras de linha',
     name: ' Ana ',
     email: 'ana@example.com',
     phone: '47999990000',
-    company: 'Casa & Lar',
-    project: 'Cozinha',
-    budget: 'De R$ 10 a 30 mil',
-    message: 'Armários & ilha\nCarvalho',
+    company: 'Joinville & Jarivatuba',
+    project: 'Higienização de sofá',
+    budget: 'Manhã',
+    message: 'Sofá & poltrona\nDuas peças',
   }).forEach(([key, value]) => {
     data.set(key, value);
   });
   const url = new URL(contactFormUrl(data, 'quote'));
-  assert.equal(url.pathname, '/5547991597258');
+  assert.equal(url.pathname, '/5547999051278');
   assert.equal(
     text(url),
-    'Olá! Gostaria de solicitar um orçamento à Traço.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nEmpresa: Casa & Lar\nTipo de projeto: Cozinha\nOrçamento: De R$ 10 a 30 mil\nMensagem: Armários & ilha\nCarvalho',
+    'Olá! Gostaria de solicitar um orçamento à Fritz.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nCidade e bairro: Joinville & Jarivatuba\nServiço: Higienização de sofá\nPreferência de horário: Manhã\nMensagem: Sofá & poltrona\nDuas peças',
   );
 });
 test('contato geral omite campos vazios e escolhas exclusivas de orçamento', () => {
   const data = new FormData();
   data.set('name', 'Ana');
   data.set('message', 'Olá');
-  data.set('project', 'Sala');
+  data.set('project', 'Limpeza de tapete');
   data.set('company', '  ');
   assert.equal(
     text(contactFormUrl(data, 'hello')),
-    'Olá! Gostaria de conversar com a Traço.\n\nNome: Ana\nMensagem: Olá',
+    'Olá! Gostaria de consultar a agenda da Fritz.\n\nNome: Ana\nMensagem: Olá',
   );
 });

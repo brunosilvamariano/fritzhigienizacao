@@ -15,7 +15,7 @@ type Destination = {
   restoreScroll?: number;
 };
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
-const preloaderLetters = Array.from('//TRAÇO').map((letter, index) => ({
+const preloaderLetters = Array.from('FRITZ').map((letter, index) => ({
   letter,
   id: `preloader-${index}`,
   delay: `${0.05 + (index * 0.4) / 6}s`,

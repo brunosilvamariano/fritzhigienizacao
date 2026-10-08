@@ -8,9 +8,9 @@ export function GoogleProfile() {
       aria-labelledby="google-profile-title"
     >
       <span className="google-profile-label tw:uppercase">
-        Móveis planejados
+        Higienização e impermeabilização
       </span>
-      <h2 id="google-profile-title">Seu espaço. Seu traço.</h2>
+      <h2 id="google-profile-title">Cuidado para seus estofados.</h2>
       <div className="google-review-heading tw:flex tw:gap-[8px] tw:mb-[16px] tw:text-paper">
         <span className="google-wordmark">Google</span>
         <span>Avaliações</span>

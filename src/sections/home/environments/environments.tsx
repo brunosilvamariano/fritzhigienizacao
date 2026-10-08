@@ -14,7 +14,7 @@ import {
 } from 'framer-motion';
 import { projects } from '@/content/projects';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { Arrow } from '@/components/ui/arrow';
+import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import './environments.css';
 function WorkCard({
   index,
@@ -67,9 +67,12 @@ function WorkCard({
           </h3>
         </Link>
         <p>{project.description}</p>
-        <Link className="pill-link" href={`/projetos/${project.slug}`}>
-          Saiba mais <Arrow />
-        </Link>
+        <WhatsAppLink
+          className="pill-link"
+          context={`${project.title.toLowerCase()} de ${project.category.toLowerCase()}`}
+        >
+          Solicitar orçamento
+        </WhatsAppLink>
       </div>
       <div className="environment-photo">
         <ResponsiveImage
@@ -77,7 +80,7 @@ function WorkCard({
           priority="auto"
           unoptimized
           {...project.images.capa}
-          alt={`${project.category} — ${project.title}`}
+          alt="Imagem ilustrativa de higienização de estofados e tapetes."
           sizes="(min-width:768px) 500px,100vw"
         />
       </div>
@@ -111,8 +114,8 @@ export function Environments() {
       tabIndex={-1}
     >
       <div className="reference-heading">
-        <TitleReveal id="environments-title" text="Projetos em destaque" />
-        <span className="reference-badge">Espaços sob medida</span>
+        <TitleReveal id="environments-title" text="Cuidado para cada peça" />
+        <span className="reference-badge">Sofás, tapetes e estofados</span>
       </div>
       <div ref={track} className="environment-track" data-reduced={!!reduced}>
         <div className="environment-list">

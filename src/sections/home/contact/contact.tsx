@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { whatsappUrl } from '@/config/contact';
 import './contact.css';
 export function Contact() {
   return (
@@ -9,7 +9,7 @@ export function Contact() {
       tabIndex={-1}
     >
       <h2 id="contact-title" className="contact-accessible">
-        Vamos criar juntos
+        Consulte a agenda da Fritz
       </h2>
       {[false, true].map((stroke) => (
         <div
@@ -20,15 +20,23 @@ export function Contact() {
         >
           <div>
             {[0, 1].map((n) => (
-              <span key={n}>Vamos nos conectar e trabalhar juntos</span>
+              <span key={n}>Mais cuidado para a sua casa</span>
             ))}
           </div>
         </div>
       ))}
-      <Link href="/contato" className="contact-button">
-        <span className="contact-button-text">Vamos conversar</span>
+      <a
+        href={whatsappUrl(
+          'higienização ou impermeabilização. Quero consultar a agenda',
+        )}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-contact="consulta de agenda"
+        className="contact-button"
+      >
+        <span className="contact-button-text">Consultar agenda</span>
         <i aria-hidden="true">→</i>
-      </Link>
+      </a>
     </section>
   );
 }

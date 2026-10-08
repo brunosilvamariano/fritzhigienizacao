@@ -9,7 +9,7 @@ import { AnchorNavigation } from '@/components/layout/anchor-navigation';
 import { PageTransition } from '@/components/layout/page-transition/page-transition';
 import '@/styles/globals.css';
 
-export const viewport: Viewport = { themeColor: '#121212' };
+export const viewport: Viewport = { themeColor: '#102e4a' };
 export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

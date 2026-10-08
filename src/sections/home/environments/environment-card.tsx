@@ -40,9 +40,9 @@ export function EnvironmentCard({ item }: { item: Environment }) {
             {item.description}
           </p>
           <WhatsAppLink
-            context={`móveis planejados para ${item.label.toLocaleLowerCase('pt-BR')}`}
+            context={`higienização ou proteção de ${item.label.toLocaleLowerCase('pt-BR')}`}
           >
-            Planejar meu ambiente
+            Solicitar orçamento
           </WhatsAppLink>
         </div>
       </div>

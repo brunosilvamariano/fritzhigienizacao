@@ -1,29 +1,26 @@
 import Image from 'next/image';
 import { projects } from '@/content/projects';
-import { demoTeam, demoStats, demoWhy } from '@/content/ariyana-demo.team';
+import { demoStats, demoWhy } from '@/content/ariyana-demo.team';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { DemoNote } from '@/components/ui/demo-note';
 import { HorizontalRail } from '@/components/ui/horizontal-rail';
 import './about-details.css';
 export function AboutStats() {
   return (
-    <section
-      className="about-stats section"
-      aria-label="Métricas demonstrativas"
-    >
+    <section className="about-stats section" aria-label="Etapas de atendimento">
       <div className="about-stats-grid">
         <div className="about-stats-photo">
           <ResponsiveImage
             {...projects[5].images.capa}
-            alt={`${projects[5].category} — estudo conceitual`}
+            alt="Imagem ilustrativa de higienização de estofados e tapetes."
             sizes="45vw"
           />
         </div>
         {[
-          { number: '20+', text: 'Especialistas para atender você' },
-          { number: '90M+', text: 'Negócios apoiados em captação de recursos' },
-          { number: '100+', text: 'Clientes satisfeitos' },
-          { number: '4,9', text: 'Avaliação dos clientes' },
+          { number: '01', text: 'Avaliação da peça' },
+          { number: '02', text: 'Orientação sobre o serviço' },
+          { number: '03', text: 'Agendamento combinado' },
+          { number: '04', text: 'Cuidados após a limpeza' },
         ].map((item, index) => (
           <article className="about-stats-card" key={item.number}>
             <p>{item.text}</p>
@@ -48,21 +45,22 @@ export function WhyChoose() {
       <div className="about-why-heading">
         <h2 id="why-title">Por que nos escolher</h2>
         <div>
-          <h3>Somos os melhores</h3>
+          <h3>Atenção ao seu tecido</h3>
           <p>
-            A referência apresenta um estúdio que une estratégia, marca e
-            criação para apoiar empreendedores e empresas.
+            A Fritz orienta sobre a higienização e a impermeabilização conforme
+            o material e as condições da peça, do primeiro contato aos cuidados
+            depois do serviço.
           </p>
         </div>
       </div>
       <DemoNote>
-        Prazos demonstrativos do Ariyana, sem compromisso comercial da Traço.
+        Orçamento e disponibilidade são confirmados diretamente com a equipe.
       </DemoNote>
       <HorizontalRail>
         {[
-          { title: 'Respondemos em', value: '24 horas' },
-          { title: 'Proposta em', value: '7 dias' },
-          { title: 'Fechamos em', value: '60 dias' },
+          { title: 'Comece com', value: 'Fotos da peça' },
+          { title: 'Receba', value: 'Orientação' },
+          { title: 'Combine', value: 'Seu horário' },
         ].map((item, index) => (
           <article className="about-why-card" key={item.title}>
             <span>{item.title}</span>
@@ -84,21 +82,21 @@ export function AboutTeam() {
   return (
     <section className="about-team section" aria-labelledby="team-title">
       <div className="reference-heading">
-        <h2 id="team-title">Especialistas</h2>
-        <span className="reference-badge">20 integrantes</span>
-        <DemoNote>Equipe demonstrativa do Ariyana.</DemoNote>
+        <h2 id="team-title">Cuidado em cada etapa</h2>
+        <span className="reference-badge">Da avaliação à conservação</span>
+        <DemoNote>Imagens ilustrativas dos cuidados com estofados.</DemoNote>
       </div>
       <div className="about-team-grid">
         {[
-          { name: 'Alex Newman', role: 'Cofundador e designer principal' },
-          { name: 'Leslie Alexander', role: 'Coordenadora de marketing' },
-          { name: 'Savannah Nguyen', role: 'Designer web' },
-          { name: 'Albert Flores', role: 'Assistente de desenvolvimento' },
+          { name: 'Avaliar', role: 'Tecido e condições da peça' },
+          { name: 'Limpar', role: 'Higienização do revestimento' },
+          { name: 'Orientar', role: 'Secagem e retorno ao uso' },
+          { name: 'Conservar', role: 'Cuidados na rotina' },
         ].map((item, index) => (
           <article key={item.name}>
             <Image
-              src={demoTeam[index]}
-              alt={`Retrato da equipe demonstrativa: ${item.name}`}
+              src={projects[index].images.capa.desktop}
+              alt="Imagem ilustrativa de higienização"
             />
             <h3>{item.name}</h3>
             <p>{item.role}</p>
@@ -112,25 +110,37 @@ export function AboutAwards() {
   return (
     <section className="about-awards section" aria-labelledby="awards-title">
       <div className="reference-heading">
-        <h2 id="awards-title">Prêmios e troféus</h2>
-        <span className="reference-badge">Serviço cinco estrelas</span>
+        <h2 id="awards-title">Onde a Fritz atende</h2>
+        <span className="reference-badge">Consulte seu endereço</span>
         <DemoNote />
       </div>
       <div>
         {[
           {
-            name: 'Pixelry',
-            text: '3× agência criativa do dia',
-            status: 'Vencedor',
+            name: 'Joinville',
+            text: 'Higienização e impermeabilização',
+            status: 'Consultar agenda',
           },
-          { name: 'Designova', text: '5× menção honrosa', status: 'Menção' },
           {
-            name: 'Creatixly',
-            text: '2× design da semana',
-            status: 'Vencedor',
+            name: 'Itapoá',
+            text: 'São Francisco do Sul',
+            status: 'Consultar endereço',
           },
-          { name: 'Formatic', text: '8× design do dia', status: 'Vencedor' },
-          { name: 'Visualyn', text: '1× agência do ano', status: 'Premiado' },
+          {
+            name: 'Balneário Camboriú',
+            text: 'Balneário Piçarras',
+            status: 'Consultar endereço',
+          },
+          {
+            name: 'Barra Velha',
+            text: 'Balneário Barra do Sul',
+            status: 'Consultar endereço',
+          },
+          {
+            name: 'Seu bairro',
+            text: 'Envie sua localização pelo WhatsApp',
+            status: 'Confirmar atendimento',
+          },
         ].map((item) => (
           <article key={item.name} className="about-award-row">
             <strong>{item.name}</strong>
@@ -146,15 +156,15 @@ export function AboutLife() {
   return (
     <section className="about-life section" aria-labelledby="life-title">
       <div className="reference-heading">
-        <h2 id="life-title">Vida no estúdio</h2>
-        <p>Acompanhamos você do primeiro passo ao que vem depois.</p>
+        <h2 id="life-title">O cuidado de perto</h2>
+        <p>Conheça os cuidados para limpeza e conservação das suas peças.</p>
       </div>
       <div className="about-life-images">
         {projects.slice(0, 4).map((project) => (
           <div key={project.slug}>
             <ResponsiveImage
               {...project.images.angulo}
-              alt={`${project.category} — ${project.title}`}
+              alt="Imagem ilustrativa de higienização de estofados e tapetes."
               sizes="30vw"
             />
           </div>

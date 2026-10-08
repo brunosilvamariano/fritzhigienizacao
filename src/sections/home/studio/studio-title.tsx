@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 
 const text =
-  'Um estúdio criativo que dá forma a tudo que acontece no seu espaço.';
+  'Higienização e impermeabilização para cuidar do que faz parte da sua casa.';
 const words = text.split(' ').map((word, index) => ({ word, index }));
 
 export function StudioTitle() {

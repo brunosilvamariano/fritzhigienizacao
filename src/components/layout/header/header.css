@@ -31,6 +31,23 @@
   font-size: 30px;
   font-style: italic;
 }
+.brand > img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: none;
+}
+.brand-copy {
+  line-height: 0.95;
+}
+.brand-copy small {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.2;
+}
 .desktop-nav {
   flex: 1;
   gap: 28px;
@@ -91,7 +108,7 @@
 }
 @media (max-width: 991px) {
   .site-header {
-    border-bottom: 1px solid #1212124d;
+    border-bottom: 1px solid #102e4a4d;
   }
   .site-header[data-home='true'] {
     border-color: #ffffff4d;
@@ -123,6 +140,13 @@
   }
   .brand > span {
     font-size: 24px;
+  }
+  .brand > img {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-copy small {
+    font-size: 9px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,5 @@
 .process {
-  background: #f0f0f0;
+  background: var(--surface);
   border-radius: 100px;
 }
 .process-heading {
@@ -17,7 +17,7 @@
 .process-heading > p {
   font-size: 20px;
   line-height: 1.4;
-  color: #383838;
+  color: var(--muted);
 }
 .process-heading .demo-note {
   margin-top: 12px;
@@ -35,7 +35,7 @@
   width: 79%;
   left: 50%;
   transform: translateX(-50%);
-  border-top: 4px dashed #d9d9d9;
+  border-top: 4px dashed #bed0e1;
 }
 .process-item {
   position: relative;
@@ -46,14 +46,14 @@
   margin: 0 auto 32px;
   width: 32px;
   height: 32px;
-  background: #000;
+  background: var(--brand-deep);
   clip-path: polygon(50% 0, 100% 36%, 81% 100%, 19% 100%, 0 36%);
 }
 .process-card {
   position: relative;
   padding: 40px 16px 64px;
   border-radius: 40px;
-  background: #fff;
+  background: var(--white);
 }
 .process-count {
   display: block;
@@ -80,7 +80,7 @@
   min-height: 0;
   font-size: 18px;
   line-height: 1.4;
-  color: #383838;
+  color: var(--muted);
 }
 .process-description p::before {
   content: '';
@@ -98,7 +98,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #d9d9d9;
+  background: #bed0e1;
 }
 .process-toggle svg {
   transition: transform 0.4s;
@@ -107,7 +107,7 @@
   grid-template-rows: 1fr;
 }
 .process-item[data-open='true'] h3 {
-  color: #ee1515;
+  color: var(--brand-logo);
 }
 .process-item[data-open='true'] .process-toggle svg {
   transform: rotate(180deg);
@@ -162,6 +162,6 @@
 
 @media (max-width: 991px) {
   .process-item[data-open='true'] h3 {
-    color: #121212;
+    color: var(--ink);
   }
 }

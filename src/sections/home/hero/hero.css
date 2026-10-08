@@ -1,5 +1,5 @@
 .hero {
-  color: #fff;
+  color: var(--white);
   padding: 150px var(--gutter);
   position: relative;
   overflow: clip;
@@ -7,7 +7,7 @@
 .hero-background {
   position: absolute;
   inset: 0;
-  background: #121212;
+  background: var(--ink);
 }
 .hero-background picture,
 .hero-background img {
@@ -19,7 +19,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #0004;
+  background: var(--ink);
+  opacity: 0.6;
 }
 .hero-wordmark {
   position: relative;
@@ -66,7 +67,7 @@
 .hero-social i {
   width: 40px;
   height: 1px;
-  background: #fff;
+  background: var(--white);
 }
 .hero-social svg {
   width: 20px;

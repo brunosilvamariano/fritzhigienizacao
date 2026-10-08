@@ -7,11 +7,13 @@
   justify-content: center;
 }
 .menu-toggle-lines {
+  width: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   transform: rotate(-45deg);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .menu-toggle-lines i {
   display: block;
@@ -19,9 +21,26 @@
   height: 2px;
   border-radius: 999px;
   background: currentColor;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .menu-toggle-lines i:nth-child(2) {
   width: 32px;
+}
+.menu-toggle:is(:focus-visible, [aria-expanded='true']) .menu-toggle-lines {
+  transform: rotate(0deg);
+}
+:where(.menu-toggle:is(:focus-visible, [aria-expanded='true']))
+  .menu-toggle-lines
+  i {
+  width: 32px;
+}
+@media (hover: hover) {
+  .menu-toggle:hover .menu-toggle-lines {
+    transform: rotate(0deg);
+  }
+  :where(.menu-toggle:hover) .menu-toggle-lines i {
+    width: 32px;
+  }
 }
 .mobile-dialog {
   position: fixed;
@@ -34,8 +53,8 @@
   padding: 0;
   border: 0;
   border-radius: 0;
-  background: #121212;
-  color: #fff;
+  background: var(--ink);
+  color: var(--white);
   overflow: auto;
 }
 .mobile-dialog::backdrop {
@@ -58,7 +77,7 @@
   line-height: 0.8;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  background: linear-gradient(#fff 32%, #000 90%);
+  background: linear-gradient(var(--white) 32%, var(--brand-deep) 90%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0.3;
@@ -71,8 +90,8 @@
   transform: translateX(-50%) rotate(-15deg);
   white-space: nowrap;
   padding: 20px 36px;
-  background: #ff8f64;
-  color: #000;
+  background: var(--mist);
+  color: var(--brand-deep);
   font:
     clamp(24px, 20.11px + 1.0356vw, 40px)/0.8 var(--font-display),
     sans-serif;
@@ -90,7 +109,7 @@
   text-align: center;
   padding: 36px 0 0;
   border-bottom: 1px solid #ffffff4d;
-  color: #808080;
+  color: var(--on-dark-muted);
   font:
     var(--heading-medium)/0.5 var(--font-display),
     sans-serif;
@@ -101,7 +120,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #ff8f64;
+  background: var(--brand);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.4s;
@@ -119,13 +138,14 @@
 .mobile-link-label > span:last-child {
   position: absolute;
   inset: 100% 0 auto;
-  color: #fff;
+  color: var(--white);
   opacity: 0;
 }
 .mobile-links a:is(:hover, :focus-visible)::before {
   transform: scaleY(1);
 }
 .mobile-links a:is(:hover, :focus-visible) .mobile-link-label > span {
+  color: var(--white);
   transform: translateY(-100%);
 }
 .mobile-links
@@ -179,8 +199,8 @@
   height: 70px;
   border: 1px solid #ffffff4d;
   border-radius: 20px;
-  background: #121212;
-  color: #fff;
+  background: var(--ink);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -301,6 +321,10 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .menu-toggle-lines,
+  .menu-toggle-lines i {
+    transition: none;
+  }
   .mobile-dialog[data-state] {
     animation: none;
   }

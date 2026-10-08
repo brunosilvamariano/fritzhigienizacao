@@ -28,7 +28,7 @@
   bottom: 0;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: linear-gradient(#fff 30%, #ff691e);
+  background: linear-gradient(var(--white) 30%, var(--mist));
   opacity: 0.2;
 }
 .reference-opening .demo-note {

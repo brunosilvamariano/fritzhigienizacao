@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
 
 const message =
-  'Cada espaço tem uma história. Nosso traço começa na forma como você vive.';
+  'Cada tecido pede um cuidado. A avaliação da peça orienta a limpeza e a proteção.';
 const words = message.split(' ');
 function Word({
   word,
@@ -46,7 +46,7 @@ export function EnvironmentMessage() {
     >
       <div className="message-sticky tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-[36px] tw:text-center">
         <span className="eyebrow tw:uppercase tw:text-accent">
-          Do seu jeito de viver ao nosso traço
+          Cuidado para sua rotina
         </span>
         <h2 id="environments-title" aria-label={message}>
           <span aria-hidden="true">
@@ -61,7 +61,7 @@ export function EnvironmentMessage() {
           </span>
         </h2>
         <p className="message-scroll tw:mt-[10px] tw:text-paper tw:flex tw:items-center tw:gap-[18px]">
-          Continue para explorar os ambientes <span aria-hidden="true">↓</span>
+          Continue para conhecer os cuidados <span aria-hidden="true">↓</span>
         </p>
       </div>
     </div>

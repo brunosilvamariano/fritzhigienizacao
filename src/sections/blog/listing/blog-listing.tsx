@@ -6,13 +6,10 @@ import { DemoNote } from '@/components/ui/demo-note';
 import './blog-listing.css';
 export function BlogListing() {
   return (
-    <section
-      className="blog-listing section"
-      aria-label="Artigos demonstrativos"
-    >
+    <section className="blog-listing section" aria-label="Dicas de cuidado">
       <DemoNote>
-        Artigos da referência Ariyana apresentados em português como resumos
-        demonstrativos.
+        Informações para escolher o cuidado da sua peça e preparar o
+        atendimento.
       </DemoNote>
       {articles.map((article, index) => (
         <article key={article.slug} className="blog-row">
@@ -21,7 +18,7 @@ export function BlogListing() {
             <Link href={`/blog/${article.slug}`} className="blog-row-image">
               <ResponsiveImage
                 {...projects[index].images.meio}
-                alt={`${projects[index].category} — estudo conceitual`}
+                alt="Imagem ilustrativa de higienização de estofados e tapetes."
                 sizes="65vw"
               />
             </Link>
@@ -30,7 +27,7 @@ export function BlogListing() {
                 <h2>{article.title}</h2>
               </Link>
               <Link className="pill-link" href={`/blog/${article.slug}`}>
-                Saiba mais ↗
+                Ler orientação ↗
               </Link>
             </div>
           </div>

@@ -1,13 +1,13 @@
 .trust {
-  background: #000;
-  color: #fff;
+  background: var(--brand-deep);
+  color: var(--white);
   position: relative;
   overflow: clip;
   --trust-columns: 22;
   --trust-rows: 11;
   background-image:
-    linear-gradient(to right, #1b1711 1px, transparent 1px),
-    linear-gradient(to bottom, #1b1711 1px, transparent 1px);
+    linear-gradient(to right, #ffffff12 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
   background-size: calc(100% / var(--trust-columns))
     calc(100% / var(--trust-rows));
 }
@@ -20,8 +20,8 @@
 }
 .trust-ticker {
   grid-area: 2/13/3/21;
-  border: 1px solid #121212;
-  background: #000c;
+  border: 1px solid var(--line-on-dark);
+  background: #102e4acc;
   overflow: clip;
   display: flex;
   align-items: center;
@@ -44,13 +44,13 @@
 }
 .trust-ticker i {
   font-style: normal;
-  color: #fff;
+  color: var(--white);
   font-size: 24px;
 }
 .trust-quote {
   grid-area: 4/5/10/15;
-  border: 1px solid #121212;
-  background: #000c;
+  border: 1px solid var(--line-on-dark);
+  background: #102e4acc;
   padding: 6% 32px;
   display: flex;
   flex-direction: column;
@@ -83,8 +83,8 @@
   font-size: 10px;
 }
 .trust-logo {
-  border: 1px solid #121212;
-  background: #000c;
+  border: 1px solid var(--line-on-dark);
+  background: #102e4acc;
   display: flex;
   align-items: center;
   justify-content: center;

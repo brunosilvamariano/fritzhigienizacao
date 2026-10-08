@@ -18,8 +18,8 @@
   padding: 15px 24px;
   border: 1px solid currentColor;
   border-radius: 100px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--brand);
+  color: var(--white);
   transition:
     background 0.25s,
     color 0.25s;
@@ -31,7 +31,7 @@
 .hero .whatsapp-link {
   background: #0002;
   color: white;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
 }
 .hero .whatsapp-link:hover {
   background: white;

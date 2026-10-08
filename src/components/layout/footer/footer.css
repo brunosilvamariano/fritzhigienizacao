@@ -1,6 +1,6 @@
 .site-footer {
-  background: #000;
-  color: #fff;
+  background: var(--brand-deep);
+  color: var(--white);
   padding: 150px var(--gutter) 40px;
   overflow: clip;
 }
@@ -36,17 +36,17 @@
 .footer-contact p {
   font-size: 18px;
   line-height: 1.5;
-  color: #ffffff80;
+  color: var(--on-dark-muted);
 }
 .footer-contact p {
   max-width: 18ch;
   margin-bottom: 8px;
 }
 .footer-contact a {
-  color: #fff;
+  color: var(--white);
 }
 .footer-links a:hover {
-  color: #fff;
+  color: var(--white);
 }
 .footer-newsletter {
   flex: 0 0 370px;
@@ -57,9 +57,9 @@
   flex-wrap: wrap;
 }
 .footer-newsletter input {
-  background: #111517;
+  background: #173b5b;
   border: 1px solid #ffffff4d;
-  color: #fff;
+  color: var(--white);
   border-radius: 999px;
   padding: 16px 24px;
   min-width: 0;
@@ -68,12 +68,12 @@
   font-size: 16px;
 }
 .footer-newsletter input:focus {
-  outline: 2px solid #ff691e;
+  outline: 2px solid var(--amber);
 }
 .footer-newsletter button {
   border-radius: 999px;
-  background: #fff;
-  color: #000;
+  background: var(--white);
+  color: var(--brand-deep);
   font:
     22px/1 var(--font-display),
     sans-serif;
@@ -100,7 +100,7 @@
   line-height: 0.8;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(#fff, #000 80%);
+  background-image: linear-gradient(var(--white), var(--brand-deep) 80%);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -125,6 +125,7 @@
 .footer-developer img {
   width: 90px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 @media (min-width: 1440px) {
   .footer-newsletter {

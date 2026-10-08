@@ -29,7 +29,7 @@
 }
 .contact-marquee[data-stroke='true'] span {
   color: transparent;
-  -webkit-text-stroke: 1px #000;
+  -webkit-text-stroke: 1px var(--brand-deep);
 }
 .contact-marquee[data-stroke='true'] > div {
   animation-direction: reverse;
@@ -43,16 +43,19 @@
   align-items: center;
   gap: 20px;
   padding: 28px 60px;
-  border: 2px solid #000;
+  border: 2px solid var(--brand-deep);
   border-radius: 999px;
-  background: #eaffb1;
+  background: var(--amber);
+  color: var(--brand-deep);
   white-space: nowrap;
   transition: background 0.3s;
 }
-.contact-button:hover {
-  background: #fdbc53;
+.contact-button:is(:hover, :focus-visible) {
+  background: var(--mist);
+  color: var(--brand-deep);
 }
 .contact-button-text {
+  color: inherit;
   font-family: var(--font-display), sans-serif;
   font-size: 60px;
   line-height: 1;
@@ -65,8 +68,8 @@
   width: 70px;
   height: 70px;
   border-radius: 100px;
-  background: #000;
-  color: #fff;
+  background: var(--brand-deep);
+  color: var(--white);
   font-size: 40px;
   font-style: normal;
 }

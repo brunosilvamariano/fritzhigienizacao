@@ -44,12 +44,12 @@
   margin-bottom: 24px;
 }
 .blog-richtext blockquote {
-  border-left: 4px solid #ff691e;
+  border-left: 4px solid var(--brand);
   padding: 32px;
   font-size: 30px;
   line-height: 1.4;
   margin: 48px 0;
-  background: #fff4ec;
+  background: var(--mist);
 }
 .blog-article-secondary {
   aspect-ratio: 2;

@@ -3,7 +3,7 @@
   overflow: clip;
 }
 .environments .reference-badge {
-  background: #e8ff76;
+  background: var(--amber);
   left: auto;
   right: 15%;
   top: 46px;
@@ -23,7 +23,7 @@
   position: absolute;
   inset: 0 0 auto;
   border-radius: 20px;
-  background: #ab9bff;
+  background: var(--mist);
   overflow: hidden;
   transform-origin: 50% 50%;
 }
@@ -31,13 +31,13 @@
   position: relative;
 }
 .environment-panel:nth-child(2) {
-  background: #ff905f;
+  background: var(--sand);
 }
 .environment-panel:nth-child(3) {
-  background: #ff767a;
+  background: var(--blue-soft);
 }
 .environment-panel:nth-child(4) {
-  background: #b8c56f;
+  background: var(--blue-gray);
 }
 .environment-copy {
   padding: 80px 60px;
@@ -62,19 +62,19 @@
 }
 .environment-photo {
   padding: 32px;
-  background: #8673ee;
+  background: var(--blue-panel);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .environment-panel:nth-child(2) .environment-photo {
-  background: #ff7d44;
+  background: var(--sand-panel);
 }
 .environment-panel:nth-child(3) .environment-photo {
-  background: #ff5b60;
+  background: var(--blue-panel-strong);
 }
 .environment-panel:nth-child(4) .environment-photo {
-  background: #9fae4b;
+  background: var(--blue-gray-panel);
 }
 .environment-photo picture {
   aspect-ratio: 1;
@@ -140,13 +140,13 @@
     padding: 32px;
   }
   .environment-panel:nth-child(2) .environment-photo {
-    background: #ff7d44;
+    background: var(--sand-panel);
   }
   .environment-panel:nth-child(3) .environment-photo {
-    background: #ff5b60;
+    background: var(--blue-panel-strong);
   }
   .environment-panel:nth-child(4) .environment-photo {
-    background: #9fae4b;
+    background: var(--blue-gray-panel);
   }
   .environment-photo picture {
     aspect-ratio: 1.2;

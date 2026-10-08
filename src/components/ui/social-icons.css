@@ -1,0 +1,15 @@
+.instagram-icon {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  border-radius: 9px;
+  color: #fff;
+}
+.instagram-icon svg {
+  color: #fff;
+}

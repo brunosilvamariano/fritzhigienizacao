@@ -23,8 +23,8 @@ export function Faq() {
           <br />o primeiro passo.
         </h2>
         <p>
-          Algumas escolhas começam com uma boa pergunta. Encontre um ponto de
-          partida para pensar no seu espaço.
+          Confira as dúvidas sobre atendimento, secagem e cuidado com seus
+          estofados.
         </p>
       </div>
       <div className="faq-list tw:min-w-0">

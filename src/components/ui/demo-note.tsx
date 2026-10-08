@@ -1,5 +1,5 @@
 export function DemoNote({
-  children = 'Conteúdo demonstrativo da referência Ariyana; não representa dados da Traço.',
+  children = 'Imagens ilustrativas. Consulte a indicação do serviço para sua peça.',
 }: {
   children?: string;
 }) {

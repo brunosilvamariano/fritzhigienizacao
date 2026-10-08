@@ -1,31 +1,30 @@
 import { environments } from '@/config/navigation';
 import { environmentImages } from './environments.images';
-
 const details = {
   cozinhas: {
-    material: 'Carvalho + travertino',
+    material: 'Higienização de sofás',
     description:
-      'Bancadas que aproximam. Armários que acolhem os utensílios da rotina. Cada escolha desenha um jeito de estar junto.',
+      'Limpeza do revestimento com atenção ao tecido, aos assentos e aos encostos.',
   },
   dormitorios: {
-    material: 'Madeira + linho',
+    material: 'Higienização de colchões',
     description:
-      'Volumes discretos, texturas suaves e espaço para guardar. Um ambiente que convida a desacelerar.',
+      'Cuidado com o tecido do colchão e orientação para ventilação e secagem.',
   },
   salas: {
-    material: 'Textura + proporção',
+    material: 'Higienização de poltronas',
     description:
-      'Livros, objetos e memórias encontram lugar em uma marcenaria que faz parte da arquitetura.',
+      'Atenção ao assento, aos braços e ao encosto, conforme o revestimento.',
   },
   banheiros: {
-    material: 'Pedra + carvalho',
+    material: 'Proteção para estofados',
     description:
-      'Leveza nos volumes e cuidado nos encontros. O essencial ganha espaço entre a bancada e a madeira.',
+      'Impermeabilização conforme a compatibilidade do tecido, para ajudar a reduzir a absorção imediata de líquidos.',
   },
   'home-office': {
-    material: 'Luz + organização',
+    material: 'Higienização de cadeiras',
     description:
-      'Uma bancada na medida, o que importa por perto e luz para acompanhar as ideias. Trabalhar também pode fazer parte do morar.',
+      'Limpeza de assentos e encostos. Informe a quantidade de peças para solicitar seu orçamento.',
   },
 } as const;
 export const environmentCollection = environments.map((item) => ({

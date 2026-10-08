@@ -75,7 +75,7 @@ export function StudioPanels() {
                   priority="auto"
                   unoptimized
                   {...projects[index].images.capa}
-                  alt={`${projects[index].category} — estudo conceitual`}
+                  alt="Imagem ilustrativa de higienização de estofados e tapetes."
                   sizes="(min-width:992px) 480px,300px"
                 />
               </div>
