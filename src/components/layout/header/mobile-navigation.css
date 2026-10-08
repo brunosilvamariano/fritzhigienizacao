@@ -1,8 +1,4 @@
 .menu-toggle {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
   padding: 12px 0 12px 15px;
   border: 0;
   background: transparent;
@@ -16,14 +12,8 @@
 }
 .menu-toggle-label {
   font-size: 11px;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 500;
-}
-.menu-toggle-lines {
-  width: 20px;
-  display: grid;
-  gap: 6px;
 }
 .menu-toggle-lines i {
   height: 1px;
@@ -60,25 +50,13 @@
   padding: 0;
   border: 1px solid #dcc5b726;
   border-radius: 8px;
-  background: var(--ink);
-  color: var(--paper);
-  overflow: hidden;
   box-shadow: 0 24px 80px #0004;
 }
 .mobile-dialog::backdrop {
   background: #27323a85;
   backdrop-filter: blur(6px);
 }
-.mobile-dialog-shell {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 .mobile-dialog-header {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 24px;
   padding: 18px 0 16px;
   border-bottom: 1px solid #dcc5b72b;
@@ -87,20 +65,13 @@
   font-size: 38px;
   letter-spacing: -0.075em;
   line-height: 1;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
 }
 .mobile-dialog-brand span {
   color: var(--taupe);
 }
 .close-menu {
-  width: 44px;
-  height: 44px;
   border: 1px solid #dcc5b74d;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
   font-size: 30px;
   line-height: 1;
   font-weight: 200;
@@ -108,7 +79,6 @@
 .mobile-menu-scroll {
   min-height: 0;
   flex: 1;
-  overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
   padding: 26px 24px 20px;
@@ -118,14 +88,7 @@
 }
 .mobile-menu-eyebrow {
   font-size: 10px;
-  text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--taupe);
-  margin-bottom: 18px;
-}
-.mobile-links {
-  display: flex;
-  flex-direction: column;
 }
 .mobile-links > a,
 .mobile-links > button {
@@ -174,14 +137,12 @@
 .mobile-expand-icon {
   font-size: 26px;
   font-weight: 200;
-  color: var(--taupe);
   transition: transform 300ms;
 }
 .mobile-environments-trigger[aria-expanded='true'] .mobile-expand-icon {
   transform: rotate(45deg);
 }
 .mobile-submenu {
-  display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
   transition:
@@ -193,11 +154,9 @@
   opacity: 1;
 }
 .mobile-submenu-clip {
-  overflow: hidden;
   min-height: 0;
 }
 .mobile-submenu-links {
-  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px 12px;
   padding: 14px 0 18px;
@@ -216,7 +175,6 @@
 }
 
 .mobile-menu-contact {
-  flex-shrink: 0;
   padding: 20px 24px;
   border-top: 1px solid #dcc5b72b;
   background: #ffffff03;

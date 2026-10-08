@@ -1,8 +1,10 @@
 'use client';
+
 import { useState } from 'react';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { studioContent } from './studio.content';
 import { studioImages } from './studio.images';
+
 export function StudioPanels() {
   const [active, setActive] = useState(0);
   const [loaded, setLoaded] = useState<boolean[]>([]);
@@ -14,8 +16,8 @@ export function StudioPanels() {
   }
   const visible = loaded[active] ? active : previous;
   return (
-    <div className="studio-panels">
-      <div className="studio-backgrounds" aria-hidden="true">
+    <div className="studio-panels tw:relative tw:bg-ink tw:text-paper">
+      <div className="studio-backgrounds tw:overflow-hidden" aria-hidden="true">
         {studioImages.map((image, index) => (
           <div
             key={image.alt}
@@ -38,10 +40,10 @@ export function StudioPanels() {
           </div>
         ))}
       </div>
-      <div className="studio-pillar-grid">
+      <div className="studio-pillar-grid tw:grid">
         {studioContent.items.map((item, index) => (
           <article
-            className="studio-pillar"
+            className="studio-pillar tw:min-w-0 tw:flex tw:flex-col"
             data-active={active === index}
             key={item.id}
             onPointerEnter={(event) => {
@@ -64,17 +66,16 @@ export function StudioPanels() {
                   </span>
                 </button>
               </h3>
-              <section
-                className="studio-pillar-reveal"
+              <div
+                className="studio-pillar-reveal tw:grid"
                 id={`studio-panel-${item.id}`}
-                aria-labelledby={`studio-trigger-${item.id}`}
                 inert={active !== index}
                 aria-hidden={active !== index}
               >
                 <div>
                   <p>{item.text}</p>
                 </div>
-              </section>
+              </div>
             </div>
           </article>
         ))}

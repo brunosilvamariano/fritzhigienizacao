@@ -9,7 +9,7 @@ const drawings = {
 export function ServiceIcon({ kind }: { kind: keyof typeof drawings }) {
   return (
     <svg
-      className="service-icon"
+      className="service-icon tw:w-[100px] tw:h-[100px] tw:text-copper tw:block tw:mb-[28px]"
       viewBox="0 0 112 108"
       fill="none"
       aria-hidden="true"

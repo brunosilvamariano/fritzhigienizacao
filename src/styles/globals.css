@@ -1,82 +1,76 @@
-@import 'tailwindcss';
+@import 'tailwindcss' prefix(tw);
+@import './tailwind-theme.css';
 @import './tokens.css';
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 24px);
-}
-body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--paper);
-  font-family: var(--font-plus-jakarta-sans), sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-button {
-  font: inherit;
-  cursor: pointer;
-  color: inherit;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-button,
-a {
-  touch-action: manipulation;
-}
-button:focus-visible,
-a:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--copper);
-  outline-offset: 6px;
-}
-button {
-  background: none;
-  border: 0;
-}
-img {
-  display: block;
-  max-width: 100%;
-}
-figure,
-p,
-h1,
-h2,
-h3 {
-  margin: 0;
-}
-[hidden] {
-  /* biome-ignore lint/complexity/noImportantStyles: Native hidden state must override component display styles. */
-  display: none !important;
-}
-::selection {
-  background: var(--taupe);
-  color: var(--ink);
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 24px);
+  }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: var(--font-plus-jakarta-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button,
+  a {
+    touch-action: manipulation;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--copper);
+    outline-offset: 6px;
+  }
+  button {
+    background: none;
+    border: 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  figure,
+  p,
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+  [hidden] {
+    /* biome-ignore lint/complexity/noImportantStyles: Native hidden state must override component display styles. */
+    display: none !important;
+  }
+  ::selection {
+    background: var(--taupe);
+    color: var(--ink);
+  }
 }
 .eyebrow {
-  text-transform: uppercase;
-  color: var(--accent-text);
   font-size: 10px;
   letter-spacing: 0.13em;
   font-weight: 550;
   line-height: 1.7;
 }
 .button {
-  min-height: 52px;
-  background: var(--ink);
-  color: var(--paper);
   padding: 16px 23px;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 35px;
   font-size: 14px;
   transition: background 0.25s;
 }
@@ -93,15 +87,11 @@ h3 {
   transform: translate(2px, -2px);
 }
 .text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 22px;
-  padding-block: 9px;
   border-bottom: 1px solid var(--copper);
   font-size: 13px;
 }
 .section {
-  padding: 100px var(--gutter);
+  padding: var(--section-space) var(--gutter);
   scroll-margin-top: 20px;
 }
 .section-heading h2,
@@ -125,9 +115,8 @@ h3 {
   left: 8px;
   transform: translateY(-200%);
   padding: 15px;
-  background: var(--ink);
   color: white;
-  z-index: 100;
+  z-index: var(--z-skip-link);
 }
 .skip-link:focus {
   transform: translateY(0);
@@ -146,6 +135,9 @@ h3 {
   .section {
     padding: 65px 24px;
   }
+  .text-link {
+    min-height: 44px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -160,12 +152,6 @@ h3 {
     transition: none !important;
   }
 }
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
 .section-label::before {
   content: '';
   width: 22px;
@@ -174,8 +160,23 @@ h3 {
   flex-shrink: 0;
 }
 
-.home-content {
-  position: relative;
-  z-index: 1;
-  background: var(--paper);
+.page-content {
+  z-index: var(--z-content);
+}
+
+.status-page {
+  min-height: 80vh;
+  padding: calc(var(--header-height) + 80px) var(--gutter) 100px;
+}
+.status-page h1 {
+  max-width: 14em;
+  font-size: clamp(36px, 4vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 450;
+}
+.status-page p {
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.6;
 }

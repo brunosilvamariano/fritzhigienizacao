@@ -87,7 +87,7 @@ export function ConsentManager() {
   if (!trackingAvailable || !open) return null;
   return (
     <section
-      className="consent-panel"
+      className="consent-panel tw:overflow-y-auto tw:bg-paper tw:text-ink"
       aria-labelledby="consent-title"
       aria-describedby="consent-description"
     >
@@ -99,7 +99,7 @@ export function ConsentManager() {
       <a href={tracking.privacyUrl} target="_blank" rel="noopener noreferrer">
         Ler política de privacidade (nova aba)
       </a>
-      <div className="consent-options">
+      <div className="consent-options tw:grid tw:gap-[12px] tw:my-[18px]">
         {tracking.ga4 && (
           <label>
             <input
@@ -125,7 +125,7 @@ export function ConsentManager() {
           </label>
         )}
       </div>
-      <div className="consent-actions">
+      <div className="consent-actions tw:flex tw:flex-wrap tw:gap-[8px]">
         <button type="button" onClick={() => save(denied)}>
           Recusar opcionais
         </button>
@@ -152,7 +152,7 @@ export function PrivacyPreferences() {
   if (!trackingAvailable) return null;
   return (
     <button
-      className="privacy-preferences"
+      className="privacy-preferences tw:block tw:mt-[16px] tw:min-h-[44px]"
       type="button"
       onClick={() => window.dispatchEvent(new Event('traco:privacy'))}
     >

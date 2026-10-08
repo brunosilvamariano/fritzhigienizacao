@@ -21,19 +21,24 @@ export function EnvironmentCard({ item }: { item: Environment }) {
     <article
       id={item.id}
       data-scroll-mobile={`position-${item.id}`}
-      className={`environment-card environment-card--${item.id}`}
+      className={`environment-card tw:min-w-0 environment-card--${item.id}`}
       aria-labelledby={`title-${item.id}`}
     >
-      <figure className="environment-photo">
+      <figure className="environment-photo tw:relative tw:overflow-hidden tw:bg-taupe">
         <ResponsiveImage {...item.images} sizes={imageSizes} />
         <figcaption>{item.material}</figcaption>
       </figure>
-      <div className="environment-caption">
-        <span className="environment-marker" aria-hidden="true" />
+      <div className="environment-caption tw:grid tw:gap-[14px] tw:pt-[16px] tw:mt-[12px]">
+        <span
+          className="environment-marker tw:w-[18px] tw:h-[1px] tw:bg-copper tw:mt-[17px]"
+          aria-hidden="true"
+        />
         <div>
           <h3 id={`title-${item.id}`}>{item.label}</h3>
-          <p className="environment-note">{item.note}</p>
-          <p className="environment-description">{item.description}</p>
+          <p className="environment-note tw:mt-[10px]">{item.note}</p>
+          <p className="environment-description tw:text-muted tw:mt-[8px] tw:max-w-[400px]">
+            {item.description}
+          </p>
           <WhatsAppLink
             context={`móveis planejados para ${item.label.toLocaleLowerCase('pt-BR')}`}
           >

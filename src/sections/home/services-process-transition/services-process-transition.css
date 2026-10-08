@@ -1,0 +1,34 @@
+.services-process-position {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.services-process-position-end {
+  top: var(--process-distance, 0px);
+}
+.services-process-transition[data-animated='true'] .services-process-stage {
+  position: sticky;
+  top: var(--process-pin-top);
+  display: grid;
+  overflow: clip;
+  isolation: isolate;
+}
+.services-process-transition[data-animated='true'] .services-process-layer {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+.services-process-transition[data-animated='true'] .services-process-process {
+  z-index: 1;
+  background: var(--taupe);
+  transform: translateX(calc((var(--process-progress, 0) - 1) * 100%));
+  will-change: transform;
+  box-shadow: 16px 0 36px rgb(39 50 58 / 0.12);
+}
+.services-process-transition[data-animated='true'] .services-process-services {
+  transform: translateY(var(--services-offset, 0px));
+}
+.services-process-transition[data-animated='true'][data-process-complete='true']
+  .services-process-services {
+  position: absolute;
+  inset: 0;
+}

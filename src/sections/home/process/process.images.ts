@@ -7,6 +7,7 @@ import img1mobile from '@/assets/images/pages/home/process/desenhar/mobile.webp'
 import img2desktop from '@/assets/images/pages/home/process/dar-forma/desktop.webp';
 import img2tablet from '@/assets/images/pages/home/process/dar-forma/tablet.webp';
 import img2mobile from '@/assets/images/pages/home/process/dar-forma/mobile.webp';
+
 export const processImages = [
   {
     desktop: img0desktop,

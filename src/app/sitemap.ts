@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
+import { routes } from '@/config/routes';
 import { site } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return site.indexable
-    ? [
-        { url: site.url, changeFrequency: 'monthly', priority: 1 },
-        { url: `${site.url}/sobre`, changeFrequency: 'monthly', priority: 0.7 },
-      ]
-    : [];
+  if (!site.indexable) return [];
+  return routes.map((route) => ({
+    url: route.path === '/' ? site.url : `${site.url}${route.path}`,
+    changeFrequency: 'monthly',
+    priority: route.priority,
+  }));
 }

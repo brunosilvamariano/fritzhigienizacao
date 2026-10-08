@@ -1,9 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { readFileSync } = require('node:fs');
-const { resolve } = require('node:path');
-const vm = require('node:vm');
-const ts = require('typescript');
+const { loadTs } = require('./helpers/load-ts.cjs');
 
 // SDKs não são executados: testes isolados da rede e de contas reais.
 function harness() {
@@ -22,40 +19,26 @@ function harness() {
       return null;
     }
   }
-  const sandbox = {
-    exports: {},
-    window: {},
-    Element,
-    document: {
-      getElementById: (id) => scripts.find((script) => script.id === id),
-      createElement: () => ({}),
-      head: { append: (script) => scripts.push(script) },
+  const window = {};
+  const api = loadTs('src/components/analytics/tracking-runtime.ts', {
+    globals: {
+      window,
+      Element,
+      document: {
+        getElementById: (id) => scripts.find((script) => script.id === id),
+        createElement: () => ({}),
+        head: { append: (script) => scripts.push(script) },
+      },
     },
-    require: (name) => {
-      assert.equal(name, '@/config/tracking');
-      return { tracking: config };
-    },
-  };
-  const source = readFileSync(
-    resolve(__dirname, '../../src/components/analytics/tracking-runtime.ts'),
-    'utf8',
-  );
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: {
-      module: ts.ModuleKind.CommonJS,
-      target: ts.ScriptTarget.ES2020,
-    },
+    modules: { '@/config/tracking': { tracking: config } },
   });
-  vm.runInNewContext(compiled.outputText, sandbox);
   return {
-    api: sandbox.exports,
+    api,
     scripts,
-    window: sandbox.window,
-    click: () => sandbox.exports.trackContact({ target: new Element() }),
+    window,
+    click: () => api.trackContact({ target: new Element() }),
     commands: () =>
-      Array.from(sandbox.window.dataLayer || [], (command) =>
-        Array.from(command),
-      ),
+      Array.from(window.dataLayer || [], (command) => Array.from(command)),
   };
 }
 

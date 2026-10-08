@@ -1,10 +1,13 @@
 'use client';
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { Arrow } from '@/components/ui/arrow';
 import { environments, navigation } from '@/config/navigation';
 import { navigateAnchor } from '@/lib/navigate-anchor';
+import { mediaQueries, prefersReducedMotion } from '@/lib/media-queries';
+import { isPlainClick } from '@/lib/plain-click';
 
 export function MobileNavigation() {
   const pathname = usePathname();
@@ -21,7 +24,7 @@ export function MobileNavigation() {
   const close = useCallback(() => {
     const menu = dialog.current;
     if (!menu?.open || menu.dataset.state === 'closing') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       menu.close();
       return;
     }
@@ -52,22 +55,13 @@ export function MobileNavigation() {
   }
 
   useEffect(() => {
-    const query = window.matchMedia('(min-width: 1200px)');
+    const query = window.matchMedia(mediaQueries.desktopNavigation);
     const menu = dialog.current;
     const handleResize = () => {
       if (query.matches && menu?.open) menu.close();
     };
     const handleLink = (event: MouseEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      )
-        return;
-      if (!(event.target instanceof Element)) return;
+      if (!isPlainClick(event) || !(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>('a');
       if (!link) return;
       const url = new URL(link.href);
@@ -119,15 +113,18 @@ export function MobileNavigation() {
       <button
         ref={toggle}
         type="button"
-        className="menu-toggle"
+        className="menu-toggle tw:min-h-[44px] tw:flex tw:items-center tw:gap-[16px]"
         onClick={open}
         aria-label="Abrir menu"
         aria-haspopup="dialog"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
       >
-        <span className="menu-toggle-label">Menu</span>
-        <span className="menu-toggle-lines" aria-hidden="true">
+        <span className="menu-toggle-label tw:uppercase">Menu</span>
+        <span
+          className="menu-toggle-lines tw:w-[20px] tw:grid tw:gap-[6px]"
+          aria-hidden="true"
+        >
           <i />
           <i />
         </span>
@@ -135,7 +132,7 @@ export function MobileNavigation() {
       <dialog
         ref={dialog}
         id="mobile-menu"
-        className="mobile-dialog"
+        className="mobile-dialog tw:bg-ink tw:text-paper tw:overflow-hidden"
         onClose={restore}
         onCancel={(event) => {
           event.preventDefault();
@@ -143,17 +140,17 @@ export function MobileNavigation() {
         }}
         aria-labelledby="mobile-menu-title"
       >
-        <div className="mobile-dialog-shell">
-          <div className="mobile-dialog-header">
+        <div className="mobile-dialog-shell tw:h-full tw:flex tw:flex-col">
+          <div className="mobile-dialog-header tw:shrink-0 tw:flex tw:items-center tw:justify-between">
             <a
               href="/#inicio"
-              className="mobile-dialog-brand"
+              className="mobile-dialog-brand tw:min-h-[44px] tw:flex tw:items-center"
               aria-label="Traço — início"
             >
               traço<span>.</span>
             </a>
             <button
-              className="close-menu"
+              className="close-menu tw:w-[44px] tw:h-[44px] tw:grid tw:place-items-center"
               type="button"
               onClick={close}
               aria-label="Fechar menu"
@@ -161,52 +158,74 @@ export function MobileNavigation() {
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div className="mobile-menu-scroll" ref={scrollArea}>
-            <p id="mobile-menu-title" className="mobile-menu-eyebrow">
+          <div
+            className="mobile-menu-scroll tw:overflow-y-auto"
+            ref={scrollArea}
+          >
+            <p
+              id="mobile-menu-title"
+              className="mobile-menu-eyebrow tw:uppercase tw:text-taupe tw:mb-[18px]"
+            >
               Seu espaço. Seu traço.
             </p>
-            <nav aria-label="Navegação mobile" className="mobile-links">
+            <nav
+              aria-label="Navegação mobile"
+              className="mobile-links tw:flex tw:flex-col"
+            >
               <a
                 href="/#inicio"
                 aria-current={current === '/#inicio' ? 'location' : undefined}
               >
                 Início <Arrow />
               </a>
-              <button
-                type="button"
-                className="mobile-environments-trigger"
-                aria-expanded={expanded}
-                aria-controls="mobile-environments"
-                onClick={() => setExpanded((value) => !value)}
-              >
-                Ambientes{' '}
-                <span className="mobile-expand-icon" aria-hidden="true">
-                  +
-                </span>
-              </button>
-              <div
-                id="mobile-environments"
-                className="mobile-submenu"
-                data-expanded={expanded}
-                inert={!expanded}
-                aria-hidden={!expanded}
-              >
-                <div className="mobile-submenu-clip">
-                  <div className="mobile-submenu-links">
-                    {environments.map((item) => (
-                      <a key={item.id} href={item.href}>
-                        {item.label}
-                        <Arrow />
-                      </a>
-                    ))}
+              {pathname === '/' && (
+                <>
+                  <button
+                    type="button"
+                    className="mobile-environments-trigger"
+                    aria-expanded={expanded}
+                    aria-controls="mobile-environments"
+                    onClick={() => setExpanded((value) => !value)}
+                  >
+                    Ambientes{' '}
+                    <span
+                      className="mobile-expand-icon tw:text-taupe"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </button>
+                  <div
+                    id="mobile-environments"
+                    className="mobile-submenu tw:grid"
+                    data-expanded={expanded}
+                    inert={!expanded}
+                    aria-hidden={!expanded}
+                  >
+                    <div className="mobile-submenu-clip tw:overflow-hidden">
+                      <div className="mobile-submenu-links tw:grid">
+                        {environments.map((item) => (
+                          <a key={item.id} href={item.href}>
+                            {item.label}
+                            <Arrow />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
               {navigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  aria-current={current === item.href ? 'location' : undefined}
+                  aria-current={
+                    current === item.href ||
+                    (item.href === '/projetos' &&
+                      pathname.startsWith('/projetos/'))
+                      ? 'location'
+                      : undefined
+                  }
                 >
                   {item.label}
                   <Arrow />
@@ -214,9 +233,9 @@ export function MobileNavigation() {
               ))}
             </nav>
           </div>
-          <div className="mobile-menu-contact">
+          <div className="mobile-menu-contact tw:shrink-0">
             <p>Vamos dar forma ao seu espaço?</p>
-            <WhatsAppLink className="button mobile-menu-cta">
+            <WhatsAppLink className="button tw:min-h-[52px] tw:bg-ink tw:text-paper tw:inline-flex tw:justify-between tw:items-center tw:gap-[35px] mobile-menu-cta">
               Conversar sobre meu projeto
             </WhatsAppLink>
             <span>Móveis planejados para o seu jeito de viver.</span>

@@ -1,19 +1,12 @@
 .about-story {
-  position: relative;
   z-index: 2;
-  background: var(--taupe);
-  color: var(--ink);
   padding: 56px var(--gutter) 28px;
   border-top: 1px solid var(--line);
 }
 .about-story-grid {
-  display: grid;
   grid-template-columns: 1.55fr 1fr;
-  gap: 50px;
-  align-items: center;
 }
 .about-story-collage {
-  position: relative;
   height: clamp(440px, 32vw, 560px);
 }
 .about-story-collage figure {
@@ -47,19 +40,14 @@
   height: 57%;
 }
 .about-story-vertical {
-  position: absolute;
   bottom: 0;
   left: 72%;
   writing-mode: vertical-rl;
   font-size: 9px;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
 }
 .about-story-copy {
-  padding-left: 42px;
   border-left: 1px solid var(--line);
-  padding-block: 36px;
 }
 .about-story h2 {
   font-size: clamp(32px, 3vw, 50px);
@@ -80,18 +68,11 @@
 }
 .about-story-base {
   border-top: 1px solid var(--line);
-  margin-top: 36px;
-  display: flex;
-  align-items: flex-end;
-  gap: 30px;
-  justify-content: space-between;
 }
 .about-story-wordmark {
   font-size: clamp(70px, 9vw, 140px);
   letter-spacing: -0.07em;
   line-height: 1.15;
-  color: var(--ink);
-  white-space: nowrap;
 }
 .about-story-base p {
   font-size: 9px;

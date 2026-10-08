@@ -3,4 +3,4 @@ export const heroContent = {
   title: ['Seu espaço,', 'no seu', 'traço.'],
   description: 'Entre o desenho e a matéria, um lugar que é seu.',
   cta: 'Conversar sobre meu projeto',
-};
+} as const;

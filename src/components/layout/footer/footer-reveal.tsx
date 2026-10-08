@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef, type ReactNode } from 'react';
 
 export function FooterReveal({ children }: { children: ReactNode }) {
@@ -27,7 +28,10 @@ export function FooterReveal({ children }: { children: ReactNode }) {
     };
   }, []);
   return (
-    <footer ref={footer} className="site-footer">
+    <footer
+      ref={footer}
+      className="site-footer tw:relative tw:bg-ink tw:text-on-dark-muted"
+    >
       {children}
     </footer>
   );

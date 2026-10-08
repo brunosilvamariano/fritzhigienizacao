@@ -1,7 +1,9 @@
 'use client';
+
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
+
 const message =
   'Cada espaço tem uma história. Nosso traço começa na forma como você vive.';
 const words = message.split(' ');
@@ -20,9 +22,12 @@ function Word({
     [0, 1],
   );
   return (
-    <span className="message-word">
+    <span className="message-word tw:inline-block tw:relative">
       <span>{word}</span>
-      <motion.span className="message-ink" style={{ opacity }}>
+      <motion.span
+        className="message-ink tw:absolute tw:text-paper"
+        style={{ opacity }}
+      >
         {word}
       </motion.span>{' '}
     </span>
@@ -35,9 +40,14 @@ export function EnvironmentMessage() {
     offset: ['start start', 'end end'],
   });
   return (
-    <div ref={target} className="environment-message">
-      <div className="message-sticky">
-        <span className="eyebrow">Do seu jeito de viver ao nosso traço</span>
+    <div
+      ref={target}
+      className="environment-message tw:relative tw:bg-ink tw:text-paper"
+    >
+      <div className="message-sticky tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-[36px] tw:text-center">
+        <span className="eyebrow tw:uppercase tw:text-accent">
+          Do seu jeito de viver ao nosso traço
+        </span>
         <h2 id="environments-title" aria-label={message}>
           <span aria-hidden="true">
             {words.map((word, index) => (
@@ -50,7 +60,7 @@ export function EnvironmentMessage() {
             ))}
           </span>
         </h2>
-        <p className="message-scroll">
+        <p className="message-scroll tw:mt-[10px] tw:text-paper tw:flex tw:items-center tw:gap-[18px]">
           Continue para explorar os ambientes <span aria-hidden="true">↓</span>
         </p>
       </div>

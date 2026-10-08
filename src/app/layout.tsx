@@ -9,6 +9,7 @@ import { FloatingWhatsApp } from '@/components/ui/floating-whatsapp';
 import { AnchorNavigation } from '@/components/layout/anchor-navigation';
 import { PageTransition } from '@/components/layout/page-transition/page-transition';
 import '@/styles/globals.css';
+
 export const viewport: Viewport = { themeColor: '#27323a' };
 export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -16,7 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="pt-BR" className={plusJakartaSans.variable}>
       <body>
         <PageTransition />
-        <a href="#conteudo" className="skip-link">
+        <a href="#conteudo" className="skip-link tw:bg-ink">
           Pular para o conteúdo
         </a>
         <div id="inicio" />

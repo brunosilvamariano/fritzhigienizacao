@@ -25,7 +25,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main id="conteudo" className="home-content about-page" tabIndex={-1}>
+    <main
+      id="conteudo"
+      className="page-content tw:relative tw:bg-paper about-page"
+      tabIndex={-1}
+    >
       <AboutOpening />
       <AboutStory />
     </main>

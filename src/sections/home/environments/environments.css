@@ -3,23 +3,14 @@
 }
 .environment-message {
   height: 180svh;
-  position: relative;
-  background: var(--ink);
-  color: var(--paper);
   --accent-text: var(--paper);
 }
 .message-sticky {
   position: sticky;
   top: var(--header-height);
   height: calc(100svh - var(--header-height));
-  min-height: 400px;
+  min-height: min(400px, calc(100svh - var(--header-height)));
   padding: 50px var(--gutter);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 36px;
-  text-align: center;
 }
 .message-sticky h2 {
   max-width: 1080px;
@@ -29,39 +20,24 @@
   line-height: 1.15;
 }
 .message-word {
-  display: inline-block;
-  position: relative;
   color: rgb(245 241 234 / 0.6);
   margin-right: 0.22em;
 }
 .message-ink {
-  position: absolute;
   inset: 0;
-  color: var(--paper);
 }
 .message-scroll {
-  margin-top: 10px;
   font-size: 11px;
-  color: var(--paper);
-  display: flex;
-  align-items: center;
-  gap: 18px;
 }
 .message-scroll span {
   font-size: 22px;
 }
 .environment-collection-heading {
   padding: 40px var(--gutter) 24px;
-  background: var(--paper);
-  position: relative;
 }
 .environment-nav {
-  display: flex;
-  flex-wrap: wrap;
   gap: 4px 28px;
-  margin-top: 16px;
   border-top: 1px solid var(--line);
-  padding-top: 8px;
 }
 .environment-nav a {
   display: flex;
@@ -74,15 +50,11 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.environment-stack {
-  position: relative;
-}
 .environment-group,
 .environment-entry {
   display: contents;
 }
 .environment-position {
-  display: block;
   height: 0;
   scroll-margin-top: 0;
 }
@@ -91,13 +63,12 @@
 }
 .environment-panel {
   position: sticky;
-  top: var(--header-height);
+  top: var(--environment-sticky-top, var(--header-height));
   min-height: calc(100svh - var(--header-height));
-  display: grid;
+  margin-bottom: var(--environment-scroll-rest, 0px);
   grid-template-columns: 1.35fr 1fr;
   gap: clamp(30px, 5vw, 80px);
   padding: 24px var(--gutter) 28px;
-  background: var(--paper);
   border-top: 1px solid var(--line);
   box-shadow: 0 -20px 40px #27323a0a;
 }
@@ -106,16 +77,13 @@
 }
 .environment-panel--3 {
   grid-template-columns: 1fr;
+  margin-bottom: 0;
 }
 .environment-card {
-  min-width: 0;
   scroll-margin-top: 0;
 }
 .environment-photo {
-  position: relative;
-  overflow: hidden;
   height: clamp(210px, 52svh, 650px);
-  background: var(--taupe);
 }
 .environment-photo picture,
 .environment-photo img {
@@ -141,18 +109,8 @@
   margin-top: 8svh;
 }
 .environment-caption {
-  display: grid;
   grid-template-columns: 24px 1fr;
-  gap: 14px;
-  padding-top: 16px;
-  margin-top: 12px;
   border-top: 1px solid var(--line);
-}
-.environment-marker {
-  width: 18px;
-  height: 1px;
-  background: var(--copper);
-  margin-top: 17px;
 }
 .environment-caption h3 {
   font-size: clamp(27px, 2.8vw, 42px);
@@ -163,14 +121,10 @@
 .environment-note {
   font-size: 13px;
   line-height: 1.5;
-  margin-top: 10px;
 }
 .environment-description {
   font-size: 12px;
   line-height: 1.6;
-  color: var(--muted);
-  margin-top: 8px;
-  max-width: 400px;
 }
 .environment-card--home-office {
   display: grid;
@@ -187,16 +141,10 @@
   margin: 0;
 }
 .environment-endnote {
-  position: relative;
-  background: var(--paper);
   padding: 28px var(--gutter);
   border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
   font-size: 11px;
   line-height: 1.6;
-  color: var(--muted);
 }
 @media (max-width: 767px) {
   .environment-entry > .environment-position {
@@ -225,9 +173,10 @@
   .environment-card--home-office {
     display: block;
     position: sticky;
-    top: var(--header-height);
+    top: var(--environment-sticky-top, var(--header-height));
     min-height: calc(100svh - var(--header-height));
-    padding: 20px 24px 26px;
+    margin-bottom: var(--environment-scroll-rest, 0px);
+    padding: 20px 24px max(90px, calc(env(safe-area-inset-bottom) + 74px));
     background: var(--paper);
     border-top: 1px solid var(--line);
     box-shadow: 0 -16px 32px #27323a0a;
@@ -252,8 +201,25 @@
     gap: 8px;
     padding: 24px;
   }
+  .environment-group:last-child
+    .environment-entry:last-child
+    .environment-card {
+    margin-bottom: 0;
+  }
 }
-@media (prefers-reduced-motion: reduce), (max-height: 650px) {
+@media (max-height: 650px) {
+  .message-sticky {
+    padding-block: clamp(16px, 4svh, 32px);
+    gap: clamp(12px, 3svh, 24px);
+  }
+  .message-sticky h2 {
+    font-size: clamp(24px, min(8vw, 7svh), 48px);
+  }
+  .message-scroll {
+    margin-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
   .environment-message {
     height: auto;
   }
@@ -269,17 +235,8 @@
   .message-ink {
     display: none;
   }
-  .environment-panel,
-  .environment-card {
-    position: relative;
-    top: auto;
-  }
-  .environment-panel {
-    min-height: 0;
-  }
-  .environment-card {
-    min-height: 0;
-  }
+}
+@media (prefers-reduced-motion: reduce), (max-height: 650px) {
   .environment-photo,
   .environment-card--dormitorios .environment-photo,
   .environment-card--banheiros .environment-photo,
@@ -288,4 +245,21 @@
     aspect-ratio: 4/3;
     margin-top: 0;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .environment-panel,
+  .environment-card {
+    position: relative;
+    top: auto;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+}
+
+.environment-stack:not([data-stack-ready]) .environment-panel,
+.environment-stack:not([data-stack-ready]) .environment-card {
+  position: relative;
+  top: auto;
+  box-shadow: none;
 }

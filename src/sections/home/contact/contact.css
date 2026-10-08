@@ -1,11 +1,6 @@
 .contact-section {
-  position: relative;
-  background: var(--taupe);
-  color: var(--ink);
   padding: 90px var(--gutter) 100px;
-  display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 48px;
 }
 .contact-section > .eyebrow {
   color: var(--ink);

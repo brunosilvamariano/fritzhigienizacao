@@ -10,6 +10,7 @@ import materiaMobile from '@/assets/images/pages/home/services/mobile.webp';
 import detalheDesktop from '@/assets/images/pages/home/process/dar-forma/desktop.webp';
 import detalheTablet from '@/assets/images/pages/home/process/dar-forma/tablet.webp';
 import detalheMobile from '@/assets/images/pages/home/process/dar-forma/mobile.webp';
+
 export const studioImages = [
   {
     desktop: olharDesktop,

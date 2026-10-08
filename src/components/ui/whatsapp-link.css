@@ -1,8 +1,5 @@
-.whatsapp-link {
-  min-height: 44px;
-}
 /* A navegação mantém seus estilos; apenas conteúdo e rodapé usam CTA sólido. */
-:is(.home-content, .site-footer) .whatsapp-link {
+:is(.page-content, .site-footer) .whatsapp-link {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +18,7 @@
     background 200ms,
     color 200ms;
 }
-:is(.home-content, .site-footer) .whatsapp-link:hover {
+:is(.page-content, .site-footer) .whatsapp-link:hover {
   background: var(--copper-deep);
   color: var(--taupe);
 }
@@ -33,22 +30,17 @@
   background: var(--taupe);
   color: var(--ink);
 }
-:is(.home-content, .site-footer) .whatsapp-link > svg {
+:is(.page-content, .site-footer) .whatsapp-link > svg {
   flex-shrink: 0;
 }
 @media (max-width: 767px) {
-  :is(.home-content, .site-footer) .whatsapp-link {
+  :is(.page-content, .site-footer) .whatsapp-link {
     padding-inline: 18px;
     gap: 16px;
   }
 }
 .whatsapp-link-hint {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
   clip-path: inset(50%);
-  white-space: nowrap;
 }
 .environment-caption .whatsapp-link,
 .service-item .whatsapp-link {
@@ -59,12 +51,4 @@
 }
 .studio-caption .whatsapp-link {
   flex-shrink: 0;
-}
-/* Keep stacked cards and their contact actions reachable in shorter viewports. */
-@media (min-height: 651px) and (max-height: 800px) {
-  .environment-panel,
-  .environment-card {
-    position: relative;
-    top: auto;
-  }
 }

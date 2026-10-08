@@ -31,6 +31,7 @@ export const environments = [
   },
 ] as const;
 export const navigation = [
+  { href: '/projetos', label: 'Projetos' },
   { href: '/#servicos', label: 'Serviços' },
   { href: '/#processo', label: 'O processo' },
   { href: '/#estudio', label: 'Estúdio' },

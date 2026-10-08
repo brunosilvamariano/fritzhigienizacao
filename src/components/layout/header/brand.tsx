@@ -1,8 +1,12 @@
 export function Brand() {
   return (
-    <a className="brand" href="/#inicio" aria-label="Traço — início">
+    <a
+      className="brand tw:flex tw:gap-[14px] tw:items-center tw:shrink-0"
+      href="/#inicio"
+      aria-label="Traço — início"
+    >
       <svg
-        className="brand-mark"
+        className="brand-mark tw:text-copper"
         width="36"
         height="40"
         viewBox="0 0 36 40"
@@ -16,7 +20,7 @@ export function Brand() {
         />
       </svg>
       <span>
-        traço<span className="brand-dot">.</span>
+        traço<span className="brand-dot tw:text-copper">.</span>
       </span>
     </a>
   );

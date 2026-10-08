@@ -6,9 +6,12 @@ import './about-story.css';
 
 export function AboutStory() {
   return (
-    <section className="about-story" aria-labelledby="about-story-title">
-      <div className="about-story-grid">
-        <Reveal className="about-story-collage">
+    <section
+      className="about-story tw:relative tw:bg-taupe tw:text-ink"
+      aria-labelledby="about-story-title"
+    >
+      <div className="about-story-grid tw:grid tw:gap-[50px] tw:items-center">
+        <Reveal className="about-story-collage tw:relative">
           <figure className="about-story-living">
             <ResponsiveImage
               {...aboutImages.living}
@@ -27,12 +30,17 @@ export function AboutStory() {
               sizes="(min-width: 1024px) 24vw, 60vw"
             />
           </figure>
-          <span className="about-story-vertical" aria-hidden="true">
+          <span
+            className="about-story-vertical tw:absolute tw:uppercase tw:text-ink"
+            aria-hidden="true"
+          >
             Madeira · Luz · Proporção
           </span>
         </Reveal>
-        <Reveal className="about-story-copy">
-          <span className="eyebrow">O olhar da Traço</span>
+        <Reveal className="about-story-copy tw:pl-[42px] tw:py-[36px]">
+          <span className="eyebrow tw:uppercase tw:text-accent">
+            O olhar da Traço
+          </span>
           <h2 id="about-story-title">
             Seu jeito de viver.
             <br />
@@ -52,8 +60,11 @@ export function AboutStory() {
           </WhatsAppLink>
         </Reveal>
       </div>
-      <div className="about-story-base">
-        <span className="about-story-wordmark" aria-hidden="true">
+      <div className="about-story-base tw:mt-[36px] tw:flex tw:items-end tw:gap-[30px] tw:justify-between">
+        <span
+          className="about-story-wordmark tw:text-ink tw:whitespace-nowrap"
+          aria-hidden="true"
+        >
           Nosso traço.
         </span>
         <p>

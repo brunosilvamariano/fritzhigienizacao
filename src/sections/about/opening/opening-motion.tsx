@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type ReactNode } from 'react';
+import { mediaQueries } from '@/lib/media-queries';
 
 export function OpeningMotion({ children }: { children: ReactNode }) {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -9,9 +10,7 @@ export function OpeningMotion({ children }: { children: ReactNode }) {
     const stage = stageRef.current;
     const section = stage?.parentElement;
     if (!stage || !section) return;
-    const media = window.matchMedia(
-      '(min-width: 1024px) and (min-height: 651px) and (prefers-reduced-motion: no-preference)',
-    );
+    const media = window.matchMedia(mediaQueries.pinnedMotion);
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -57,7 +56,7 @@ export function OpeningMotion({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="about-opening-stage" ref={stageRef}>
+    <div className="about-opening-stage tw:relative tw:grid" ref={stageRef}>
       {children}
     </div>
   );

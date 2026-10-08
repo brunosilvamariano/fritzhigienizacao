@@ -68,17 +68,17 @@ Fontes e recursos visuais da interface são locais. As capturas em `docs/readme`
 
 ## Tecnologias
 
-| Tecnologia                     | Papel no projeto                                            |
-| ------------------------------ | ----------------------------------------------------------- |
-| Node.js 22 / npm 11            | Ambiente de execução e gerenciamento de dependências.       |
-| Next.js 16 / React 19          | App Router, composição da Home, renderização e metadados.   |
-| TypeScript                     | Tipagem dos componentes, conteúdo e configurações.          |
-| Tailwind CSS 4 / CSS por seção | Base de estilos, tokens e composição visual.                |
-| Framer Motion                  | Revelações e transições da interface.                       |
-| Plus Jakarta Sans variável     | Tipografia local com arquivo WOFF2 e licença junto à fonte. |
-| Biome / Prettier               | Lint e padronização de código.                              |
-| GitHub Actions                 | Verificações automáticas em pushes e pull requests.         |
-| Vercel                         | Hospedagem escolhida para a aplicação.                      |
+| Tecnologia                     | Papel no projeto                                                    |
+| ------------------------------ | ------------------------------------------------------------------- |
+| Node.js 22 / npm 11            | Ambiente de execução e gerenciamento de dependências.               |
+| Next.js 16 / React 19          | App Router, composição da Home, renderização e metadados.           |
+| TypeScript                     | Tipagem dos componentes, conteúdo e configurações.                  |
+| CSS por seção / Tailwind CSS 4 | Tailwind para layout simples; CSS para composição fluida e efeitos. |
+| Framer Motion                  | Revelações e transições da interface.                               |
+| Plus Jakarta Sans variável     | Tipografia local com arquivo WOFF2 e licença junto à fonte.         |
+| Biome / Prettier               | Lint e padronização de código.                                      |
+| GitHub Actions                 | Verificações automáticas em pushes e pull requests.                 |
+| Vercel                         | Hospedagem escolhida para a aplicação.                              |
 
 As versões exatas estão em [package.json](package.json) e [package-lock.json](package-lock.json).
 
@@ -92,7 +92,7 @@ cd traco-moveis-planejados
 npm ci
 ```
 
-Configure `.env.local` na raiz com as variáveis descritas em [Configuração](#configuração).
+Copie `.env.example` para `.env.local` na raiz com as variáveis descritas em [Configuração](#configuração).
 O Next.js carrega esse arquivo automaticamente; ele é local e não entra no Git.
 Em uma nova cópia do repositório, crie-o com as configurações do ambiente.
 
@@ -137,7 +137,7 @@ Variáveis `NEXT_PUBLIC_*` ficam expostas ao navegador. Credenciais privadas nã
 
 Estatísticas e publicidade têm escolhas independentes. Os SDKs de Google e Meta são carregados somente após autorização da categoria correspondente; as preferências podem ser revistas pelo rodapé quando a integração está habilitada.
 
-O projeto registra visitas e cliques contextuais de WhatsApp. Um clique representa intenção de contato; não comprova mensagem enviada, lead qualificado ou venda. A configuração completa e as condições de ativação estão em [SEO e mensuração](docs/seo-e-mensuracao.md).
+O projeto registra visitas e cliques contextuais de WhatsApp. Um clique representa intenção de contato; não comprova mensagem enviada, lead qualificado ou venda. A configuração completa e as condições de ativação estão em [SEO e mensuração](docs/guias/seo-e-mensuracao.md).
 
 ## Organização do código
 
@@ -146,9 +146,9 @@ Visão resumida dos diretórios utilizados pela aplicação:
 ```text
 .
 ├── .github/workflows/     # Pipeline de qualidade
-├── docs/                 # Decisões, guias e evidências de validação
+├── docs/                 # guias/, secoes/, auditorias/, marca/ e capturas do README
 ├── src/
-│   ├── app/              # Home, layout, metadados, robots e sitemap
+│   ├── app/              # Home, Sobre, 404, erro, layout, metadados, robots e sitemap
 │   ├── animations/       # Recursos compartilhados de animação
 │   ├── assets/           # Imagens, marcas e fontes locais
 │   ├── components/
@@ -156,21 +156,18 @@ Visão resumida dos diretórios utilizados pela aplicação:
 │   │   ├── layout/       # Header, menus e footer
 │   │   ├── media/        # Imagens responsivas
 │   │   └── ui/           # Elementos reutilizáveis
-│   ├── config/           # Site, navegação, contato e tracking
+│   ├── config/           # Site, rotas, navegação, contato e tracking
 │   ├── content/          # Conteúdo compartilhado
-│   ├── lib/              # Utilitários, incluindo foco em âncoras
-│   ├── sections/home/
-│   │   ├── hero/
-│   │   ├── environments/
-│   │   ├── services/
-│   │   ├── process/
-│   │   ├── studio/
-│   │   └── contact/
+│   ├── lib/              # Âncoras, cliques e consultas de mídia
+│   ├── sections/
+│   │   ├── about/        # opening, story
+│   │   └── home/         # hero, environments, services, process, studio, faq, contact
+│   │                     # e services-process-transition
 │   └── styles/           # Estilos globais, tokens e fontes
-└── tests/unit/           # Testes de medição
+└── tests/unit/           # Testes de configuração, utilitários e medição
 ```
 
-Cada seção reúne seus componentes, conteúdo, estilos e recursos exclusivos. `src/app/page.tsx` compõe a Home; elementos compartilhados ficam em `components`, `config` e `lib`. Consulte [arquitetura](docs/arquitetura.md) e [modelo de seção](docs/secao-modelo.md) para as convenções de manutenção.
+Cada seção reúne seus componentes, conteúdo, estilos e recursos exclusivos. `src/app/page.tsx` compõe a Home; elementos compartilhados ficam em `components`, `config` e `lib`. Consulte [arquitetura](docs/guias/arquitetura.md) e [modelo de seção](docs/guias/secao-modelo.md) para as convenções de manutenção.
 
 ### Onde editar
 
@@ -189,7 +186,7 @@ Cada seção reúne seus componentes, conteúdo, estilos e recursos exclusivos. 
 
 ```bash
 npm run check
-npm run test:tracking
+npm test
 npm run build
 npm run audit
 ```
@@ -198,7 +195,7 @@ npm run audit
 
 A interface inclui link de salto para o conteúdo, foco visível, diálogo mobile nativo, estados acessíveis nos controles e tratamento de painéis fechados com `aria-hidden` e `inert`. O carrossel possui pausa e a implementação considera a preferência por movimento reduzido.
 
-A [auditoria de 03/10/2026](docs/auditoria-2026-10-03.md) registrou check e build aprovados, seis testes de medição aprovados e navegação por teclado conferida. Foram inspecionadas larguras de 320, 390, 768, 1024 e 1440 px sem overflow horizontal. Esses resultados se referem à execução documentada.
+A [auditoria de 03/10/2026](docs/auditorias/auditoria-2026-10-03.md) registrou check e build aprovados, seis testes de medição aprovados e navegação por teclado conferida. Foram inspecionadas larguras de 320, 390, 768, 1024 e 1440 px sem overflow horizontal. Esses resultados se referem à execução documentada.
 
 Ainda não foram realizados Lighthouse, certificação WCAG, testes com NVDA/JAWS/VoiceOver ou validação com pessoas cegas. A documentação registra as evidências e os limites das verificações.
 
@@ -210,21 +207,22 @@ Ainda não foram realizados Lighthouse, certificação WCAG, testes com NVDA/JAW
 4. Mantenha a medição desligada nos previews e a indexação desligada enquanto o site for conceitual.
 5. Publique o código e confira navegação, imagens e metadados de compartilhamento no novo deploy.
 
-Ao transformar o conceito em um site de empresa real, revise conteúdo, imagens, contatos e política de privacidade antes de habilitar indexação ou medição. O roteiro detalhado está em [SEO, compartilhamento e anúncios](docs/seo-e-mensuracao.md).
+Ao transformar o conceito em um site de empresa real, revise conteúdo, imagens, contatos e política de privacidade antes de habilitar indexação ou medição. O roteiro detalhado está em [SEO, compartilhamento e anúncios](docs/guias/seo-e-mensuracao.md).
 
 ## Documentação
 
-| Documento                                         | Conteúdo                                         |
-| ------------------------------------------------- | ------------------------------------------------ |
-| [Design brief](docs/design-brief.md)              | Conceito, identidade e direção visual.           |
-| [Estrutura completa](docs/estrutura-completa.txt) | Inventário dos arquivos existentes no projeto.   |
-| [Arquitetura](docs/arquitetura.md)                | Responsabilidades e organização do código.       |
-| [Modelo de seção](docs/secao-modelo.md)           | Convenções para implementar e manter seções.     |
-| [Dependências](docs/dependencias.md)              | Escolhas e orientação de recursos locais.        |
-| [Imagens](docs/imagens.md)                        | Organização dos recursos visuais.                |
-| [Imagens geradas](docs/imagens-geradas.md)        | Origem dos estudos e implementação do carrossel. |
-| [SEO e mensuração](docs/seo-e-mensuracao.md)      | Metadados, Vercel, consentimento e eventos.      |
-| [Auditoria técnica](docs/auditoria-2026-10-03.md) | Correções, evidências e pendências verificadas.  |
+| Documento                                                          | Conteúdo                                              |
+| ------------------------------------------------------------------ | ----------------------------------------------------- |
+| [Índice da documentação](docs/README.md)                           | Todos os documentos, por pasta.                       |
+| [Design brief](docs/guias/design-brief.md)                         | Conceito, identidade e direção visual.                |
+| [Arquitetura](docs/guias/arquitetura.md)                           | Responsabilidades e organização do código.            |
+| [Modelo de seção](docs/guias/secao-modelo.md)                      | Convenções para implementar e manter seções.          |
+| [Dependências](docs/guias/dependencias.md)                         | Escolhas e orientação de recursos locais.             |
+| [Imagens](docs/guias/imagens.md)                                   | Organização dos recursos visuais.                     |
+| [SEO e mensuração](docs/guias/seo-e-mensuracao.md)                 | Metadados, Vercel, consentimento e eventos.           |
+| [Auditoria de 07/10/2026](docs/auditorias/auditoria-2026-10-07.md) | Estrutura e código: correções, decisões e pendências. |
+| [Auditoria de 03/10/2026](docs/auditorias/auditoria-2026-10-03.md) | Acessibilidade técnica e evidências da Home.          |
+| [Estrutura completa](docs/estrutura-completa.txt)                  | Inventário dos arquivos existentes no projeto.        |
 
 ## Autoria e uso
 

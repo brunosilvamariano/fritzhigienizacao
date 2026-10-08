@@ -1,8 +1,6 @@
 .faq {
-  display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
   gap: clamp(48px, 7vw, 120px);
-  background: var(--white);
   border-top: 1px solid var(--line);
   padding-block: 112px 120px;
   align-items: start;
@@ -25,20 +23,12 @@
 }
 .faq-list {
   border-top: 1px solid var(--line);
-  min-width: 0;
 }
 .faq-item {
   border-bottom: 1px solid var(--line);
 }
 .faq-trigger {
-  display: grid;
   grid-template-columns: 26px minmax(0, 1fr) 20px;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  min-height: 104px;
-  padding-block: 28px;
-  text-align: left;
   font-size: clamp(16px, 1.35vw, 20px);
   font-weight: 450;
   line-height: 1.55;
@@ -50,15 +40,8 @@
   outline-offset: -4px;
 }
 .faq-number {
-  color: var(--copper);
   font-size: 11px;
   letter-spacing: 0.04em;
-}
-.faq-mark {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  color: var(--copper);
 }
 .faq-mark i {
   position: absolute;
@@ -76,7 +59,6 @@
   transform: rotate(0);
 }
 .faq-answer {
-  display: grid;
   grid-template-rows: 0fr;
   visibility: hidden;
   opacity: 0;
@@ -92,7 +74,6 @@
 }
 .faq-answer-clip {
   min-height: 0;
-  overflow: hidden;
 }
 .faq .faq-answer p {
   padding: 0 40px 32px 46px;

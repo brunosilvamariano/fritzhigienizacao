@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 import { focusAnchor } from '@/lib/focus-anchor';
+import { prefersReducedMotion } from '@/lib/media-queries';
+import { isPlainClick } from '@/lib/plain-click';
+import { routePaths } from '@/config/routes';
 import './page-transition.css';
 
 type Destination = {
@@ -12,7 +15,6 @@ type Destination = {
   restoreScroll?: number;
 };
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
-const routes = new Set(['/', '/sobre']);
 
 export function PageTransition() {
   const router = useRouter();
@@ -25,7 +27,7 @@ export function PageTransition() {
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       setPhase('idle');
       busy.current = false;
       return;
@@ -70,23 +72,14 @@ export function PageTransition() {
       if (link.target || link.hasAttribute('download')) return null;
       const url = new URL(link.href);
       return url.origin === location.origin &&
-        routes.has(url.pathname) &&
+        routePaths.has(url.pathname) &&
         url.pathname !== location.pathname &&
         !url.search
         ? url
         : null;
     };
     const click = (event: MouseEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey ||
-        !(event.target instanceof Element)
-      )
-        return;
+      if (!isPlainClick(event) || !(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>('a[href]');
       if (!link) return;
       const url = destination(link);
@@ -94,7 +87,7 @@ export function PageTransition() {
       event.preventDefault();
       if (busy.current) return;
       positions.current.set(location.pathname + location.hash, window.scrollY);
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reduced = prefersReducedMotion();
       pending.current = { url, reduced };
       busy.current = true;
       setPhase(reduced ? 'idle' : 'covering');
@@ -135,12 +128,12 @@ export function PageTransition() {
     const back = () => {
       if (
         location.pathname === currentPath.current ||
-        !routes.has(location.pathname)
+        !routePaths.has(location.pathname)
       )
         return;
       for (const timer of timers.current) clearTimeout(timer);
       timers.current = [];
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reduced = prefersReducedMotion();
       pending.current = {
         url: new URL(location.href),
         reduced,
@@ -214,13 +207,13 @@ export function PageTransition() {
 
   return (
     <div
-      className="page-transition"
+      className="page-transition tw:grid tw:place-items-center tw:bg-taupe tw:text-ink"
       data-phase={phase}
       aria-hidden={phase === 'idle'}
     >
-      <div className="page-transition-brand">
+      <div className="page-transition-brand tw:grid tw:gap-[18px]">
         <svg
-          className="page-transition-symbol"
+          className="page-transition-symbol tw:text-copper"
           width="48"
           height="54"
           viewBox="0 0 36 40"
@@ -238,7 +231,7 @@ export function PageTransition() {
           traço<span>.</span>
         </span>
         <span
-          className="page-transition-label"
+          className="page-transition-label tw:text-muted"
           role="status"
           aria-live="polite"
           aria-label={phase === 'idle' ? undefined : 'Abrindo página'}

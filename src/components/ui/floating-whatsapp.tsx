@@ -58,11 +58,13 @@ export function FloatingWhatsApp() {
   if (showBackTop) {
     return (
       <a
-        className={`floating-whatsapp floating-back-top${footerLogoVisible ? ' floating-back-top--footer' : ''}`}
+        className={`floating-whatsapp tw:grid tw:place-items-center tw:w-[58px] tw:h-[58px] floating-back-top${footerLogoVisible ? ' floating-back-top--footer' : ''}`}
         href={`${pathname}#inicio`}
         aria-label="Voltar ao início da página"
       >
-        <span className="back-top-label">Voltar ao início da página</span>
+        <span className="back-top-label tw:absolute tw:w-[1px] tw:h-[1px] tw:overflow-hidden tw:whitespace-nowrap">
+          Voltar ao início da página
+        </span>
         <svg
           viewBox="0 0 24 24"
           width="20"
@@ -79,7 +81,7 @@ export function FloatingWhatsApp() {
   }
   return (
     <a
-      className="floating-whatsapp"
+      className="floating-whatsapp tw:grid tw:place-items-center tw:w-[58px] tw:h-[58px]"
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
@@ -87,7 +89,9 @@ export function FloatingWhatsApp() {
       data-track-contact="botão flutuante"
     >
       <WhatsAppIcon />
-      <span className="floating-whatsapp-label">Vamos conversar?</span>
+      <span className="floating-whatsapp-label tw:absolute tw:bg-ink tw:text-paper tw:whitespace-nowrap">
+        Vamos conversar?
+      </span>
     </a>
   );
 }

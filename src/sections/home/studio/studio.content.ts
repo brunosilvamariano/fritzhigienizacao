@@ -22,4 +22,4 @@ export const studioContent = {
       text: 'Nos encontros, nos encaixes e nos acabamentos, o cuidado que transforma uma ideia em espaço.',
     },
   ],
-};
+} as const;

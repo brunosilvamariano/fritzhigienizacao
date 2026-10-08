@@ -1,16 +1,24 @@
 :root {
   --paper: #f5f1ea;
   --white: #ffffff;
-  --accent-text: #27323a;
+  --accent-text: var(--ink);
   --taupe: #dcc5b7;
-  --taupe-text: #27323a;
-  --copper-deep: #27323a;
-  --on-dark-muted: #dcc5b7;
+  --taupe-text: var(--ink);
+  --copper-deep: var(--ink);
+  --on-dark-muted: var(--taupe);
   --ink: #27323a;
   --copper: #897061;
-  --muted: #27323a;
+  --muted: var(--ink);
   --line: #27323a2b;
   --line-on-dark: #dcc5b733;
   --gutter: clamp(24px, 5vw, 88px);
+  --section-space: clamp(65px, 7vw, 100px);
   --header-height: 92px;
+  /* Camadas globais. Empilhamentos internos de seção usam valores locais. */
+  --z-content: 1;
+  --z-header: 30;
+  --z-floating: 35;
+  --z-consent: 80;
+  --z-page-transition: 90;
+  --z-skip-link: 100;
 }

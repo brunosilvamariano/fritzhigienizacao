@@ -1,10 +1,4 @@
-.about-opening {
-  position: relative;
-  background: var(--paper);
-}
 .about-opening-stage {
-  position: relative;
-  display: grid;
   grid-template-columns: 44% 56%;
   min-height: calc(100svh - var(--header-height));
   overflow: clip;
@@ -13,7 +7,6 @@
 .about-opening-photo {
   grid-column: 2;
   grid-row: 1;
-  min-height: 640px;
 }
 .about-opening-photo picture,
 .about-opening-photo img {
@@ -26,14 +19,9 @@
   object-position: center;
 }
 .about-opening-copy {
-  color: var(--ink);
   grid-column: 1;
   grid-row: 1;
   padding: clamp(64px, 8vh, 110px) 42px 48px var(--gutter);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--paper);
   z-index: 2;
 }
 .about-opening h1 {
@@ -50,15 +38,8 @@
   line-height: 1.8;
 }
 .about-opening-note {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   border-top: 1px solid var(--line);
-  margin-top: 64px;
-  padding-top: 20px;
   font-size: 11px;
-  color: var(--muted);
 }
 .about-opening-note > span:last-child {
   font-size: 24px;
@@ -68,12 +49,10 @@
   display: none;
 }
 .about-opening-credit {
-  position: absolute;
   bottom: 22px;
   right: 96px;
   z-index: 3;
   background: rgb(39 50 58 / 0.75);
-  color: var(--paper);
   padding: 6px 10px;
   font-size: 9px;
   letter-spacing: 0.03em;
@@ -111,8 +90,8 @@
   pointer-events: none;
 }
 .about-opening-overlay p {
-  max-width: 760px;
-  font-size: clamp(25px, 2.6vw, 42px);
+  max-width: 1200px;
+  font-size: clamp(36px, 4vw, 64px);
   letter-spacing: -0.045em;
   line-height: 1.35;
 }
@@ -150,6 +129,7 @@
   .about-opening-photo {
     min-height: 0;
     aspect-ratio: 4 / 5;
+    max-height: clamp(300px, 72svh, 720px);
   }
   .about-opening-credit {
     right: 84px;

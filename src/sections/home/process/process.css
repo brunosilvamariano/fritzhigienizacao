@@ -3,28 +3,14 @@
   --muted: var(--taupe-text);
   --copper: var(--copper-deep);
   border-top: 1px solid var(--line);
-  background: var(--paper);
 }
 .process .process-introduction {
   max-width: 800px;
 }
 .process-experience {
-  display: grid;
   grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
-  gap: 36px;
-  margin-top: 64px;
-}
-.process-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 65px;
-  padding-bottom: 30px;
-  gap: 40px;
 }
 .process-sketch {
-  color: var(--copper);
-  width: 160px;
   max-width: 85%;
 }
 .process-description h3 {
@@ -52,15 +38,14 @@
   }
 }
 .process-accordion {
-  display: flex;
-  gap: 12px;
-  min-width: 0;
-  height: clamp(430px, 43vw, 600px);
+  height: clamp(
+    280px,
+    min(36vw, calc(100svh - var(--header-height) - 180px)),
+    520px
+  );
 }
 .process-item {
-  position: relative;
   flex: 0 0 76px;
-  min-width: 0;
   border-radius: 24px 24px 0 0;
   transition:
     flex-basis 0.7s cubic-bezier(0.22, 1, 0.36, 1),
@@ -73,19 +58,12 @@
   margin: 0;
 }
 .process-trigger {
-  position: absolute;
   inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   border: 1px solid var(--line);
   border-bottom: 0;
   border-radius: 24px 24px 0 0;
-  width: 100%;
   padding: 20px 8px;
-  background: var(--paper);
 }
 .process-trigger:hover {
   color: var(--copper);
@@ -96,12 +74,10 @@
 .process-plus {
   font-size: 30px;
   font-weight: 250;
-  color: var(--copper);
 }
 .process-step-name {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.13em;
   order: 1;
@@ -111,7 +87,6 @@
   font-size: 48px;
   font-weight: 250;
   line-height: 1;
-  color: var(--copper);
 }
 .is-active .process-trigger {
   inset: auto 0 0 auto;
@@ -139,9 +114,7 @@
   order: 1;
 }
 .process-panel {
-  position: absolute;
   inset: 0;
-  overflow: hidden;
   border-radius: 24px;
   opacity: 0;
   visibility: hidden;
@@ -164,17 +137,10 @@
   object-fit: cover;
 }
 .process-panel-description {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
   clip-path: inset(50%);
 }
 .process-credit {
   font-size: 10px;
-  color: var(--muted);
-  margin-top: 22px;
-  text-align: right;
 }
 @media (max-width: 1023px) {
   .process-experience {
@@ -186,9 +152,6 @@
   }
   .process-step-number {
     font-size: 38px;
-  }
-  .process-accordion {
-    height: 450px;
   }
 }
 @media (max-width: 767px) {
@@ -265,7 +228,7 @@
     height: auto;
   }
   .process-panel picture {
-    height: auto;
+    height: clamp(210px, min(55vw, 45svh), 330px);
     aspect-ratio: 5/4;
     overflow: hidden;
     border-radius: 18px;

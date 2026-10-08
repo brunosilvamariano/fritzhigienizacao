@@ -1,4 +1,5 @@
 import { getImageProps, type StaticImageData } from 'next/image';
+
 type Props = {
   desktop: StaticImageData;
   tablet: StaticImageData;

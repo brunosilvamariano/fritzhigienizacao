@@ -1,4 +1,5 @@
 'use client';
+
 import {
   useCallback,
   useEffect,
@@ -7,6 +8,7 @@ import {
   type PointerEvent,
 } from 'react';
 import { useReducedMotion } from 'framer-motion';
+
 export const SLIDE_DURATION = 6500;
 export function useHeroCarousel(count: number) {
   const [active, setActive] = useState(0);

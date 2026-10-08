@@ -1,4 +1,5 @@
 import { focusAnchor } from './focus-anchor';
+import { mediaQueries, prefersReducedMotion } from './media-queries';
 
 /** Ancora a navegação no fluxo do documento, mesmo quando o card está sticky. */
 export function navigateAnchor(
@@ -19,7 +20,7 @@ export function navigateAnchor(
   const position = scrollPosition
     ? document.getElementById(scrollPosition)
     : mobilePosition
-      ? window.matchMedia('(max-width: 767px)').matches
+      ? window.matchMedia(mediaQueries.mobile).matches
         ? document.getElementById(mobilePosition)
         : target
             .closest('.environment-group')
@@ -46,9 +47,7 @@ export function navigateAnchor(
   );
   window.scrollTo({
     top,
-    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 'instant'
-      : behavior,
+    behavior: prefersReducedMotion() ? 'instant' : behavior,
   });
   return true;
 }

@@ -14,7 +14,10 @@ export function WhatsAppIcon() {
 
 export function InstagramIcon() {
   return (
-    <span className="instagram-icon" aria-hidden="true">
+    <span
+      className="instagram-icon tw:grid tw:place-items-center tw:w-[34px] tw:h-[34px] tw:shrink-0"
+      aria-hidden="true"
+    >
       <svg
         viewBox="0 0 24 24"
         width="22"

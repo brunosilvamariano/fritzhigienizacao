@@ -2,16 +2,26 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { studioContent } from './studio.content';
 import { StudioPanels } from './studio-panels';
 import './studio.css';
+
 export function Studio() {
   return (
-    <section className="studio" id="estudio" aria-labelledby="studio-title">
-      <header className="studio-intro">
-        <span className="eyebrow section-label">Estúdio</span>
+    <section
+      className="studio tw:pt-[90px]"
+      id="estudio"
+      aria-labelledby="studio-title"
+    >
+      <header className="studio-intro tw:flex tw:justify-between tw:gap-[32px]">
+        <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
+          Estúdio
+        </span>
         <h2 id="studio-title">{studioContent.title}</h2>
       </header>
       <StudioPanels />
-      <div className="studio-caption">
-        <a href="/sobre" className="text-link">
+      <div className="studio-caption tw:flex tw:justify-between tw:gap-[12px] tw:text-muted">
+        <a
+          href="/sobre"
+          className="text-link tw:inline-flex tw:items-center tw:gap-[22px] tw:py-[9px]"
+        >
           Conheça a Traço <span aria-hidden="true">↗</span>
         </a>
         <WhatsAppLink context="a proposta da Traço e um projeto para meu espaço">

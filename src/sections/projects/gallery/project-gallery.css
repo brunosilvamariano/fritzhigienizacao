@@ -1,0 +1,103 @@
+.project-collection {
+  padding: clamp(32px, 4vw, 56px) var(--gutter) clamp(48px, 5vw, 80px);
+}
+.collection-intro {
+  align-items: end;
+  padding-bottom: clamp(28px, 3vw, 44px);
+}
+.collection-intro h1 {
+  margin-top: 16px;
+  font-size: clamp(36px, 4vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  font-weight: 450;
+}
+.collection-intro h1 em {
+  font-style: normal;
+  color: var(--copper);
+}
+.collection-intro-copy {
+  justify-self: end;
+}
+.collection-intro-copy p {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.6;
+}
+.collection-note {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.collection-divider {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.collection-grid {
+  column-gap: clamp(24px, 3vw, 48px);
+  align-items: start;
+}
+.collection-item:nth-child(even) {
+  padding-top: clamp(20px, 2.5vw, 40px);
+}
+.project-card-image {
+  aspect-ratio: 3 / 2;
+}
+.project-card-image picture,
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+}
+.project-card-image img {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card-open {
+  right: 24px;
+  bottom: 24px;
+  border-radius: 50%;
+  transition:
+    transform 0.4s,
+    background 0.4s,
+    color 0.4s;
+}
+.project-card:hover img,
+.project-card:focus-visible img {
+  transform: scale(1.035);
+}
+.project-card:hover .project-card-open,
+.project-card:focus-visible .project-card-open {
+  background: var(--ink);
+  color: var(--paper);
+  transform: rotate(45deg);
+}
+.project-card-caption h2 {
+  font-size: clamp(22px, 1.8vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  font-weight: 450;
+}
+.project-card-study {
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media (max-width: 767px) {
+  .collection-intro-copy {
+    justify-self: start;
+  }
+  .collection-note {
+    margin-top: 18px;
+  }
+  .collection-item:nth-child(even) {
+    padding-top: 0;
+  }
+  .project-card-image {
+    aspect-ratio: 4 / 3;
+  }
+  .project-card-open {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+  }
+}

@@ -1,8 +1,10 @@
 'use client';
+
 import { useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { processSteps } from './process.content';
+
 export function ProcessAccordion() {
   const [active, setActive] = useState(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -20,11 +22,14 @@ export function ProcessAccordion() {
     buttons.current[next]?.focus();
   }
   return (
-    <div className="process-experience">
-      <div className="process-description" aria-hidden="true">
+    <div className="process-experience tw:grid tw:gap-[36px] tw:mt-[64px]">
+      <div
+        className="process-description tw:flex tw:flex-col tw:justify-between tw:pt-[65px] tw:pb-[30px] tw:gap-[40px]"
+        aria-hidden="true"
+      >
         <svg
           aria-hidden="true"
-          className="process-sketch"
+          className="process-sketch tw:text-copper tw:w-[160px]"
           viewBox="0 0 180 160"
           fill="none"
         >
@@ -44,18 +49,22 @@ export function ProcessAccordion() {
           <p>{current.text}</p>
         </div>
       </div>
-      <div className="process-accordion">
+      <div className="process-accordion tw:flex tw:gap-[12px] tw:min-w-0">
         {processSteps.map((step, index) => {
           const open = active === index;
           return (
             <article
               key={step.id}
-              className={open ? 'process-item is-active' : 'process-item'}
+              className={
+                open
+                  ? 'process-item tw:relative tw:min-w-0 is-active'
+                  : 'process-item tw:relative tw:min-w-0'
+              }
             >
               <h3 className="process-trigger-heading">
                 <button
                   type="button"
-                  className="process-trigger"
+                  className="process-trigger tw:absolute tw:flex tw:flex-col tw:items-center tw:justify-between tw:w-full tw:bg-paper"
                   ref={(node) => {
                     buttons.current[index] = node;
                   }}
@@ -65,25 +74,33 @@ export function ProcessAccordion() {
                   onClick={() => setActive(index)}
                   onKeyDown={(event) => navigate(event, index)}
                 >
-                  <span className="process-plus" aria-hidden="true">
+                  <span
+                    className="process-plus tw:text-copper"
+                    aria-hidden="true"
+                  >
                     {open ? '−' : '+'}
                   </span>
-                  <span className="process-step-number">0{index + 1}</span>
-                  <span className="process-step-name">{step.title}</span>
+                  <span className="process-step-number tw:text-copper">
+                    0{index + 1}
+                  </span>
+                  <span className="process-step-name tw:uppercase">
+                    {step.title}
+                  </span>
                 </button>
               </h3>
-              <section
+              <div
                 id={`process-panel-${step.id}`}
-                aria-labelledby={`process-trigger-${step.id}`}
-                className="process-panel"
+                className="process-panel tw:absolute tw:overflow-hidden"
                 aria-hidden={!open}
                 inert={!open}
               >
                 <div className="process-panel-inner">
                   <ResponsiveImage {...step.images} />
-                  <p className="process-panel-description">{step.text}</p>
+                  <p className="process-panel-description tw:absolute tw:w-[1px] tw:h-[1px] tw:overflow-hidden">
+                    {step.text}
+                  </p>
                 </div>
-              </section>
+              </div>
             </article>
           );
         })}

@@ -1,5 +1,6 @@
 import { environments } from '@/config/navigation';
 import { environmentImages } from './environments.images';
+
 const details = {
   cozinhas: {
     material: 'Carvalho + travertino',

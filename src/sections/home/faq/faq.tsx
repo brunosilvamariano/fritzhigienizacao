@@ -9,13 +9,15 @@ export function Faq() {
 
   return (
     <section
-      className="faq section"
+      className="faq tw:grid tw:bg-white section"
       id="duvidas"
       aria-labelledby="faq-title"
       tabIndex={-1}
     >
       <div className="faq-introduction section-heading">
-        <span className="eyebrow section-label">Dúvidas frequentes</span>
+        <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
+          Dúvidas frequentes
+        </span>
         <h2 id="faq-title">
           Antes de dar
           <br />o primeiro passo.
@@ -25,14 +27,14 @@ export function Faq() {
           partida para pensar no seu espaço.
         </p>
       </div>
-      <div className="faq-list">
+      <div className="faq-list tw:min-w-0">
         {faqItems.map((item, index) => {
           const expanded = openId === item.id;
           return (
             <div className="faq-item" key={item.id} data-open={expanded}>
               <h3>
                 <button
-                  className="faq-trigger"
+                  className="faq-trigger tw:grid tw:items-center tw:gap-[20px] tw:w-full tw:min-h-[104px] tw:py-[28px] tw:text-left"
                   type="button"
                   id={`faq-trigger-${item.id}`}
                   aria-expanded={expanded}
@@ -43,27 +45,32 @@ export function Faq() {
                     )
                   }
                 >
-                  <span className="faq-number" aria-hidden="true">
+                  <span
+                    className="faq-number tw:text-copper"
+                    aria-hidden="true"
+                  >
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{item.question}</span>
-                  <span className="faq-mark" aria-hidden="true">
+                  <span
+                    className="faq-mark tw:relative tw:w-[18px] tw:h-[18px] tw:text-copper"
+                    aria-hidden="true"
+                  >
                     <i />
                     <i />
                   </span>
                 </button>
               </h3>
-              <section
-                className="faq-answer"
+              <div
+                className="faq-answer tw:grid"
                 id={`faq-answer-${item.id}`}
-                aria-labelledby={`faq-trigger-${item.id}`}
                 aria-hidden={!expanded}
                 inert={!expanded}
               >
-                <div className="faq-answer-clip">
+                <div className="faq-answer-clip tw:overflow-hidden">
                   <p>{item.answer}</p>
                 </div>
-              </section>
+              </div>
             </div>
           );
         })}

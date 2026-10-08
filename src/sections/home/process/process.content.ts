@@ -1,4 +1,5 @@
 import { processImages } from './process.images';
+
 export const processSteps = [
   {
     id: 'escutar',

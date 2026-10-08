@@ -1,20 +1,13 @@
 'use client';
+
 import { useEffect } from 'react';
 import { navigateAnchor } from '@/lib/navigate-anchor';
+import { isPlainClick } from '@/lib/plain-click';
 
 export function AnchorNavigation() {
   useEffect(() => {
     const click = (event: MouseEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey ||
-        !(event.target instanceof Element)
-      )
-        return;
+      if (!isPlainClick(event) || !(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>('a[href]');
       if (
         !link ||

@@ -5,6 +5,7 @@ import bedroomMobile from '@/assets/images/pages/home/hero/bedroom/mobile.webp';
 import livingDesktop from '@/assets/images/pages/home/hero/living/desktop.webp';
 import livingTablet from '@/assets/images/pages/home/hero/living/tablet.webp';
 import livingMobile from '@/assets/images/pages/home/hero/living/mobile.webp';
+
 export const heroSlides = [
   { label: 'Cozinhas', images: kitchenStudyImages },
   {
