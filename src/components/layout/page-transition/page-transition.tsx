@@ -15,6 +15,11 @@ type Destination = {
   restoreScroll?: number;
 };
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
+const preloaderLetters = Array.from('//TRAÇO').map((letter, index) => ({
+  letter,
+  id: `preloader-${index}`,
+  delay: `${0.05 + (index * 0.4) / 6}s`,
+}));
 
 export function PageTransition() {
   const router = useRouter();
@@ -51,11 +56,27 @@ export function PageTransition() {
         ]);
         if (cancelled) return;
         clearTimeout(deadline);
+        const introduction = currentPath.current === '/';
+        if (introduction) {
+          if (!location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+          const curtain =
+            document.querySelector<HTMLElement>('.page-transition');
+          if (curtain)
+            curtain.dataset.entranceStart = String(performance.now());
+          window.dispatchEvent(new Event('traco:entrance-ready'));
+          await new Promise<void>((resolve) => {
+            deadline = setTimeout(resolve, 1440);
+          });
+          if (cancelled) return;
+        }
         setPhase('revealing');
-        finish = setTimeout(() => {
-          setPhase('idle');
-          busy.current = false;
-        }, 540);
+        finish = setTimeout(
+          () => {
+            setPhase('idle');
+            busy.current = false;
+          },
+          currentPath.current === '/' ? 1000 : 540,
+        );
       });
     });
     return () => {
@@ -192,10 +213,13 @@ export function PageTransition() {
         }
         setPhase('revealing');
         timers.current.push(
-          setTimeout(() => {
-            setPhase('idle');
-            busy.current = false;
-          }, 540),
+          setTimeout(
+            () => {
+              setPhase('idle');
+              busy.current = false;
+            },
+            pathname === '/' ? 1000 : 540,
+          ),
         );
       });
     });
@@ -209,36 +233,21 @@ export function PageTransition() {
     <div
       className="page-transition tw:grid tw:place-items-center tw:bg-taupe tw:text-ink"
       data-phase={phase}
+      data-home={pathname === '/'}
       aria-hidden={phase === 'idle'}
     >
-      <div className="page-transition-brand tw:grid tw:gap-[18px]">
-        <svg
-          className="page-transition-symbol tw:text-copper"
-          width="48"
-          height="54"
-          viewBox="0 0 36 40"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M7 2v30h26M3 11h25v24H11V7M1 25h34M17 18v21"
-            stroke="currentColor"
-            strokeWidth=".8"
-            pathLength="100"
-          />
-        </svg>
-        <span className="page-transition-wordmark">
-          traço<span>.</span>
-        </span>
-        <span
-          className="page-transition-label tw:text-muted"
-          role="status"
-          aria-live="polite"
-          aria-label={phase === 'idle' ? undefined : 'Abrindo página'}
-        >
-          {phase === 'idle' ? '' : 'Seu espaço. Seu traço.'}
-        </span>
-      </div>
+      <span className="page-transition-wordmark" aria-hidden="true">
+        {preloaderLetters.map(({ letter, id, delay }) => (
+          <span className="preloader-letter-mask" key={id}>
+            <span style={{ animationDelay: delay }}>{letter}</span>
+          </span>
+        ))}
+      </span>
+      <span className="page-transition-border" aria-hidden="true">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <i key={i} />
+        ))}
+      </span>
     </div>
   );
 }

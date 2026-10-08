@@ -1,0 +1,12 @@
+import logo0 from '@/assets/images/shared/ariyana-demo/logo-0.svg';
+import logo1 from '@/assets/images/shared/ariyana-demo/logo-1.svg';
+import logo2 from '@/assets/images/shared/ariyana-demo/logo-2.svg';
+import logo3 from '@/assets/images/shared/ariyana-demo/logo-3.svg';
+import logo4 from '@/assets/images/shared/ariyana-demo/logo-4.svg';
+import logo5 from '@/assets/images/shared/ariyana-demo/logo-5.svg';
+import portrait0 from '@/assets/images/shared/ariyana-demo/portrait-0.avif';
+import portrait1 from '@/assets/images/shared/ariyana-demo/portrait-1.avif';
+import portrait2 from '@/assets/images/shared/ariyana-demo/portrait-2.avif';
+import portrait3 from '@/assets/images/shared/ariyana-demo/portrait-3.avif';
+export const demoLogos = [logo0, logo1, logo2, logo3, logo4, logo5];
+export const demoPortraits = [portrait0, portrait1, portrait2, portrait3];

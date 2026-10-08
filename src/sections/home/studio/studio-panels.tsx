@@ -1,84 +1,87 @@
 'use client';
-
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from 'framer-motion';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { studioContent } from './studio.content';
-import { studioImages } from './studio.images';
-
+import { timeline } from '@/content/ariyana-demo';
+import { projects } from '@/content/projects';
 export function StudioPanels() {
-  const [active, setActive] = useState(0);
-  const [loaded, setLoaded] = useState<boolean[]>([]);
-  const [previous, setPrevious] = useState(0);
-  function select(index: number) {
-    if (index === active) return;
-    if (loaded[active]) setPrevious(active);
-    setActive(index);
-  }
-  const visible = loaded[active] ? active : previous;
+  const track = useRef<HTMLDivElement>(null);
+  const strip = useRef<HTMLDivElement>(null);
+  const [limits, setLimits] = useState({ start: 0, end: 0, top: 0 });
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: track,
+    offset: ['start start', 'end end'],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [limits.start, limits.end]);
+  useEffect(() => {
+    const element = strip.current,
+      region = track.current;
+    if (!element || !region) return;
+    const measure = () => {
+      const compact = window.innerWidth <= 991;
+      setLimits({
+        start: compact ? element.scrollWidth * 0.07 : window.innerWidth * 0.5,
+        end: -element.scrollWidth * (compact ? 0.84 : 0.7),
+        top: Math.min(
+          compact ? window.innerHeight * 0.18 : 0,
+          window.innerHeight - element.offsetHeight,
+        ),
+      });
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    observer.observe(region);
+    measure();
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div className="studio-panels tw:relative tw:bg-ink tw:text-paper">
-      <div className="studio-backgrounds tw:overflow-hidden" aria-hidden="true">
-        {studioImages.map((image, index) => (
-          <div
-            key={image.alt}
-            className="studio-background"
-            data-visible={visible === index}
-          >
-            <ResponsiveImage
-              {...image}
-              alt=""
-              sizes="100vw"
-              onLoad={() =>
-                setLoaded((current) => {
-                  if (current[index]) return current;
-                  const next = [...current];
-                  next[index] = true;
-                  return next;
-                })
-              }
-            />
-          </div>
-        ))}
-      </div>
-      <div className="studio-pillar-grid tw:grid">
-        {studioContent.items.map((item, index) => (
-          <article
-            className="studio-pillar tw:min-w-0 tw:flex tw:flex-col"
-            data-active={active === index}
-            key={item.id}
-            onPointerEnter={(event) => {
-              if (event.pointerType === 'mouse') select(index);
-            }}
-          >
-            <div className="studio-pillar-content">
-              <h3>
-                <button
-                  type="button"
-                  id={`studio-trigger-${item.id}`}
-                  aria-expanded={active === index}
-                  aria-controls={`studio-panel-${item.id}`}
-                  onFocus={() => select(index)}
-                  onClick={() => select(index)}
+    <div ref={track} className="studio-track" data-animated={!reduced}>
+      <div
+        className="studio-sticky"
+        style={{ top: reduced ? undefined : limits.top }}
+      >
+        <motion.div
+          ref={strip}
+          className="studio-strip tw:flex"
+          style={{ x: reduced ? 0 : x }}
+        >
+          {timeline.map((item, index) => (
+            <article
+              className="studio-card"
+              key={item.year}
+              aria-label={`${item.year} — ${item.title}`}
+            >
+              <div className="studio-card-heading">
+                <span
+                  className="studio-card-tag"
+                  style={{ background: item.color }}
                 >
                   {item.title}
-                  <span className="studio-pillar-mark" aria-hidden="true">
-                    {active === index ? '−' : '+'}
-                  </span>
-                </button>
-              </h3>
-              <div
-                className="studio-pillar-reveal tw:grid"
-                id={`studio-panel-${item.id}`}
-                inert={active !== index}
-                aria-hidden={active !== index}
-              >
-                <div>
-                  <p>{item.text}</p>
-                </div>
+                </span>
+                <span className="studio-card-number" aria-hidden="true">
+                  {item.year}
+                </span>
               </div>
-            </div>
-          </article>
-        ))}
+              <p>{item.text}</p>
+              <div className="studio-card-image">
+                <ResponsiveImage
+                  eager
+                  priority="auto"
+                  unoptimized
+                  {...projects[index].images.capa}
+                  alt={`${projects[index].category} — estudo conceitual`}
+                  sizes="(min-width:992px) 480px,300px"
+                />
+              </div>
+            </article>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

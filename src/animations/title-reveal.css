@@ -1,0 +1,15 @@
+.title-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.title-letter-mask {
+  display: inline-block;
+  vertical-align: top;
+  overflow: clip;
+}
+.title-letter {
+  display: inline-block;
+}
+.title-space {
+  white-space: pre;
+}

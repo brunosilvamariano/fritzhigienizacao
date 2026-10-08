@@ -3,49 +3,25 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { Reveal } from '@/animations/reveal';
 import { aboutImages } from '../about.images';
 import './about-story.css';
-
 export function AboutStory() {
   return (
     <section
-      className="about-story tw:relative tw:bg-taupe tw:text-ink"
+      className="about-story section"
       aria-labelledby="about-story-title"
     >
-      <div className="about-story-grid tw:grid tw:gap-[50px] tw:items-center">
-        <Reveal className="about-story-collage tw:relative">
-          <figure className="about-story-living">
-            <ResponsiveImage
-              {...aboutImages.living}
-              sizes="(min-width: 1024px) 28vw, 60vw"
-            />
-          </figure>
-          <figure className="about-story-kitchen">
-            <ResponsiveImage
-              {...aboutImages.kitchen}
-              sizes="(min-width: 1024px) 22vw, 50vw"
-            />
-          </figure>
-          <figure className="about-story-detail">
-            <ResponsiveImage
-              {...aboutImages.detail}
-              sizes="(min-width: 1024px) 24vw, 60vw"
-            />
-          </figure>
-          <span
-            className="about-story-vertical tw:absolute tw:uppercase tw:text-ink"
-            aria-hidden="true"
-          >
-            Madeira · Luz · Proporção
-          </span>
-        </Reveal>
-        <Reveal className="about-story-copy tw:pl-[42px] tw:py-[36px]">
-          <span className="eyebrow tw:uppercase tw:text-accent">
-            O olhar da Traço
-          </span>
+      <figure className="about-story-photo">
+        <ResponsiveImage {...aboutImages.living} sizes="90vw" />
+      </figure>
+      <div className="about-story-grid tw:grid">
+        <Reveal>
+          <span className="section-kicker">O olhar da Traço</span>
           <h2 id="about-story-title">
             Seu jeito de viver.
             <br />
             Nosso ponto de partida.
           </h2>
+        </Reveal>
+        <Reveal className="about-story-copy">
           <p>
             Uma bancada que aproxima. Um armário que organiza. Uma textura que
             acolhe. O olhar da Traço reúne marcenaria, luz e proporção para
@@ -60,18 +36,24 @@ export function AboutStory() {
           </WhatsAppLink>
         </Reveal>
       </div>
-      <div className="about-story-base tw:mt-[36px] tw:flex tw:items-end tw:gap-[30px] tw:justify-between">
-        <span
-          className="about-story-wordmark tw:text-ink tw:whitespace-nowrap"
-          aria-hidden="true"
-        >
-          Nosso traço.
-        </span>
-        <p>
-          Madeira, luz e proporção.
-          <br />
-          Texturas que dão sentido ao morar.
-        </p>
+      <div className="about-story-material-grid tw:grid">
+        <figure>
+          <ResponsiveImage
+            {...aboutImages.kitchen}
+            sizes="(min-width:768px) 44vw, 100vw"
+          />
+          <figcaption>Enxergar o espaço como um todo.</figcaption>
+        </figure>
+        <figure>
+          <ResponsiveImage
+            {...aboutImages.detail}
+            sizes="(min-width:768px) 44vw, 100vw"
+          />
+          <figcaption>Encontrar cuidado em cada detalhe.</figcaption>
+        </figure>
+      </div>
+      <div className="about-story-wordmark" aria-hidden="true">
+        Nosso traço.
       </div>
     </section>
   );

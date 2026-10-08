@@ -1,35 +1,42 @@
-import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-import { studioContent } from './studio.content';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Reveal } from '@/animations/reveal';
+import { Arrow } from '@/components/ui/arrow';
+import { DemoNote } from '@/components/ui/demo-note';
+import pattern from '@/assets/images/shared/ariyana-demo/pattern.avif';
 import { StudioPanels } from './studio-panels';
+import { StudioTitle } from './studio-title';
 import './studio.css';
-
 export function Studio() {
   return (
     <section
-      className="studio tw:pt-[90px]"
       id="estudio"
+      className="studio"
       aria-labelledby="studio-title"
+      tabIndex={-1}
     >
-      <header className="studio-intro tw:flex tw:justify-between tw:gap-[32px]">
-        <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          Nosso olhar
-        </span>
-        <h2 id="studio-title">{studioContent.title}</h2>
-      </header>
-      <StudioPanels />
-      <div className="studio-caption tw:flex tw:justify-between tw:gap-[12px] tw:text-muted">
-        <a
-          href="/sobre"
-          className="text-link tw:inline-flex tw:items-center tw:gap-[22px] tw:py-[9px]"
-        >
-          Conheça a Traço <span aria-hidden="true">↗</span>
-        </a>
-        <WhatsAppLink context="a proposta da Traço e um projeto para meu espaço">
-          Conversar com a Traço
-        </WhatsAppLink>
-        <span>Traço · Conceito de marca em móveis planejados</span>
-        <span>Madeira, textura e cuidado em cada detalhe</span>
+      <div className="studio-intro section tw:flex">
+        <Reveal>
+          <span className="section-kicker">
+            Por dentro <i>da</i> Traço
+          </span>
+          <StudioTitle />
+          <Link href="/sobre" className="pill-link">
+            Saiba mais <Arrow />
+          </Link>
+        </Reveal>
+        <Image
+          src={pattern}
+          alt="Composição geométrica em branco, vermelho e laranja"
+          className="studio-pattern"
+        />
       </div>
+      <div className="studio-demo">
+        <DemoNote>
+          Histórico demonstrativo do Ariyana — imagens de ambientes da Traço.
+        </DemoNote>
+      </div>
+      <StudioPanels />
     </section>
   );
 }

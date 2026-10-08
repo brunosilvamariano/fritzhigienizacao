@@ -123,3 +123,14 @@
     transition: none;
   }
 }
+
+.faq .section-heading h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(54px, 5.5vw, 90px);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.faq-trigger {
+  font-family: var(--font-body), sans-serif;
+}

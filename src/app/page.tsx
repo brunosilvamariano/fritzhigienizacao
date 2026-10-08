@@ -4,8 +4,10 @@ import { Environments } from '@/sections/home/environments/environments';
 import { Services } from '@/sections/home/services/services';
 import { Process } from '@/sections/home/process/process';
 import { Studio } from '@/sections/home/studio/studio';
-import { Faq } from '@/sections/home/faq/faq';
-import { ServicesProcessTransition } from '@/sections/home/services-process-transition/services-process-transition';
+import { Trust } from '@/sections/home/trust/trust';
+import { Showreel } from '@/sections/home/showreel/showreel';
+import { Leaders } from '@/sections/home/leaders/leaders';
+import { Testimonials } from '@/sections/home/testimonials/testimonials';
 
 export default function Home() {
   return (
@@ -15,13 +17,22 @@ export default function Home() {
       tabIndex={-1}
     >
       <Hero />
-      <Environments />
-      <ServicesProcessTransition
-        services={<Services />}
-        process={<Process />}
-      />
       <Studio />
-      <Faq />
+      <Process />
+      <Environments />
+      <Trust />
+      <Services />
+      <div
+        className="reference-divider reference-divider-linen"
+        aria-hidden="true"
+      >
+        {[0, 1, 2, 3, 4].map((n) => (
+          <i key={n} />
+        ))}
+      </div>
+      <Showreel />
+      <Leaders />
+      <Testimonials />
       <Contact />
     </main>
   );

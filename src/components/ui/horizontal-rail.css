@@ -1,0 +1,21 @@
+.horizontal-rail {
+  position: relative;
+}
+.horizontal-rail[data-animated='true'] .horizontal-rail-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: clip;
+}
+.horizontal-rail[data-animated='true'] .horizontal-rail-strip {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+.horizontal-rail[data-animated='false'] .horizontal-rail-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

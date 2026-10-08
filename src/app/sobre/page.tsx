@@ -1,6 +1,15 @@
 import type { Metadata } from 'next';
 import { AboutOpening } from '@/sections/about/opening/about-opening';
-import { AboutStory } from '@/sections/about/story/about-story';
+import {
+  AboutStats,
+  WhyChoose,
+  AboutTeam,
+  AboutAwards,
+  AboutLife,
+} from '@/sections/about/details/about-details';
+import { Trust } from '@/sections/home/trust/trust';
+import { Leaders } from '@/sections/home/leaders/leaders';
+import { Contact } from '@/sections/home/contact/contact';
 import { siteMetadata } from '@/config/metadata';
 
 export const metadata: Metadata = {
@@ -31,7 +40,14 @@ export default function AboutPage() {
       tabIndex={-1}
     >
       <AboutOpening />
-      <AboutStory />
+      <AboutStats />
+      <WhyChoose />
+      <AboutTeam />
+      <Trust />
+      <Leaders />
+      <AboutAwards />
+      <AboutLife />
+      <Contact />
     </main>
   );
 }

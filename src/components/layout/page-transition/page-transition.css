@@ -31,41 +31,45 @@
   transform: translateY(-100%);
   transition: transform 520ms cubic-bezier(0.65, 0, 0.35, 1);
 }
-.page-transition-brand {
-  justify-items: center;
-}
-.page-transition:not([data-phase='idle']) .page-transition-symbol path {
-  stroke-dasharray: 100;
-  animation: page-transition-draw 1.6s ease-in-out infinite;
+.page-transition {
+  background: #121212;
+  color: #fff;
+  border: 0;
 }
 .page-transition-wordmark {
-  font-size: clamp(44px, 7vw, 68px);
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--heading-small);
   line-height: 1;
-  letter-spacing: -0.07em;
 }
-.page-transition-wordmark > span {
-  color: var(--copper);
+.page-transition-border {
+  position: absolute;
+  top: 100%;
+  inset-inline: 0;
+  display: grid;
+  gap: 5px;
 }
-.page-transition-label {
-  font-size: 10px;
-  letter-spacing: 0.1em;
+.page-transition-border i {
+  display: block;
+  background: #121212;
+  height: 12px;
 }
-@keyframes page-transition-draw {
-  0% {
-    stroke-dashoffset: 100;
-    opacity: 0.45;
-  }
-  60%,
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
+.page-transition-border i:nth-child(2) {
+  height: 9px;
+}
+.page-transition-border i:nth-child(3) {
+  height: 6px;
+}
+.page-transition-border i:nth-child(4) {
+  height: 4px;
+}
+.page-transition-border i:nth-child(5) {
+  height: 3px;
 }
 @keyframes page-transition-release {
   to {
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-100%);
+    transform: translateY(-120%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -73,7 +77,32 @@
     display: none;
   }
 }
-.page-transition-symbol,
-.page-transition-wordmark > span {
-  color: var(--ink);
+
+.preloader-letter-mask {
+  display: inline-block;
+  overflow: clip;
+}
+.page-transition[data-phase='initial'] .preloader-letter-mask > span {
+  display: inline-block;
+  animation: preloader-letter 1s cubic-bezier(0.87, 0, 0.13, 1) both;
+}
+.page-transition[data-home='true'][data-phase='initial'] {
+  animation-delay: 4s;
+}
+.page-transition[data-home='true'][data-phase='revealing'] {
+  transform: translateY(-120%);
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+@keyframes preloader-letter {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preloader-letter-mask > span {
+    animation: none;
+  }
 }

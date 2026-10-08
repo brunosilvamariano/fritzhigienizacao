@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { projects } from '@/content/projects';
 import { ProjectDetail } from '@/sections/projects/detail/project-detail';
-import { ProjectContact } from '@/sections/projects/contact/project-contact';
+import { Contact } from '@/sections/home/contact/contact';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -54,9 +54,7 @@ export default async function ProjectPage({
         project={project}
         next={projects[(index + 1) % projects.length]}
       />
-      <ProjectContact
-        context={`um ambiente inspirado no estudo ${project.title}`}
-      />
+      <Contact />
     </main>
   );
 }

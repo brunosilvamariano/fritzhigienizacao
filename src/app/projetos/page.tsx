@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ProjectGallery } from '@/sections/projects/gallery/project-gallery';
-import { ProjectContact } from '@/sections/projects/contact/project-contact';
+import { Contact } from '@/sections/home/contact/contact';
 
 export const metadata: Metadata = {
   title: 'Projetos — Coleção de ambientes',
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
       tabIndex={-1}
     >
       <ProjectGallery />
-      <ProjectContact />
+      <Contact />
     </main>
   );
 }

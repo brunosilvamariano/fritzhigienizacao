@@ -32,3 +32,12 @@
     justify-self: start;
   }
 }
+
+.project-contact h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(54px, 6vw, 96px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}

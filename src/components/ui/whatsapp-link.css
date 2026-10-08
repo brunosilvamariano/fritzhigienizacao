@@ -1,54 +1,43 @@
-/* A navegação mantém seus estilos; apenas conteúdo e rodapé usam CTA sólido. */
-:is(.page-content, .site-footer) .whatsapp-link {
+.whatsapp-link {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  min-height: 52px;
   max-width: 100%;
-  padding: 15px 22px;
-  border: 0;
-  border-radius: 3px;
-  background: var(--ink);
-  color: var(--taupe);
   font-size: 14px;
   line-height: 1.4;
-  font-weight: 500;
-  transition:
-    background 200ms,
-    color 200ms;
 }
-:is(.page-content, .site-footer) .whatsapp-link:hover {
-  background: var(--copper-deep);
-  color: var(--taupe);
-}
-:is(.contact-section, .site-footer) .whatsapp-link {
-  background: var(--paper);
-  color: var(--ink);
-}
-:is(.contact-section, .site-footer) .whatsapp-link:hover {
-  background: var(--taupe);
-  color: var(--ink);
-}
-:is(.page-content, .site-footer) .whatsapp-link > svg {
+.whatsapp-link > svg {
   flex-shrink: 0;
-}
-@media (max-width: 767px) {
-  :is(.page-content, .site-footer) .whatsapp-link {
-    padding-inline: 18px;
-    gap: 16px;
-  }
 }
 .whatsapp-link-hint {
   clip-path: inset(50%);
 }
-.environment-caption .whatsapp-link,
-.service-item .whatsapp-link {
-  margin-top: 12px;
+:is(.page-content, .site-footer) .whatsapp-link {
+  min-height: 54px;
+  padding: 15px 24px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  background: var(--ink);
+  color: var(--paper);
+  transition:
+    background 0.25s,
+    color 0.25s;
 }
-.process > .whatsapp-link {
-  margin-top: 24px;
+:is(.page-content, .site-footer) .whatsapp-link:hover {
+  background: var(--taupe);
+  color: var(--ink);
 }
-.studio-caption .whatsapp-link {
-  flex-shrink: 0;
+.hero .whatsapp-link {
+  background: #0002;
+  color: white;
+  border: 1px solid #fff;
+}
+.hero .whatsapp-link:hover {
+  background: white;
+  color: var(--ink);
+}
+.site-footer .whatsapp-link {
+  background: var(--paper);
+  color: var(--ink);
 }

@@ -13,7 +13,7 @@
     margin: 0;
     color: var(--ink);
     background: var(--paper);
-    font-family: var(--font-plus-jakarta-sans), sans-serif;
+    font-family: var(--font-body), sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   button,
@@ -82,6 +82,10 @@
   flex-shrink: 0;
   transition: transform 0.25s;
 }
+.pill-link svg {
+  width: 18px;
+  height: 18px;
+}
 .button:hover svg,
 .text-link:hover svg {
   transform: translate(2px, -2px);
@@ -96,10 +100,12 @@
 }
 .section-heading h2,
 .studio h2 {
-  font-size: clamp(36px, 4vw, 62px);
-  line-height: 1.05;
-  letter-spacing: -0.055em;
-  font-weight: 450;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(52px, 6vw, 100px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  text-transform: uppercase;
   margin-top: 20px;
 }
 .section-heading p {
@@ -120,13 +126,6 @@
 }
 .skip-link:focus {
   transform: translateY(0);
-}
-@media (min-width: 1800px) {
-  body {
-    max-width: 1800px;
-    margin-inline: auto;
-    border-inline: 1px solid var(--line);
-  }
 }
 @media (max-width: 767px) {
   :root {
@@ -175,8 +174,164 @@
   letter-spacing: -0.055em;
   font-weight: 450;
 }
+
+.display-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(76px, 16.6vw, 300px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
+}
+.section-kicker {
+  font-size: clamp(12px, 1.25vw, 18px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 56px;
+  padding: 15px 24px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  font-size: 15px;
+  transition:
+    color 0.25s,
+    background 0.25s;
+}
+.pill-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 .status-page p {
   max-width: 420px;
   font-size: 15px;
   line-height: 1.6;
+}
+
+.demo-note {
+  display: block;
+  font:
+    12px/1.5 var(--font-body),
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: inherit;
+  opacity: 0.75;
+}
+.display-title {
+  font-size: var(--heading-large);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.reference-heading {
+  position: relative;
+  text-align: center;
+  margin-bottom: 80px;
+}
+.reference-heading h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--heading-large);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.reference-badge {
+  position: absolute;
+  top: 40px;
+  left: 17%;
+  padding: 20px 36px;
+  background: #fdbc53;
+  transform: rotate(-15deg);
+  font:
+    clamp(24px, 20.11px + 1.0356vw, 40px)/0.8 var(--font-display),
+    sans-serif;
+  text-transform: uppercase;
+}
+@media (max-width: 991px) {
+  .reference-heading {
+    margin-bottom: 52px;
+  }
+  .reference-badge {
+    padding: 12px 20px;
+    top: 24px;
+  }
+}
+@media (max-width: 479px) {
+  .reference-badge {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .section {
+    padding: var(--section-space) var(--gutter);
+  }
+}
+
+.reference-divider {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+  background: #fff;
+  pointer-events: none;
+}
+.reference-divider i {
+  display: block;
+  height: 12px;
+  background: currentColor;
+  flex: none;
+}
+.reference-divider i:nth-child(2) {
+  height: 9px;
+}
+.reference-divider i:nth-child(3) {
+  height: 6px;
+}
+.reference-divider i:nth-child(4) {
+  height: 4px;
+}
+.reference-divider i:nth-child(5) {
+  height: 3px;
+}
+.reference-divider-linen {
+  color: #e9dcd2;
+}
+.reference-divider-footer {
+  color: #000;
+  flex-direction: column-reverse;
+}
+@media (max-width: 991px) {
+  .reference-divider i:first-child {
+    height: 8px;
+  }
+  .reference-divider i:nth-child(2) {
+    height: 6px;
+  }
+}
+@media (max-width: 479px) {
+  .reference-divider i:first-child {
+    height: 5px;
+  }
+  .reference-divider i:nth-child(2) {
+    height: 4px;
+  }
+  .reference-divider i:nth-child(3) {
+    height: 3px;
+  }
+  .reference-divider i:nth-child(4) {
+    height: 2px;
+  }
+  .reference-divider i:nth-child(5) {
+    height: 1px;
+  }
+}
+
+.reference-divider-orange {
+  color: #ff691e;
 }

@@ -1,41 +1,40 @@
+export const navigation = [
+  { label: 'Início', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Projetos', href: '/projetos' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
+] as const;
 export const environments = [
   {
     id: 'cozinhas',
-    href: '/#cozinhas',
+    note: 'Estudo conceitual',
     label: 'Cozinhas',
-    note: 'O encontro entre preparar, receber e viver.',
+    href: '/projetos/cozinha-encontro',
   },
   {
     id: 'dormitorios',
-    href: '/#dormitorios',
-    label: 'Dormitórios',
-    note: 'Organização que dá lugar ao descanso.',
+    note: 'Estudo conceitual',
+    label: 'Quartos',
+    href: '/projetos/quarto-refugio',
   },
   {
     id: 'salas',
-    href: '/#salas',
+    note: 'Estudo conceitual',
     label: 'Salas',
-    note: 'Espaço para as histórias de todos os dias.',
+    href: '/projetos/sala-convivio',
   },
   {
     id: 'banheiros',
-    href: '/#banheiros',
+    note: 'Estudo conceitual',
     label: 'Banheiros',
-    note: 'Precisão e leveza nos pequenos espaços.',
+    href: '/projetos/banheiro-equilibrio',
   },
   {
     id: 'home-office',
-    href: '/#home-office',
-    label: 'Home office',
-    note: 'Um lugar para concentrar suas ideias.',
+    note: 'Estudo conceitual',
+    label: 'Escritórios',
+    href: '/projetos/office-concentracao',
   },
-] as const;
-export const navigation = [
-  { href: '/projetos', label: 'Projetos' },
-  { href: '/#servicos', label: 'Serviços' },
-  { href: '/#processo', label: 'Como funciona' },
-  { href: '/#estudio', label: 'Nosso olhar' },
-  { href: '/sobre', label: 'Sobre a Traço' },
-  { href: '/#duvidas', label: 'Perguntas frequentes' },
-  { href: '/#contato', label: 'Contato' },
 ] as const;

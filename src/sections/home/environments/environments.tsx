@@ -1,65 +1,129 @@
-import { EnvironmentCard } from './environment-card';
-import { EnvironmentMessage } from './environment-message';
-import { EnvironmentStack } from './environment-stack';
-import { environmentCollection } from './environments.content';
+'use client';
+import { TitleReveal } from '@/animations/title-reveal';
+import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+  useMotionValue,
+  useMotionValueEvent,
+  animate,
+  type AnimationPlaybackControls,
+} from 'framer-motion';
+import { projects } from '@/content/projects';
+import { ResponsiveImage } from '@/components/media/responsive-image';
+import { Arrow } from '@/components/ui/arrow';
 import './environments.css';
+function WorkCard({
+  index,
+  progress,
+}: {
+  index: number;
+  progress: ReturnType<typeof useScroll>['scrollYProgress'];
+}) {
+  const project = projects[index];
+  const reduced = useReducedMotion();
 
-const groups = [
-  environmentCollection.slice(0, 2),
-  environmentCollection.slice(2, 4),
-  environmentCollection.slice(4),
-];
+  // Reference timeline: 0.1s hold, three 0.5s exchanges separated by 0.01s.
+  const exchange = (value: number, step: number) =>
+    Math.min(1, Math.max(0, (value * 1.62 - (0.1 + step * 0.51)) / 0.5));
+  const y = useTransform(progress, (value) => {
+    if (index < 3 && exchange(value, index) > 0)
+      return `${-exchange(value, index) * 120}%`;
+    let offset = index * 40;
+    for (let step = 0; step < index; step++)
+      offset -=
+        exchange(value, step) *
+        (step === index - 1 ? index * 40 - step * 20 : 20);
+    return `${offset}px`;
+  });
+  const rotateX = useTransform(progress, (value) =>
+    index === 3 ? 0 : exchange(value, index) * 45,
+  );
+  const scale = useTransform(progress, (value) => {
+    let current = 1 - index * 0.06;
+    for (let step = 0; step < index; step++)
+      current += exchange(value, step) * 0.06;
+    return current;
+  });
+  return (
+    <motion.article
+      className="environment-panel tw:grid"
+      style={{
+        y: reduced ? 0 : y,
+        rotateX: reduced ? 0 : rotateX,
+        scale: reduced ? 1 : scale,
+        zIndex: 4 - index,
+      }}
+    >
+      <div className="environment-copy">
+        <Link href={`/projetos/${project.slug}`}>
+          <h3>
+            {project.title}
+            <br />
+            {project.category}
+          </h3>
+        </Link>
+        <p>{project.description}</p>
+        <Link className="pill-link" href={`/projetos/${project.slug}`}>
+          Saiba mais <Arrow />
+        </Link>
+      </div>
+      <div className="environment-photo">
+        <ResponsiveImage
+          eager
+          priority="auto"
+          unoptimized
+          {...project.images.capa}
+          alt={`${project.category} — ${project.title}`}
+          sizes="(min-width:768px) 500px,100vw"
+        />
+      </div>
+    </motion.article>
+  );
+}
 export function Environments() {
+  const track = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: track,
+    offset: ['start start', 'end end'],
+  });
+  const smoothProgress = useMotionValue(0);
+  const scrub = useRef<AnimationPlaybackControls | null>(null);
+  useMotionValueEvent(scrollYProgress, 'change', (value) => {
+    scrub.current?.stop();
+    if (reduced) smoothProgress.set(value);
+    else
+      scrub.current = animate(smoothProgress, value, {
+        duration: 0.8,
+        ease: (t) => (t === 1 ? 1 : 1 - 2 ** (-10 * t)),
+      });
+  });
+  useEffect(() => () => scrub.current?.stop(), []);
   return (
     <section
       id="ambientes"
-      className="environments"
+      className="environments section"
       aria-labelledby="environments-title"
+      tabIndex={-1}
     >
-      <EnvironmentMessage />
-      <div className="environment-collection-heading tw:bg-paper tw:relative">
-        <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          Ambientes para viver
-        </span>
-        <nav
-          className="environment-nav tw:flex tw:flex-wrap tw:mt-[16px] tw:pt-[8px]"
-          aria-label="Escolher ambiente"
-        >
-          {environmentCollection.map((item) => (
-            <a key={item.id} href={`#${item.id}`}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
+      <div className="reference-heading">
+        <TitleReveal id="environments-title" text="Projetos em destaque" />
+        <span className="reference-badge">Espaços sob medida</span>
       </div>
-      <EnvironmentStack>
-        {groups.map((group, index) => (
-          <div className="environment-group" key={group[0].id}>
-            <span
-              id={`position-group-${index + 1}`}
-              className="environment-position tw:block"
-              aria-hidden="true"
+      <div ref={track} className="environment-track" data-reduced={!!reduced}>
+        <div className="environment-list">
+          {[0, 1, 2, 3].map((index) => (
+            <WorkCard
+              key={projects[index].slug}
+              index={index}
+              progress={smoothProgress}
             />
-            <div
-              className={`environment-panel tw:grid tw:bg-paper environment-panel--${index + 1}`}
-            >
-              {group.map((item) => (
-                <div className="environment-entry" key={item.id}>
-                  <span
-                    id={`position-${item.id}`}
-                    className="environment-position tw:block"
-                    aria-hidden="true"
-                  />
-                  <EnvironmentCard item={item} />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </EnvironmentStack>
-      <div className="environment-endnote tw:relative tw:bg-paper tw:flex tw:justify-between tw:gap-[15px] tw:text-muted">
-        <span>Cinco ambientes. Um olhar para o essencial.</span>
-        <p>Traço · Ambientes pensados para viver</p>
+          ))}
+        </div>
       </div>
     </section>
   );

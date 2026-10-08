@@ -7,6 +7,8 @@ type Props = {
   alt: string;
   className?: string;
   eager?: boolean;
+  unoptimized?: boolean;
+  priority?: 'high' | 'auto' | 'low';
   sizes?: string;
   onLoad?: () => void;
 };
@@ -17,14 +19,17 @@ export function ResponsiveImage({
   alt,
   className,
   eager = false,
+  unoptimized = false,
+  priority,
   sizes,
   onLoad,
 }: Props) {
   const common = {
     alt,
+    unoptimized,
     quality: 85,
     loading: eager ? ('eager' as const) : ('lazy' as const),
-    fetchPriority: eager ? ('high' as const) : ('auto' as const),
+    fetchPriority: priority ?? (eager ? ('high' as const) : ('auto' as const)),
   };
   const large = getImageProps({
     ...common,
@@ -45,14 +50,14 @@ export function ResponsiveImage({
     <picture className={className}>
       <source
         media="(min-width: 1024px)"
-        srcSet={large.srcSet}
+        srcSet={large.srcSet ?? large.src}
         sizes={large.sizes}
         width={desktop.width}
         height={desktop.height}
       />
       <source
         media="(min-width: 768px)"
-        srcSet={medium.srcSet}
+        srcSet={medium.srcSet ?? medium.src}
         sizes={medium.sizes}
         width={tablet.width}
         height={tablet.height}

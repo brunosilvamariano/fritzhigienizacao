@@ -1,31 +1,91 @@
-import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-import { ProcessAccordion } from './process-accordion';
+'use client';
+import { TitleReveal } from '@/animations/title-reveal';
+import { useState, useEffect } from 'react';
+import { processSteps } from './process.content';
 import './process.css';
-
 export function Process() {
+  const [expanded, setExpanded] = useState<ReadonlySet<string>>(new Set());
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const query = window.matchMedia('(max-width:991px)');
+    const update = () => setCompact(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+  function toggle(id: string) {
+    setExpanded((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
   return (
     <section
-      className="section process tw:bg-paper"
       id="processo"
+      className="process section"
       aria-labelledby="process-title"
+      tabIndex={-1}
     >
-      <div className="section-heading">
-        <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          Como funciona
-        </span>
-        <h2 id="process-title">Tudo começa com um olhar.</h2>
-        <p className="process-introduction">
-          Da primeira conversa aos últimos detalhes, cada escolha parte da sua
-          forma de viver.
-        </p>
+      <div className="process-heading">
+        <TitleReveal id="process-title" text="Avaliar, implementar e operar" />
+        <p>Acompanhamos você do primeiro passo ao que vem depois.</p>
+        <small className="demo-note">
+          Demonstração — processo da referência Ariyana
+        </small>
       </div>
-      <ProcessAccordion />
-      <WhatsAppLink context="as etapas do projeto, da primeira conversa à instalação">
-        Começar meu projeto
-      </WhatsAppLink>
-      <p className="process-credit tw:text-muted tw:mt-[22px] tw:text-right">
-        Traço · Do primeiro desenho aos últimos detalhes
-      </p>
+      <div className="process-grid tw:grid">
+        {processSteps.map((step, index) => {
+          const open = compact || expanded.has(step.id);
+          return (
+            <article key={step.id} className="process-item" data-open={open}>
+              <span className="process-marker" aria-hidden="true" />
+              <div className="process-card">
+                <span className="process-count">
+                  Etapa {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3>{step.title}</h3>
+                <div
+                  id={`process-${step.id}`}
+                  className="process-description"
+                  inert={!open}
+                >
+                  <p>{step.text}</p>
+                </div>
+                <button
+                  type="button"
+                  className="process-toggle"
+                  aria-expanded={open}
+                  aria-controls={`process-${step.id}`}
+                  aria-label={
+                    (open ? 'Fechar' : 'Abrir') +
+                    ' etapa ' +
+                    (index + 1) +
+                    ': ' +
+                    step.title
+                  }
+                  onClick={() => toggle(step.id)}
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m5 9 7 7 7-7"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 }

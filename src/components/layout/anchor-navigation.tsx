@@ -26,19 +26,43 @@ export function AnchorNavigation() {
         return;
       if (navigateAnchor(url.hash)) event.preventDefault();
     };
+    let disposed = false;
+    let observer: MutationObserver | undefined;
     const restore = () =>
       requestAnimationFrame(() => {
-        if (location.hash) navigateAnchor(location.hash, false);
+        if (!disposed && location.hash)
+          navigateAnchor(location.hash, false, 'instant');
       });
+    const restoreInitial = () => {
+      void document.fonts.ready.then(() => {
+        if (disposed || !location.hash) return;
+        const curtain = document.querySelector('.page-transition');
+        if (!curtain || curtain.getAttribute('data-phase') === 'idle') {
+          restore();
+          return;
+        }
+        observer = new MutationObserver(() => {
+          if (curtain.getAttribute('data-phase') !== 'idle') return;
+          observer?.disconnect();
+          restore();
+        });
+        observer.observe(curtain, {
+          attributes: true,
+          attributeFilter: ['data-phase'],
+        });
+      });
+    };
     document.addEventListener('click', click);
     window.addEventListener('popstate', restore);
     // O carregamento por hash também precisa usar o ponto anterior ao sticky.
-    if (document.readyState === 'complete') restore();
-    else window.addEventListener('load', restore, { once: true });
+    if (document.readyState === 'complete') restoreInitial();
+    else window.addEventListener('load', restoreInitial, { once: true });
     return () => {
+      disposed = true;
+      observer?.disconnect();
       document.removeEventListener('click', click);
       window.removeEventListener('popstate', restore);
-      window.removeEventListener('load', restore);
+      window.removeEventListener('load', restoreInitial);
     };
   }, []);
   return null;

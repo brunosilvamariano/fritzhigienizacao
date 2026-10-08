@@ -1,27 +1,34 @@
-import { WhatsAppLink } from '@/components/ui/whatsapp-link';
-import { contactContent } from './contact.content';
+import Link from 'next/link';
 import './contact.css';
-
 export function Contact() {
   return (
     <section
       id="contato"
-      className="contact-section tw:relative tw:bg-taupe tw:text-ink tw:grid tw:gap-[48px]"
+      className="contact"
       aria-labelledby="contact-title"
+      tabIndex={-1}
     >
-      <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-        Vamos conversar
-      </span>
-      <div className="contact-copy">
-        <h2 id="contact-title">{contactContent.title}</h2>
-        <p>{contactContent.description}</p>
-        <WhatsAppLink
-          className="button tw:min-h-[52px] tw:bg-ink tw:text-paper tw:inline-flex tw:justify-between tw:items-center tw:gap-[35px] contact-button"
-          context={contactContent.context}
+      <h2 id="contact-title" className="contact-accessible">
+        Vamos criar juntos
+      </h2>
+      {[false, true].map((stroke) => (
+        <div
+          className="contact-marquee"
+          data-stroke={stroke}
+          aria-hidden="true"
+          key={String(stroke)}
         >
-          Conversar pelo WhatsApp
-        </WhatsAppLink>
-      </div>
+          <div>
+            {[0, 1].map((n) => (
+              <span key={n}>Vamos nos conectar e trabalhar juntos</span>
+            ))}
+          </div>
+        </div>
+      ))}
+      <Link href="/contato" className="contact-button">
+        <span className="contact-button-text">Vamos conversar</span>
+        <i aria-hidden="true">→</i>
+      </Link>
     </section>
   );
 }

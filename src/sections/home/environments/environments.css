@@ -1,265 +1,166 @@
 .environments {
-  border-top: 1px solid var(--line);
+  padding-block: 150px;
+  overflow: clip;
 }
-.environment-message {
-  height: 180svh;
-  --accent-text: var(--paper);
+.environments .reference-badge {
+  background: #e8ff76;
+  left: auto;
+  right: 15%;
+  top: 46px;
 }
-.message-sticky {
+.environment-track {
+  height: 300vh;
+}
+.environment-list {
+  perspective: 1500px;
   position: sticky;
-  top: var(--header-height);
-  height: calc(100svh - var(--header-height));
-  min-height: min(400px, calc(100svh - var(--header-height)));
-  padding: 50px var(--gutter);
-}
-.message-sticky h2 {
-  max-width: 1080px;
-  font-size: clamp(36px, 4.8vw, 76px);
-  font-weight: 450;
-  letter-spacing: -0.055em;
-  line-height: 1.15;
-}
-.message-word {
-  color: rgb(245 241 234 / 0.6);
-  margin-right: 0.22em;
-}
-.message-ink {
-  inset: 0;
-}
-.message-scroll {
-  font-size: 11px;
-}
-.message-scroll span {
-  font-size: 22px;
-}
-.environment-collection-heading {
-  padding: 40px var(--gutter) 24px;
-}
-.environment-nav {
-  gap: 4px 28px;
-  border-top: 1px solid var(--line);
-}
-.environment-nav a {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  font-size: 13px;
-}
-.environment-nav a:hover {
-  color: var(--accent-text);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.environment-group,
-.environment-entry {
-  display: contents;
-}
-.environment-position {
-  height: 0;
-  scroll-margin-top: 0;
-}
-.environment-entry > .environment-position {
-  display: none;
+  top: 10vh;
+  max-width: 1480px;
+  margin-inline: auto;
 }
 .environment-panel {
-  position: sticky;
-  top: var(--environment-sticky-top, var(--header-height));
-  min-height: calc(100svh - var(--header-height));
-  margin-bottom: var(--environment-scroll-rest, 0px);
-  grid-template-columns: 1.35fr 1fr;
-  gap: clamp(30px, 5vw, 80px);
-  padding: 24px var(--gutter) 28px;
-  border-top: 1px solid var(--line);
-  box-shadow: 0 -20px 40px #27323a0a;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  inset: 0 0 auto;
+  border-radius: 20px;
+  background: #ab9bff;
+  overflow: hidden;
+  transform-origin: 50% 50%;
 }
-.environment-panel--2 {
-  grid-template-columns: 1fr 1.35fr;
+.environment-panel:first-child {
+  position: relative;
 }
-.environment-panel--3 {
-  grid-template-columns: 1fr;
-  margin-bottom: 0;
+.environment-panel:nth-child(2) {
+  background: #ff905f;
 }
-.environment-card {
-  scroll-margin-top: 0;
+.environment-panel:nth-child(3) {
+  background: #ff767a;
+}
+.environment-panel:nth-child(4) {
+  background: #b8c56f;
+}
+.environment-copy {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.environment-copy h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--heading-medium);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.environment-copy p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 24px 0 64px;
+  max-width: 520px;
 }
 .environment-photo {
-  height: clamp(210px, 52svh, 650px);
+  padding: 32px;
+  background: #8673ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.environment-photo picture,
+.environment-panel:nth-child(2) .environment-photo {
+  background: #ff7d44;
+}
+.environment-panel:nth-child(3) .environment-photo {
+  background: #ff5b60;
+}
+.environment-panel:nth-child(4) .environment-photo {
+  background: #9fae4b;
+}
+.environment-photo picture {
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
 .environment-photo img {
   width: 100%;
   height: 100%;
-  display: block;
-}
-.environment-photo img {
   object-fit: cover;
 }
-.environment-photo figcaption {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  padding: 10px 13px;
-  background: var(--paper);
-  font-size: 10px;
-  letter-spacing: 0.06em;
+.environment-track[data-reduced='true'] {
+  height: auto;
 }
-.environment-card--dormitorios .environment-photo,
-.environment-card--banheiros .environment-photo {
-  height: clamp(190px, 44svh, 560px);
-  margin-top: 8svh;
-}
-.environment-caption {
-  grid-template-columns: 24px 1fr;
-  border-top: 1px solid var(--line);
-}
-.environment-caption h3 {
-  font-size: clamp(27px, 2.8vw, 42px);
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-  font-weight: 450;
-}
-.environment-note {
-  font-size: 13px;
-  line-height: 1.5;
-}
-.environment-description {
-  font-size: 12px;
-  line-height: 1.6;
-}
-.environment-card--home-office {
+.environment-track[data-reduced='true'] .environment-list {
+  position: relative;
+  height: auto;
   display: grid;
-  grid-template-columns: 1.65fr 1fr;
-  gap: clamp(30px, 5vw, 80px);
-  align-items: center;
+  gap: 24px;
+  top: auto;
 }
-.environment-card--home-office .environment-photo {
-  height: calc(100svh - var(--header-height) - 65px);
-  min-height: 300px;
-  max-height: 850px;
+.environment-track[data-reduced='true'] .environment-panel {
+  position: relative;
 }
-.environment-card--home-office .environment-caption {
-  margin: 0;
-}
-.environment-endnote {
-  padding: 28px var(--gutter);
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  line-height: 1.6;
+@media (max-width: 991px) {
+  .environment-copy,
+  .environment-photo {
+    padding: 32px;
+  }
+  .environment-copy p {
+    font-size: 18px;
+  }
+  .environments {
+    padding-block: 100px;
+  }
 }
 @media (max-width: 767px) {
-  .environment-entry > .environment-position {
-    display: block;
+  .environments {
+    padding-block: 80px;
   }
-  .environment-message {
-    height: 160svh;
+  .environment-track {
+    height: auto;
   }
-  .message-sticky {
-    padding: 32px 24px;
-    gap: 28px;
-  }
-  .message-sticky h2 {
-    font-size: clamp(32px, 8vw, 48px);
-  }
-  .environment-collection-heading {
-    padding: 32px 24px 20px;
-  }
-  .environment-nav {
-    gap: 2px 22px;
+  .environment-list {
+    position: relative;
+    top: auto;
+    height: auto;
+    display: grid;
+    gap: 20px;
   }
   .environment-panel {
-    display: contents;
-  }
-  .environment-card,
-  .environment-card--home-office {
-    display: block;
-    position: sticky;
-    top: var(--environment-sticky-top, var(--header-height));
-    min-height: calc(100svh - var(--header-height));
-    margin-bottom: var(--environment-scroll-rest, 0px);
-    padding: 20px 24px max(90px, calc(env(safe-area-inset-bottom) + 74px));
-    background: var(--paper);
-    border-top: 1px solid var(--line);
-    box-shadow: 0 -16px 32px #27323a0a;
-  }
-  .environment-photo,
-  .environment-card--dormitorios .environment-photo,
-  .environment-card--banheiros .environment-photo,
-  .environment-card--home-office .environment-photo {
-    height: clamp(210px, 47svh, 560px);
-    min-height: 0;
-    margin-top: 0;
-  }
-  .environment-caption,
-  .environment-card--home-office .environment-caption {
-    margin-top: 12px;
-  }
-  .environment-description {
-    font-size: 12px;
-  }
-  .environment-endnote {
-    flex-direction: column;
-    gap: 8px;
-    padding: 24px;
-  }
-  .environment-group:last-child
-    .environment-entry:last-child
-    .environment-card {
-    margin-bottom: 0;
-  }
-}
-@media (max-height: 650px) {
-  .message-sticky {
-    padding-block: clamp(16px, 4svh, 32px);
-    gap: clamp(12px, 3svh, 24px);
-  }
-  .message-sticky h2 {
-    font-size: clamp(24px, min(8vw, 7svh), 48px);
-  }
-  .message-scroll {
-    margin-top: 0;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .environment-message {
-    height: auto;
-  }
-  .message-sticky {
     position: relative;
-    top: auto;
-    height: auto;
-    min-height: 380px;
+    inset: auto; /* biome-ignore lint/complexity/noImportantStyles: Mobile cards must override scroll-linked inline transforms. */
+    transform: none !important;
+    grid-template-columns: 1fr;
   }
-  .message-word {
-    color: var(--paper);
+  .environment-copy {
+    padding: 32px;
   }
-  .message-ink {
-    display: none;
+  .environment-photo {
+    padding: 32px;
   }
-}
-@media (prefers-reduced-motion: reduce), (max-height: 650px) {
-  .environment-photo,
-  .environment-card--dormitorios .environment-photo,
-  .environment-card--banheiros .environment-photo,
-  .environment-card--home-office .environment-photo {
-    height: auto;
-    aspect-ratio: 4/3;
-    margin-top: 0;
+  .environment-panel:nth-child(2) .environment-photo {
+    background: #ff7d44;
+  }
+  .environment-panel:nth-child(3) .environment-photo {
+    background: #ff5b60;
+  }
+  .environment-panel:nth-child(4) .environment-photo {
+    background: #9fae4b;
+  }
+  .environment-photo picture {
+    aspect-ratio: 1.2;
+  }
+  .environments .reference-badge {
+    top: 19px;
+    right: 10%;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .environment-panel,
-  .environment-card {
-    position: relative;
-    top: auto;
-    min-height: 0;
-    margin-bottom: 0;
-  }
+.environments .reference-heading h2 {
+  font-size: clamp(48px, 12vw, 240px);
 }
 
-.environment-stack:not([data-stack-ready]) .environment-panel,
-.environment-stack:not([data-stack-ready]) .environment-card {
-  position: relative;
-  top: auto;
-  box-shadow: none;
+.environment-photo picture {
+  display: block;
 }

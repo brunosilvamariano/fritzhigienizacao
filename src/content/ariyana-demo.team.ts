@@ -1,0 +1,14 @@
+import team0 from '@/assets/images/shared/ariyana-demo/team-0.webp';
+import team1 from '@/assets/images/shared/ariyana-demo/team-1.webp';
+import team2 from '@/assets/images/shared/ariyana-demo/team-2.webp';
+import team3 from '@/assets/images/shared/ariyana-demo/team-3.webp';
+import stats0 from '@/assets/images/shared/ariyana-demo/stats-0.svg';
+import stats1 from '@/assets/images/shared/ariyana-demo/stats-1.svg';
+import stats2 from '@/assets/images/shared/ariyana-demo/stats-2.svg';
+import stats3 from '@/assets/images/shared/ariyana-demo/stats-3.svg';
+import why0 from '@/assets/images/shared/ariyana-demo/why-0.svg';
+import why1 from '@/assets/images/shared/ariyana-demo/why-1.svg';
+import why2 from '@/assets/images/shared/ariyana-demo/why-2.svg';
+export const demoTeam = [team0, team1, team2, team3];
+export const demoStats = [stats0, stats1, stats2, stats3];
+export const demoWhy = [why0, why1, why2];

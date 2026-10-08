@@ -1,22 +1,22 @@
-import { processImages } from './process.images';
-
 export const processSteps = [
   {
-    id: 'escutar',
-    title: 'Escutar',
-    text: 'Conhecer sua rotina, seus desejos e as possibilidades do espaço.',
-    images: processImages[0],
+    id: 'briefing',
+    title: 'Coletar briefing',
+    text: 'Reunimos os objetivos, o público, as funcionalidades e as informações essenciais do projeto.',
   },
   {
-    id: 'desenhar',
-    title: 'Desenhar',
-    text: 'Traduzir ideias em proporções, materiais e soluções sob medida.',
-    images: processImages[1],
+    id: 'wireframe',
+    title: 'Wireframe',
+    text: 'Esboços definem a estrutura, o fluxo das páginas e a experiência antes do design.',
   },
   {
-    id: 'dar-forma',
-    title: 'Dar forma',
-    text: 'Cuidar de cada encontro, acabamento e detalhe do projeto.',
-    images: processImages[2],
+    id: 'interface',
+    title: 'Design de interface',
+    text: 'Criamos interfaces que expressam a marca com clareza, consistência e cuidado visual.',
+  },
+  {
+    id: 'entrega',
+    title: 'Entregar design',
+    text: 'Organizamos os recursos aprovados e as orientações necessárias para a entrega.',
   },
 ] as const;

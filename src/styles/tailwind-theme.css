@@ -8,5 +8,5 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent-text);
   --color-on-dark-muted: var(--on-dark-muted);
-  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+  --font-sans: var(--font-body), sans-serif;
 }

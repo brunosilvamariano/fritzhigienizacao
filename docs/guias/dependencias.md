@@ -68,3 +68,7 @@ interface serão servidos pela própria aplicação, sem dependências de CDN em
 - https://nextjs.org/docs/app/getting-started/installation
 - https://biomejs.dev/linter/domains/
 - https://tailwindcss.com/docs/installation/framework-guides/nextjs
+
+## Reprodução da animação de serviços do Ariyana
+
+GSAP 3.15.0 instalado pelo npm e fixado no lockfile. GSAP e ScrollTrigger são importados dinamicamente apenas na variante de serviços do vídeo. Necessidade concreta: reproduzir o scrub de 1,2 s e o cálculo do gatilho no elemento transformado usados pela referência, que uma mola do Framer Motion não reproduziu. Nenhum script de CDN é carregado pela aplicação. Next/React/TypeScript permanecem na stack existente. MatchMedia remove e restaura a animação no tablet, celular e na preferência por movimento reduzido; o efeito desfaz seus recursos ao desmontar.

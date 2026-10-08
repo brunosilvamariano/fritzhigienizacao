@@ -74,3 +74,28 @@ Ajuste aprovado — texto sobre a imagem de Sobre: ampliar discretamente a tipog
 Revisão solicitada — frase sobre a imagem de Sobre: o primeiro aumento ficou sutil. Ampliar para clamp(36px, 4vw, 64px), com largura de leitura até 1200px, mantendo as duas frases equilibradas e a animação existente.
 
 Navegação aprovada: substituir O processo por Como funciona, Estúdio por Nosso olhar e Dúvidas por Perguntas frequentes. Aplicar a configuração compartilhada no header, menu mobile e rodapé; preservar os destinos das âncoras e a rolagem suave.
+
+## Direção vigente — Ariyana Studio — revisão de 2026-10-08
+
+Reproduzir rigorosamente a estrutura, proporções, fontes e interações de https://ariyana-studio.webflow.io/. Esta direção substitui as descrições visuais anteriores. O usuário autorizou alterar toda a apresentação, preservando a linguagem/stack do projeto e as fotos de ambientes. Em 2026-10-08 também autorizou conteúdo do Ariyana traduzido e identificado como demonstração.
+
+Fontes locais Bebas Neue e DM Sans. Branco #fff, preto #121212, cinza #f0f0f0 e linho #e9dcd2, com cores de destaque da referência. Home: hero, apresentação e seis anos, processo com quatro cartões independentes sem fotos, quatro projetos em perspectiva, marcas e citação, quatro serviços, reel, círculo de fotos, quatro depoimentos, CTA duplo e footer. Histórico horizontal também no mobile; processos expostos em fluxo vertical no mobile. Menu completo em overlay. Sobre, Projetos e detalhes, Serviços, Contato, Blog/artigos e informações acompanham a referência.
+
+Usar fotos de ambientes do próprio projeto. Recursos gráficos, retratos e marcas da referência apenas em blocos demonstrativos, com procedência documentada. Datas, métricas, clientes, equipe, premiações e depoimentos não devem ser apresentados como fatos da Traço. Vídeos aguardam envio; manter foto e indicação clara, sem botão de reprodução falso. Contato e newsletter demonstrativos, sem transmissão externa. Respeitar movimento reduzido, navegação por teclado e a arquitetura por seção. Inventário e revisão registrados na auditoria e nos outputs da conversa.
+Revisão de 2026-10-08: vídeo local do reel recebido e integrado; marcas em grade de 22 colunas, sem curvas externas em Marcas/Serviços; barras após Serviços e antes do footer; marca do footer com degradê branco/preto e sem área branca no fim. Os quatro vídeos específicos de Serviços continuam pendentes.
+
+Header Ariyana — 2026-10-08: reproduzir as proporções do header, círculos vazados e troca vertical dos rótulos. Menu ocupa a tela com marca em gradiente, faixa inclinada e links com preenchimento laranja. X de duas linhas: desktop a partir de 1440 px no topo (28/36 px), entre 992 e 1439 px à direita a 15% da base, tablet/celular no topo (16 px). Manter dialog nativo, Escape, retorno de foco e movimento reduzido.
+
+Por dentro da Traço — 2026-10-08: título escurece palavra por palavra com scroll, conforme data-text-reveal do Ariyana. Opacidade 0,3→1, duração 0,5, intervalo 0,25, ease none, scrub 1,2; início top bottom e fim bottom center, com clamp. Reversível ao subir. Movimento reduzido e ausência de JavaScript mantêm título escuro e legível; nome acessível único. GSAP já instalado, sem nova dependência.
+
+Transição Estúdio → Processo — 2026-10-08: espaço branco abaixo do histórico, como about_section do Ariyana. Aplicar padding-bottom com section-space (150/100/80/64 px), mantendo o arredondamento da seção Processo e as imagens existentes.
+
+Correção em notebook — 2026-10-08: o histórico fixado passa a ter altura automática e altura mínima de viewport, incluindo o conteúdo real. ResizeObserver mede a faixa e ajusta o top para que painéis altos rolem até revelar as fotos antes de fixar. Preservar margem branca de section-space ao final, sem transbordamento das imagens sobre Processo.
+
+Animações Ariyana — 2026-10-08: entrada inicial com marca em letras, cortina saindo em 1s a partir de 1,44s; foto expandindo em 1,5s a partir de 1,6s; título 2,57s, subtítulo 3,46s, descrição 4,06s, redes 4,89s e métrica 5,05s. Play Reel: progresso da entrada até bottom bottom, keyframes 32/42/60%, máscara 50vw×40vh→100vw×100vh, textos das bordas→±34vw, opacidade 0→1, suavização Webflow 90%. Líderes: giro 0→360° com suavização 85%, abertura em leque 1s, opacidade central 0,5→1 e órbita 1→0,8 ao hover desktop. Fotos da Traço preservadas; movimento reduzido e leitura sem JS preservados.
+
+Correção de recarga por âncora — aguardar as fontes e a conclusão da cortina antes de posicionar a seção. Usar posicionamento instantâneo na restauração para evitar disputa com as animações de scroll durante o carregamento. Navegação por links continua suave.
+
+Correção solicitada — a recarga da home sempre executa a cortina e inicializa a entrada do hero, inclusive com âncora ou posição restaurada. Líderes mantém o leque enquanto a seção está visível: gatilho usa a seção estável, e a saída não recolhe as imagens antes de elas deixarem a tela.
+
+Líderes em notebook — altura mínima considera o diâmetro real da órbita (76vw mais 160px de respiro), não somente 150vh. Tablet/celular também acomodam as fotos e a legenda; legenda fica 32px acima da base. Evitar cortes na borda da seção e sobreposição com depoimentos.
