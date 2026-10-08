@@ -11,7 +11,7 @@ export function Process() {
     >
       <div className="section-heading">
         <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          O processo
+          Como funciona
         </span>
         <h2 id="process-title">Tudo começa com um olhar.</h2>
         <p className="process-introduction">

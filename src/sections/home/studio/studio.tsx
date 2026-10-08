@@ -12,7 +12,7 @@ export function Studio() {
     >
       <header className="studio-intro tw:flex tw:justify-between tw:gap-[32px]">
         <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          Estúdio
+          Nosso olhar
         </span>
         <h2 id="studio-title">{studioContent.title}</h2>
       </header>

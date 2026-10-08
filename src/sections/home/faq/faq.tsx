@@ -16,7 +16,7 @@ export function Faq() {
     >
       <div className="faq-introduction section-heading">
         <span className="eyebrow tw:uppercase tw:text-accent section-label tw:inline-flex tw:items-center tw:gap-[12px]">
-          Dúvidas frequentes
+          Perguntas frequentes
         </span>
         <h2 id="faq-title">
           Antes de dar

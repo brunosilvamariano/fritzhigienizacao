@@ -33,9 +33,9 @@ export const environments = [
 export const navigation = [
   { href: '/projetos', label: 'Projetos' },
   { href: '/#servicos', label: 'Serviços' },
-  { href: '/#processo', label: 'O processo' },
-  { href: '/#estudio', label: 'Estúdio' },
+  { href: '/#processo', label: 'Como funciona' },
+  { href: '/#estudio', label: 'Nosso olhar' },
   { href: '/sobre', label: 'Sobre a Traço' },
-  { href: '/#duvidas', label: 'Dúvidas' },
+  { href: '/#duvidas', label: 'Perguntas frequentes' },
   { href: '/#contato', label: 'Contato' },
 ] as const;
