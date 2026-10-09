@@ -1,5 +1,7 @@
 # Traço — estudo conceitual
 
+CTA flutuante Fritz — 2026-10-09: ativar o componente existente no layout compartilhado. Círculo verde WhatsApp (#25D366), ícone branco, canto inferior direito e mensagem de orçamento do contato configurado. Manter o CTA também no rodapé, sem substituí-lo por voltar ao topo. Somente o círculo com ícone, sem texto visível no hover ou no foco; manter o nome acessível para leitores de tela. Área de toque de 58px, respeito à área segura do celular e ao movimento reduzido. Ocultar durante menu, consentimento e cortina de transição. Sem novas dependências.
+
 Hero Fritz — 2026-10-08: escurecer a foto, conforme solicitado. Usar carvão #121212 com 60% de opacidade no pseudo-elemento existente, mantendo texto branco, recorte responsivo e animação de entrada.
 
 Organização híbrida autorizada: usar classes Tailwind com prefixo `tw:` para propriedades simples de layout, alinhamento, dimensões e espaçamentos fixos. Manter CSS por seção para composição fluida (clamp/calc), tipografia editorial, estados, seletores contextuais e efeitos de rolagem. Expor os tokens existentes ao tema Tailwind, sem duplicar cores. Comparar estilos calculados antes/depois e revisar largura/altura de telas variadas. Preservar funcionamento, conteúdo, navegação e animações ao corrigir problemas de responsividade.

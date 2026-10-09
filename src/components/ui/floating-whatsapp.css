@@ -1,79 +1,46 @@
 .floating-whatsapp {
   position: fixed;
-  right: max(24px, env(safe-area-inset-right));
-  bottom: max(24px, env(safe-area-inset-bottom));
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   z-index: var(--z-floating);
   border-radius: 50%;
-  background: #25d366;
-  color: #fff;
-  border: 2px solid #fff;
+  background: var(--whatsapp);
+  color: var(--white);
+  border: 2px solid var(--white);
   box-shadow: 0 6px 24px #0003;
   transition:
     background 180ms,
     transform 180ms;
 }
 .floating-whatsapp:hover {
-  background: #128c7e;
+  background: var(--whatsapp-hover);
   transform: translateY(-3px);
 }
 .floating-whatsapp:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 4px;
 }
-.floating-whatsapp-label {
-  right: calc(100% + 12px);
-  padding: 10px 14px;
-  border-radius: 4px;
-  font-size: 12px;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 180ms,
-    visibility 180ms;
-}
-.floating-whatsapp:is(:hover, :focus-visible) .floating-whatsapp-label {
-  opacity: 1;
-  visibility: visible;
-}
 body:has(.consent-panel) .floating-whatsapp,
-body:has(#mobile-menu[open]) .floating-whatsapp {
+body:has(#mobile-menu[open]) .floating-whatsapp,
+body:has(.page-transition[data-phase='covering']) .floating-whatsapp,
+body:has(.page-transition[data-phase='covered']) .floating-whatsapp,
+body:has(.page-transition[data-phase='revealing']) .floating-whatsapp {
   visibility: hidden;
-}
-.floating-back-top {
-  background: var(--ink);
-  color: var(--paper);
-  border: 1px solid #dcc5b766;
-  box-shadow: 0 4px 16px #0002;
-}
-.floating-back-top svg {
-  flex-shrink: 0;
-  color: var(--taupe);
-  transition: transform 200ms;
-}
-.back-top-label {
-  padding: 0;
-  margin: -1px;
-  clip-path: inset(50%);
-  border: 0;
-}
-.floating-back-top:hover {
-  background: var(--copper-deep);
-  transform: none;
-}
-.floating-back-top:hover svg {
-  transform: translateY(-3px);
-}
-.floating-back-top:focus-visible {
-  outline-color: var(--taupe);
 }
 @media (max-width: 767px) {
   .floating-whatsapp {
-    right: max(16px, env(safe-area-inset-right));
-    bottom: max(16px, env(safe-area-inset-bottom));
-    width: 54px;
-    height: 54px;
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   }
   .site-footer {
     padding-bottom: 88px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-whatsapp {
+    transition: none;
+  }
+  .floating-whatsapp:hover {
+    transform: none;
   }
 }

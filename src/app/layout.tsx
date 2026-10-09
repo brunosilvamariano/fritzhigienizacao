@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { bebasNeue, dmSans } from '@/styles/fonts';
 import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer/footer';
+import { FloatingWhatsApp } from '@/components/ui/floating-whatsapp';
 import { ConsentManager } from '@/components/analytics/consent';
 import { siteMetadata } from '@/config/metadata';
 import { AnchorNavigation } from '@/components/layout/anchor-navigation';
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           ))}
         </div>
         <Footer />
+        <FloatingWhatsApp />
         <AnchorNavigation />
         <ConsentManager />
       </body>

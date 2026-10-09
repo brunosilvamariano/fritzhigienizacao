@@ -2,6 +2,8 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-white: var(--white);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-hover: var(--whatsapp-hover);
   --color-ink: var(--ink);
   --color-taupe: var(--taupe);
   --color-copper: var(--copper);
