@@ -226,6 +226,8 @@ Variáveis com prefixo `NEXT_PUBLIC_` são públicas. Alterações exigem reinic
 - URLs canônicas por página, derivadas de `SITE_URL`.
 - Open Graph e Twitter Cards com imagem local e dados da marca.
 - Prévia de compartilhamento em JPEG de 1200 × 630 px: `src/assets/images/social/fritz-compartilhamento.jpg`. Na Vercel, manter `SITE_URL=https://higienizacaofritz.vercel.app` enquanto esse for o domínio público e fazer um novo deploy após alterar a variável ou a imagem.
+- A prévia é servida pela convenção nativa do Next.js em `src/app/opengraph-image.jpg`, com descrição em `opengraph-image.alt.txt`. Essa cópia é uma exceção de localização necessária para gerar a rota social `/opengraph-image.jpg` e suas metatags automaticamente. Ao trocar a foto, atualizar também esse arquivo; o teste social verifica que as duas cópias correspondem.
+- Para diagnosticar o WhatsApp, conferir a página e a imagem com acesso público e testar uma mensagem nova após o deploy. A imagem não depende de JavaScript no navegador. Uma resposta HTTP válida não certifica o resultado no aplicativo; a opção de desativar prévias e os caches do serviço precisam ser avaliados separadamente.
 - Favicon e Apple Touch Icon derivados da logo da Fritz.
 - Cor do navegador alinhada ao azul profundo.
 - `robots.txt` e `sitemap.xml` gerados pelo App Router.

@@ -3,7 +3,7 @@ import socialImage from '@/assets/images/social/fritz-compartilhamento.jpg';
 import { site } from './site';
 
 const shareImage = {
-  url: socialImage.src,
+  url: new URL('/opengraph-image.jpg', site.url).toString(),
   width: socialImage.width,
   height: socialImage.height,
   alt: 'Fritz Higienização e Impermeabilização — mais cuidado para seu lar em Joinville e região.',
