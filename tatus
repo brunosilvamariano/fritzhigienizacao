@@ -1,0 +1,105 @@
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/guias/design-brief-paleta-fritz.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/layout/footer/footer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/sections/home/leaders/leaders.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/sections/home/leaders/leaders.tsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 34560c5..bdb481a 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -18,6 +18,15 @@[m [mSite institucional com foco em higienização de estofados, apresentação dos s[m
+ [m
+ > As capturas documentam a versão local durante o desenvolvimento. O site publicado pode estar em uma versão anterior até o próximo deploy.[m
+ [m
+[32m+[m[32m## Navegação rápida[m
+[32m+[m
+[32m+[m[32m| Conhecer o projeto                          | Trabalhar no código                             | Preparar a entrega                                |[m
+[32m+[m[32m| ------------------------------------------- | ----------------------------------------------- | ------------------------------------------------- |[m
+[32m+[m[32m| [Interface](#interface)                     | [Executar localmente](#executar-localmente)     | [SEO e compartilhamento](#seo-e-compartilhamento) |[m
+[32m+[m[32m| [Identidade visual](#identidade-visual)     | [Estrutura](#estrutura)                         | [Qualidade](#qualidade)                           |[m
+[32m+[m[32m| [Animações](#galeria-circular-e-interações) | [Onde editar](#onde-editar)                     | [Publicação](#publicação)                         |[m
+[32m+[m[32m| [Jornada de contato](#jornada-de-contato)   | [Variáveis de ambiente](#variáveis-de-ambiente) | [Checklist de entrega](#checklist-de-entrega)     |[m
+[32m+[m
+ ## Sobre o projeto[m
+ [m
+ A aplicação apresenta a **Fritz Higienização e Impermeabilização**, com atendimento em **Joinville e região**. O conteúdo orienta o visitante a informar o tipo de peça, enviar fotos e consultar orçamento e disponibilidade com a equipe.[m
+[36m@@ -49,6 +58,18 @@[m [mO projeto preserva a composição editorial, as transições de páginas e as in[m
+   <img src="docs/readme/fritz-clientes-mobile.png" width="320" alt="Avaliações públicas do Google em cartões responsivos da Fritz" />[m
+ </p>[m
+ [m
+[32m+[m[32m### Galeria circular e interações[m
+[32m+[m
+[32m+[m[32m![Galeria da Fritz com dez fotografias e CTA para consultar a agenda](docs/readme/fritz-galeria-desktop.png)[m
+[32m+[m
+[32m+[m[32m![Diagrama da entrada, rotação e saída da galeria circular](docs/readme/fritz-galeria-fluxo.svg)[m
+[32m+[m
+[32m+[m[32mA galeria usa dez fotos diferentes. A abertura acontece quando a **primeira foto** alcança a área central da tela, em uma animação de **1 segundo**. O círculo acompanha a rolagem com suavização; fora da área de ativação, as fotos voltam à pilha instantaneamente. Ao retornar, a entrada é reproduzida.[m
+[32m+[m
+[32m+[m[32mNo desktop, passar o mouse sobre o conteúdo central aumenta sua opacidade e reduz o círculo a 80% em 500 ms. O foco de teclado também recebe esse tratamento. Com preferência de movimento reduzido, as fotos permanecem abertas e estáticas.[m
+[32m+[m
+[32m+[m[32mA lógica fica em [Leaders](src/sections/home/leaders/leaders.tsx), os estilos em [leaders.css](src/sections/home/leaders/leaders.css) e a comparação com a referência está registrada na [auditoria da galeria](docs/auditorias/galeria-ariyana-2026-10-08.md).[m
+[32m+[m
+ ### Vídeo de serviço[m
+ [m
+ ![Vídeo de serviço da Fritz reproduzindo na Home](docs/readme/fritz-video.png)[m
+[36m@@ -108,6 +129,8 @@[m [mOs breakpoints de layout e animação podem ser diferentes dos de imagens. Ao ed[m
+ [m
+ ## Identidade visual[m
+ [m
+[32m+[m[32m![Paleta da Fritz com cores, nomes e códigos hexadecimais](docs/readme/fritz-paleta.svg)[m
+[32m+[m
+ | Token          | Cor       | Aplicação                      |[m
+ | -------------- | --------- | ------------------------------ |[m
+ | `--brand`      | `#175DA8` | CTAs e destaques               |[m
+[36m@@ -343,6 +366,33 @@[m [mO formulário prepara uma URL do WhatsApp; ele não salva o pedido em um banco d[m
+ [m
+ Não alterar o remote Git automaticamente ao adaptar a marca. Confirme o destino atual com `git remote -v` antes de enviar commits: o repositório e o deploy são configurações independentes da identidade exibida no site.[m
+ [m
+[32m+[m[32m## Checklist de entrega[m
+[32m+[m
+[32m+[m[32m### Conteúdo e identidade[m
+[32m+[m
+[32m+[m[32m- [ ] Logo, favicon, contatos e nome correspondem à Fritz.[m
+[32m+[m[32m- [ ] Serviços, cidades e orientações foram confirmados pela equipe.[m
+[32m+[m[32m- [ ] Fotos reais e ilustrativas estão identificadas corretamente.[m
+[32m+[m[32m- [ ] Avaliações mantêm fontes públicas e data de conferência.[m
+[32m+[m
+[32m+[m[32m### Interface e funcionamento[m
+[32m+[m
+[32m+[m[32m- [ ] Conferir desktop, tablet e celular, incluindo notebook com viewport menor.[m
+[32m+[m[32m- [ ] Testar menu, entrada e saída da galeria, vídeo e navegação entre páginas.[m
+[32m+[m[32m- [ ] Conferir foco de teclado, contraste e preferência de movimento reduzido.[m
+[32m+[m[32m- [ ] Abrir os CTAs e revisar o número e a mensagem do WhatsApp.[m
+[32m+[m[32m- [ ] Testar as duas abas do formulário com dados de demonstração.[m
+[32m+[m
+[32m+[m[32m### Publicação[m
+[32m+[m
+[32m+[m[32m- [ ] Executar lint, tipagem, formatação, testes e build.[m
+[32m+[m[32m- [ ] Definir domínio, variáveis de ambiente e configurações de indexação.[m
+[32m+[m[32m- [ ] Conferir título, descrição, canonical, imagem social e ícones no deploy.[m
+[32m+[m[32m- [ ] Verificar vídeo, robots e sitemap no endereço público.[m
+[32m+[m[32m- [ ] Registrar o commit e o endereço da versão entregue.[m
+[32m+[m
+[32m+[m[32mA lista documenta verificações para cada entrega; caixas vazias não representam testes já realizados. O agendamento continua dependendo da confirmação da equipe, e as avaliações são atualizadas manualmente.[m
+[32m+[m
+ ## Problemas comuns[m
+ [m
+ | Sintoma                          | O que conferir                                                          |[m
+[1mdiff --git a/docs/guias/design-brief-paleta-fritz.md b/docs/guias/design-brief-paleta-fritz.md[m
+[1mindex 6a5f363..08529bd 100644[m
+[1m--- a/docs/guias/design-brief-paleta-fritz.md[m
+[1m+++ b/docs/guias/design-brief-paleta-fritz.md[m
+[36m@@ -31,3 +31,7 @@[m [mAplicar apenas cores, preservando seções, conteúdo, dimensões, tipografia e[m
+ - Âmbar: #F3B75B para detalhes; #946008 para estrelas sobre fundo claro.[m
+ [m
+ Fotos, avatars, marca do Google e verde oficial do WhatsApp preservados. Verificar contraste e larguras de 390, 820 e 1366 pixels.[m
+[32m+[m
+[32m+[m
+[32m+[m[32m### Galeria circular: comportamento medido na Ariyana[m
+[32m+[m[32mPreservar fotos, conteúdo, paleta, dimensões e seções da Fritz. Reproduzir os eventos IX2 e-3/e-6/e-7 e ações a-3/a-7/a-8: primeira foto como alvo da abertura, área central com margem de 40%, abertura de 1 s com inOutCubic, recolhimento instantâneo somente fora da área com margem de 10%. Rotação contínua de 0 a 360 graus com início na metade da seção, fim na saída completa e suavização 85. Hover desktop: opacidade de 0,5 a 1 e escala do círculo de 1 a 0,8 em 500 ms. Respeitar movimento reduzido.[m
+[1mdiff --git a/src/components/layout/footer/footer.tsx b/src/components/layout/footer/footer.tsx[m
+[1mindex bb70bd4..ba0ecc8 100644[m
+[1m--- a/src/components/layout/footer/footer.tsx[m
+[1m+++ b/src/components/layout/footer/footer.tsx[m
+[36m@@ -29,7 +29,7 @@[m [mexport function Footer() {[m
+           </d

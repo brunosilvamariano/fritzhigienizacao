@@ -3,7 +3,7 @@ import { WhatsAppLink } from '@/components/ui/whatsapp-link';
 import { useEffect, useRef } from 'react';
 import {
   motion,
-  useScroll,
+  useMotionValue,
   useTransform,
   useReducedMotion,
 } from 'framer-motion';
@@ -15,10 +15,7 @@ import './leaders.css';
 export function Leaders() {
   const region = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: region,
-    offset: ['start center', 'end end'],
-  });
+  const scrollYProgress = useMotionValue(0);
   const progress = useSmoothedProgress(scrollYProgress, 0.85);
   const rotate = useTransform(progress, [0, 1], [0, 360]);
   useEffect(() => {
@@ -26,48 +23,113 @@ export function Leaders() {
     if (!element) return;
     let disposed = false;
     let cleanup: (() => void) | undefined;
-    void Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
-        if (disposed) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const media = gsap.matchMedia();
-        media.add('(prefers-reduced-motion: no-preference)', () => {
-          const images = element.querySelectorAll('.leaders-image');
-          const fan = gsap.fromTo(
-            images,
-            { rotation: 0, xPercent: -50, x: 0 },
-            {
-              rotation: (index) => (index === 0 ? 0 : -(10 - index) * 36),
-              duration: 1,
-              ease: 'power2.inOut',
-              paused: true,
-              immediateRender: true,
-            },
+    void import('gsap').then(({ gsap }) => {
+      if (disposed) return;
+      const media = gsap.matchMedia();
+      media.add('(prefers-reduced-motion: no-preference)', () => {
+        const images = element.querySelectorAll<HTMLElement>('.leaders-image');
+        const firstImage = images[0];
+        if (!firstImage) return;
+        const fan = gsap.fromTo(
+          images,
+          { rotation: 0, xPercent: -50, x: 0 },
+          {
+            rotation: (index) => (index === 0 ? 0 : -(10 - index) * 36),
+            duration: 1,
+            ease: 'power2.inOut',
+            paused: true,
+            immediateRender: true,
+          },
+        );
+        let entered = false;
+        let exitVisible = false;
+        let frame = 0;
+        const update = () => {
+          frame = 0;
+          const viewport = document.documentElement.clientHeight;
+          const section = element.getBoundingClientRect();
+          // IX2 e-3: start offset 50%, starts entering; finish fully exiting.
+          const start = section.top + Math.min(section.height * 0.5, viewport);
+          const distance =
+            viewport +
+            section.height -
+            Math.min(section.height * 0.5, viewport);
+          scrollYProgress.set(
+            Math.min(1, Math.max(0, (viewport - start) / distance)),
           );
-          ScrollTrigger.create({
-            trigger: element,
-            start: 'top 60%',
-            end: 'bottom top',
-            onEnter: () => fan.play(),
-            onEnterBack: () => fan.play(),
-            onLeave: () => fan.reverse(),
-            onLeaveBack: () => fan.reverse(),
-            onRefresh: (trigger) => {
-              if (!trigger.isActive) fan.pause(0);
-            },
-          });
-          return () => {
-            fan.kill();
+
+          // IX2 uses the transformed first card, not the section rectangle.
+          const card = firstImage.getBoundingClientRect();
+          const visible = (inset: number) =>
+            card.bottom >= viewport * inset &&
+            card.top <= viewport * (1 - inset) &&
+            card.right >= 0 &&
+            card.left <= document.documentElement.clientWidth;
+          const entryVisible = visible(0.4);
+          const nextExitVisible = visible(0.1);
+          if (entryVisible && !entered) fan.restart();
+          if (!nextExitVisible && exitVisible) fan.pause(0);
+          entered = entryVisible;
+          exitVisible = nextExitVisible;
+        };
+        const schedule = () => {
+          if (!frame) frame = requestAnimationFrame(update);
+        };
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule);
+        window.addEventListener('pageshow', schedule);
+        update();
+        return () => {
+          window.removeEventListener('scroll', schedule);
+          window.removeEventListener('resize', schedule);
+          window.removeEventListener('pageshow', schedule);
+          cancelAnimationFrame(frame);
+          fan.kill();
+        };
+      });
+      media.add(
+        '(min-width: 992px) and (prefers-reduced-motion: no-preference)',
+        () => {
+          const copy = element.querySelector<HTMLElement>('.leaders-copy');
+          const orbit = element.querySelector<HTMLElement>('.leaders-orbit');
+          if (!copy || !orbit) return;
+          const setHover = (active: boolean) => {
+            gsap.to(copy, {
+              opacity: active ? 1 : 0.5,
+              duration: 0.5,
+              ease: 'none',
+              overwrite: true,
+            });
+            gsap.to(orbit, {
+              scale: active ? 0.8 : 1,
+              duration: 0.5,
+              ease: 'power3.inOut',
+              overwrite: true,
+            });
           };
-        });
-        cleanup = () => media.revert();
-      },
-    );
+          const enter = () => setHover(true);
+          const leave = () => setHover(copy.matches(':focus-within'));
+          const blur = () => setHover(copy.matches(':hover'));
+          copy.addEventListener('mouseenter', enter);
+          copy.addEventListener('mouseleave', leave);
+          copy.addEventListener('focusin', enter);
+          copy.addEventListener('focusout', blur);
+          return () => {
+            copy.removeEventListener('mouseenter', enter);
+            copy.removeEventListener('mouseleave', leave);
+            copy.removeEventListener('focusin', enter);
+            copy.removeEventListener('focusout', blur);
+            gsap.killTweensOf([copy, orbit]);
+          };
+        },
+      );
+      cleanup = () => media.revert();
+    });
     return () => {
       disposed = true;
       cleanup?.();
     };
-  }, []);
+  }, [scrollYProgress]);
   return (
     <section
       id="lideres"

@@ -18,6 +18,15 @@ Site institucional com foco em higienização de estofados, apresentação dos s
 
 > As capturas documentam a versão local durante o desenvolvimento. O site publicado pode estar em uma versão anterior até o próximo deploy.
 
+## Navegação rápida
+
+| Conhecer o projeto                          | Trabalhar no código                             | Preparar a entrega                                |
+| ------------------------------------------- | ----------------------------------------------- | ------------------------------------------------- |
+| [Interface](#interface)                     | [Executar localmente](#executar-localmente)     | [SEO e compartilhamento](#seo-e-compartilhamento) |
+| [Identidade visual](#identidade-visual)     | [Estrutura](#estrutura)                         | [Qualidade](#qualidade)                           |
+| [Animações](#galeria-circular-e-interações) | [Onde editar](#onde-editar)                     | [Publicação](#publicação)                         |
+| [Jornada de contato](#jornada-de-contato)   | [Variáveis de ambiente](#variáveis-de-ambiente) | [Checklist de entrega](#checklist-de-entrega)     |
+
 ## Sobre o projeto
 
 A aplicação apresenta a **Fritz Higienização e Impermeabilização**, com atendimento em **Joinville e região**. O conteúdo orienta o visitante a informar o tipo de peça, enviar fotos e consultar orçamento e disponibilidade com a equipe.
@@ -48,6 +57,18 @@ O projeto preserva a composição editorial, as transições de páginas e as in
 <p align="center">
   <img src="docs/readme/fritz-clientes-mobile.png" width="320" alt="Avaliações públicas do Google em cartões responsivos da Fritz" />
 </p>
+
+### Galeria circular e interações
+
+![Galeria da Fritz com dez fotografias e CTA para consultar a agenda](docs/readme/fritz-galeria-desktop.png)
+
+![Diagrama da entrada, rotação e saída da galeria circular](docs/readme/fritz-galeria-fluxo.svg)
+
+A galeria usa dez fotos diferentes. A abertura acontece quando a **primeira foto** alcança a área central da tela, em uma animação de **1 segundo**. O círculo acompanha a rolagem com suavização; fora da área de ativação, as fotos voltam à pilha instantaneamente. Ao retornar, a entrada é reproduzida.
+
+No desktop, passar o mouse sobre o conteúdo central aumenta sua opacidade e reduz o círculo a 80% em 500 ms. O foco de teclado também recebe esse tratamento. Com preferência de movimento reduzido, as fotos permanecem abertas e estáticas.
+
+A lógica fica em [Leaders](src/sections/home/leaders/leaders.tsx), os estilos em [leaders.css](src/sections/home/leaders/leaders.css) e a comparação com a referência está registrada na [auditoria da galeria](docs/auditorias/galeria-ariyana-2026-10-08.md).
 
 ### Vídeo de serviço
 
@@ -107,6 +128,8 @@ O componente `ResponsiveImage` escolhe arquivos locais por dispositivo:
 Os breakpoints de layout e animação podem ser diferentes dos de imagens. Ao editar CSS, verificar o arquivo da seção; não assumir que todo comportamento muda em 1024 px.
 
 ## Identidade visual
+
+![Paleta da Fritz com cores, nomes e códigos hexadecimais](docs/readme/fritz-paleta.svg)
 
 | Token          | Cor       | Aplicação                      |
 | -------------- | --------- | ------------------------------ |
@@ -342,6 +365,33 @@ O formulário prepara uma URL do WhatsApp; ele não salva o pedido em um banco d
 **Comandos de build:** `npm ci` para instalar, `npm run build` para compilar e `npm start` para executar em um servidor Node. Na Vercel, usar o preset Next.js e as variáveis do projeto. O vídeo precisa ser enviado junto aos arquivos de `public/`.
 
 Não alterar o remote Git automaticamente ao adaptar a marca. Confirme o destino atual com `git remote -v` antes de enviar commits: o repositório e o deploy são configurações independentes da identidade exibida no site.
+
+## Checklist de entrega
+
+### Conteúdo e identidade
+
+- [ ] Logo, favicon, contatos e nome correspondem à Fritz.
+- [ ] Serviços, cidades e orientações foram confirmados pela equipe.
+- [ ] Fotos reais e ilustrativas estão identificadas corretamente.
+- [ ] Avaliações mantêm fontes públicas e data de conferência.
+
+### Interface e funcionamento
+
+- [ ] Conferir desktop, tablet e celular, incluindo notebook com viewport menor.
+- [ ] Testar menu, entrada e saída da galeria, vídeo e navegação entre páginas.
+- [ ] Conferir foco de teclado, contraste e preferência de movimento reduzido.
+- [ ] Abrir os CTAs e revisar o número e a mensagem do WhatsApp.
+- [ ] Testar as duas abas do formulário com dados de demonstração.
+
+### Publicação
+
+- [ ] Executar lint, tipagem, formatação, testes e build.
+- [ ] Definir domínio, variáveis de ambiente e configurações de indexação.
+- [ ] Conferir título, descrição, canonical, imagem social e ícones no deploy.
+- [ ] Verificar vídeo, robots e sitemap no endereço público.
+- [ ] Registrar o commit e o endereço da versão entregue.
+
+A lista documenta verificações para cada entrega; caixas vazias não representam testes já realizados. O agendamento continua dependendo da confirmação da equipe, e as avaliações são atualizadas manualmente.
 
 ## Problemas comuns
 

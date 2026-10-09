@@ -29,7 +29,7 @@ export function Footer() {
           </div>
           <nav aria-label="Páginas principais">
             <h2>Navegue</h2>
-            <Link href="/">Início</Link>
+            <Link href="/#inicio">Início</Link>
             <Link href="/sobre">Sobre</Link>
             <Link href="/servicos">Serviços</Link>
             <Link href="/contato">Contato</Link>
@@ -68,7 +68,7 @@ export function Footer() {
         <Newsletter />
       </div>
       <div className="footer-bottom">
-        <Link className="footer-wordmark" href="/">
+        <Link className="footer-wordmark" href="/#inicio">
           {'FRITZ'}
         </Link>
         <div className="footer-credits">
