@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import socialImage from '@/assets/images/pages/projects/01/capa/desktop.webp';
+import socialImage from '@/assets/images/social/fritz-compartilhamento.jpg';
 import { site } from './site';
 
 const shareImage = {
   url: socialImage.src,
   width: socialImage.width,
   height: socialImage.height,
-  alt: 'Fritz — Higienização de estofados em Joinville. Imagem ilustrativa de limpeza de sofá.',
-  type: 'image/webp',
+  alt: 'Fritz Higienização e Impermeabilização — mais cuidado para seu lar em Joinville e região.',
+  type: 'image/jpeg',
 };
 
 export const siteMetadata: Metadata = {

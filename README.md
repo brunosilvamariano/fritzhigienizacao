@@ -8,7 +8,7 @@
 
 Site institucional com foco em higienização de estofados, apresentação dos serviços e conversão de visitas em conversas pelo WhatsApp.
 
-[Site público](https://fritzhigienizacao.vercel.app/) · [Começar](#executar-localmente) · [Manutenção](#onde-editar) · [Publicação](#publicação) · [Documentação](#documentação)
+[Site público](https://higienizacaofritz.vercel.app/) · [Começar](#executar-localmente) · [Manutenção](#onde-editar) · [Publicação](#publicação) · [Documentação](#documentação)
 
 **Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Framer Motion · GSAP**
 
@@ -206,7 +206,7 @@ O Next.js lê `.env.local` automaticamente. O modelo está em [`.env.example`](.
 
 | Variável                               | Finalidade                                                                                                 |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `SITE_URL`                             | Origem pública HTTPS, sem caminho, parâmetros ou fragmento. Padrão: `https://fritzhigienizacao.vercel.app` |
+| `SITE_URL`                             | Origem pública HTTPS, sem caminho, parâmetros ou fragmento. Padrão: `https://higienizacaofritz.vercel.app` |
 | `SITE_INDEXABLE`                       | `true` permite indexação; qualquer outro valor mantém `noindex`                                            |
 | `GOOGLE_SITE_VERIFICATION`             | Código de verificação do Search Console                                                                    |
 | `META_DOMAIN_VERIFICATION`             | Código de verificação de domínio da Meta                                                                   |
@@ -225,6 +225,7 @@ Variáveis com prefixo `NEXT_PUBLIC_` são públicas. Alterações exigem reinic
 - Títulos e descrições próprios para a Fritz e seus serviços.
 - URLs canônicas por página, derivadas de `SITE_URL`.
 - Open Graph e Twitter Cards com imagem local e dados da marca.
+- Prévia de compartilhamento em JPEG de 1200 × 630 px: `src/assets/images/social/fritz-compartilhamento.jpg`. Na Vercel, manter `SITE_URL=https://higienizacaofritz.vercel.app` enquanto esse for o domínio público e fazer um novo deploy após alterar a variável ou a imagem.
 - Favicon e Apple Touch Icon derivados da logo da Fritz.
 - Cor do navegador alinhada ao azul profundo.
 - `robots.txt` e `sitemap.xml` gerados pelo App Router.

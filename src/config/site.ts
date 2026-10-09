@@ -1,5 +1,5 @@
 const configuredUrl =
-  process.env.SITE_URL || 'https://fritzhigienizacao.vercel.app';
+  process.env.SITE_URL || 'https://higienizacaofritz.vercel.app';
 const url = new URL(configuredUrl);
 if (
   url.protocol !== 'https:' ||
