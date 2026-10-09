@@ -16,3 +16,6 @@ Os gatilhos de entrada e saída têm estados de visibilidade independentes, como
 Validação: observação da referência antes/durante/depois da seção; checagem de entrada, saída e retorno local; viewport de notebook 1366x900 e celular 390x844. TypeScript e Biome sem erros.
 
 Tablet 820x1180: 10 fotos presentes, entrada confirmada e sem overflow horizontal.
+
+## Correção posterior para dispositivos de toque
+Até 991 px, o alvo rotacionado causava fechamento prematuro e reentrada durante pequenas inversões de scroll. A entrada agora usa a seção estável (área central 40–60%); o estado aberto fica retido até a saída completa do viewport. Desktop conserva os gatilhos da referência. Alterações da altura do viewport não recriam a animação. Três testes de regressão cobrem permanência, saída/retorno e mudanças de viewport.

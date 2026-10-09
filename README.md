@@ -66,6 +66,8 @@ O projeto preserva a composição editorial, as transições de páginas e as in
 
 A galeria usa dez fotos diferentes. A abertura acontece quando a **primeira foto** alcança a área central da tela, em uma animação de **1 segundo**. O círculo acompanha a rolagem com suavização; fora da área de ativação, as fotos voltam à pilha instantaneamente. Ao retornar, a entrada é reproduzida.
 
+Em celular e tablet (até 991 px), a entrada usa a posição estável da seção. Depois de abrir, as fotos permanecem distribuídas enquanto qualquer parte da seção estiver visível. Pequenas rolagens para cima e mudanças na altura da barra do navegador não reiniciam a entrada. A galeria volta à pilha apenas depois de sair completamente da tela.
+
 No desktop, passar o mouse sobre o conteúdo central aumenta sua opacidade e reduz o círculo a 80% em 500 ms. O foco de teclado também recebe esse tratamento. Com preferência de movimento reduzido, as fotos permanecem abertas e estáticas.
 
 A lógica fica em [Leaders](src/sections/home/leaders/leaders.tsx), os estilos em [leaders.css](src/sections/home/leaders/leaders.css) e a comparação com a referência está registrada na [auditoria da galeria](docs/auditorias/galeria-ariyana-2026-10-08.md).

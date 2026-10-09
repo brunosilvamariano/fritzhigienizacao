@@ -35,3 +35,7 @@ Fotos, avatars, marca do Google e verde oficial do WhatsApp preservados. Verific
 
 ### Galeria circular: comportamento medido na Ariyana
 Preservar fotos, conteúdo, paleta, dimensões e seções da Fritz. Reproduzir os eventos IX2 e-3/e-6/e-7 e ações a-3/a-7/a-8: primeira foto como alvo da abertura, área central com margem de 40%, abertura de 1 s com inOutCubic, recolhimento instantâneo somente fora da área com margem de 10%. Rotação contínua de 0 a 360 graus com início na metade da seção, fim na saída completa e suavização 85. Hover desktop: opacidade de 0,5 a 1 e escala do círculo de 1 a 0,8 em 500 ms. Respeitar movimento reduzido.
+
+
+### Estabilidade da galeria em celular e tablet
+A galeria em larguras até 991 px deve abrir uma vez ao alcançar a área central e permanecer aberta enquanto qualquer parte da seção estiver na tela. Usar o retângulo estável da seção, sem depender de uma foto rotacionada. Recolher apenas após saída completa; pequenas inversões de scroll e mudanças de altura da barra do navegador não podem reiniciar a entrada. Preservar rotação, conteúdo, fotos, composição e comportamento desktop.

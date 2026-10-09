@@ -11,6 +11,7 @@ import { projects } from '@/content/projects';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { DemoNote } from '@/components/ui/demo-note';
 import { useSmoothedProgress } from '@/animations/use-smoothed-progress';
+import { mobileGalleryOpen } from '@/animations/mobile-gallery-state';
 import './leaders.css';
 export function Leaders() {
   const region = useRef<HTMLElement>(null);
@@ -41,6 +42,8 @@ export function Leaders() {
             immediateRender: true,
           },
         );
+        let mobileOpen = false;
+        const compact = window.matchMedia('(max-width: 991px)');
         let entered = false;
         let exitVisible = false;
         let frame = 0;
@@ -57,6 +60,18 @@ export function Leaders() {
           scrollYProgress.set(
             Math.min(1, Math.max(0, (viewport - start) / distance)),
           );
+
+          // On touch layouts, retain the open fan until the whole section exits.
+          // A rotating card and changing browser chrome are unstable scroll targets.
+          if (compact.matches) {
+            const nextOpen = mobileGalleryOpen(mobileOpen, section, viewport);
+            if (nextOpen !== mobileOpen) {
+              if (nextOpen) fan.restart();
+              else fan.pause(0);
+            }
+            mobileOpen = nextOpen;
+            return;
+          }
 
           // IX2 uses the transformed first card, not the section rectangle.
           const card = firstImage.getBoundingClientRect();
