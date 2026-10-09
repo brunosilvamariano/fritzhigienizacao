@@ -51,7 +51,7 @@ export function ContactForm() {
             setDraftUrl('');
           }}
         >
-          Consultar agenda
+          Quero um orçamento
         </button>
         <button
           id="tab-quote"

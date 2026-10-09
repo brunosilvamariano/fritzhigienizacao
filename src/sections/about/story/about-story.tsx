@@ -32,7 +32,7 @@ export function AboutStory() {
             serviço e consultar a disponibilidade de atendimento.
           </p>
           <WhatsAppLink context="higienização ou impermeabilização do meu estofado">
-            Consultar agenda
+            Quero um orçamento
           </WhatsAppLink>
         </Reveal>
       </div>

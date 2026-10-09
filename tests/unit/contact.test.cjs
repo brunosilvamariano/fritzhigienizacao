@@ -5,12 +5,12 @@ const { loadTs } = require('./helpers/load-ts.cjs');
 const { contact, whatsappUrl } = loadTs('src/config/contact.ts');
 const text = (url) => new URL(url).searchParams.get('text');
 
-test('link sem contexto usa a mensagem geral', () => {
+test('link sem contexto solicita orçamento', () => {
   const url = whatsappUrl();
   assert.ok(url.startsWith(`https://wa.me/${contact.whatsappNumber}?text=`));
   assert.equal(
     text(url),
-    'Olá! Conheci a Fritz pelo site e gostaria de consultar a agenda para higienização ou impermeabilização.',
+    'Olá! Conheci a Fritz pelo site e gostaria de solicitar um orçamento para higienização ou impermeabilização.',
   );
 });
 
@@ -49,7 +49,7 @@ test('orçamento envia todas as escolhas e preserva acentos e quebras de linha',
     'Olá! Gostaria de solicitar um orçamento à Fritz.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nCidade e bairro: Joinville & Jarivatuba\nServiço: Higienização de sofá\nPreferência de horário: Manhã\nMensagem: Sofá & poltrona\nDuas peças',
   );
 });
-test('contato geral omite campos vazios e escolhas exclusivas de orçamento', () => {
+test('formulário simples solicita orçamento e omite campos vazios e escolhas exclusivas', () => {
   const data = new FormData();
   data.set('name', 'Ana');
   data.set('message', 'Olá');
@@ -57,6 +57,6 @@ test('contato geral omite campos vazios e escolhas exclusivas de orçamento', ()
   data.set('company', '  ');
   assert.equal(
     text(contactFormUrl(data, 'hello')),
-    'Olá! Gostaria de consultar a agenda da Fritz.\n\nNome: Ana\nMensagem: Olá',
+    'Olá! Gostaria de solicitar um orçamento à Fritz.\n\nNome: Ana\nMensagem: Olá',
   );
 });

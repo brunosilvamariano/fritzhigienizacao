@@ -31,7 +31,7 @@ export function ProjectContact({
             context={context}
             className="button tw:min-h-[52px] tw:bg-ink tw:text-paper tw:inline-flex tw:justify-between tw:items-center tw:gap-[35px]"
           >
-            Consultar agenda
+            Quero um orçamento
           </WhatsAppLink>
         </div>
       </Reveal>

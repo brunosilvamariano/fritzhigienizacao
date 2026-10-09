@@ -93,7 +93,7 @@ export function MobileNavigation() {
           </nav>
           <div className="mobile-menu-contact">
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-              Consultar agenda
+              Quero um orçamento
             </a>
             <a
               className="mobile-menu-social"

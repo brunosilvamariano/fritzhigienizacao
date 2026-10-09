@@ -8,7 +8,7 @@ export function whatsappUrl(context?: string) {
     ? 'Olá! Conheci a Fritz pelo site e gostaria de solicitar um orçamento para ' +
       context +
       '.'
-    : 'Olá! Conheci a Fritz pelo site e gostaria de consultar a agenda para higienização ou impermeabilização.';
+    : 'Olá! Conheci a Fritz pelo site e gostaria de solicitar um orçamento para higienização ou impermeabilização.';
   return (
     'https://wa.me/' +
     contact.whatsappNumber +
@@ -33,9 +33,7 @@ export function contactFormUrl(data: FormData, intent: 'hello' | 'quote') {
     ['Mensagem', value('message')],
   ];
   const message = [
-    intent === 'quote'
-      ? 'Olá! Gostaria de solicitar um orçamento à Fritz.'
-      : 'Olá! Gostaria de consultar a agenda da Fritz.',
+    'Olá! Gostaria de solicitar um orçamento à Fritz.',
     '',
     ...fields
       .filter(([, value]) => value)

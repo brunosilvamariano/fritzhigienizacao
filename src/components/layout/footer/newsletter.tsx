@@ -7,7 +7,7 @@ export function Newsletter() {
     e.preventDefault();
     const city = String(new FormData(e.currentTarget).get('city') || '').trim();
     window.open(
-      whatsappUrl(`atendimento em ${city}. Quero consultar a agenda`),
+      whatsappUrl(`higienização ou impermeabilização em ${city}`),
       '_blank',
       'noopener,noreferrer',
     );

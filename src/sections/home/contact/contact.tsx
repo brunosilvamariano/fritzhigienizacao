@@ -9,7 +9,7 @@ export function Contact() {
       tabIndex={-1}
     >
       <h2 id="contact-title" className="contact-accessible">
-        Consulte a agenda da Fritz
+        Solicite um orçamento à Fritz
       </h2>
       {[false, true].map((stroke) => (
         <div
@@ -26,15 +26,13 @@ export function Contact() {
         </div>
       ))}
       <a
-        href={whatsappUrl(
-          'higienização ou impermeabilização. Quero consultar a agenda',
-        )}
+        href={whatsappUrl('higienização ou impermeabilização')}
         target="_blank"
         rel="noopener noreferrer"
-        data-track-contact="consulta de agenda"
+        data-track-contact="solicitação de orçamento"
         className="contact-button"
       >
-        <span className="contact-button-text">Consultar agenda</span>
+        <span className="contact-button-text">Quero um orçamento</span>
         <i aria-hidden="true">→</i>
       </a>
     </section>

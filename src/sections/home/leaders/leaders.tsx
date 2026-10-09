@@ -194,7 +194,7 @@ export function Leaders() {
           className="pill-link"
           context="higienização ou impermeabilização. Quero consultar a disponibilidade de atendimento"
         >
-          Consultar agenda
+          Quero um orçamento
         </WhatsAppLink>
       </div>
       <DemoNote>

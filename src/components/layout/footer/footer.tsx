@@ -21,8 +21,8 @@ export function Footer() {
               <br />
               Higienização e impermeabilização.
             </p>
-            <WhatsAppLink context="higienização ou impermeabilização. Quero consultar a agenda">
-              Consultar agenda
+            <WhatsAppLink context="higienização ou impermeabilização">
+              Quero um orçamento
             </WhatsAppLink>
             <a href={`tel:+${contact.whatsappNumber}`}>
               {contact.whatsappDisplay}
