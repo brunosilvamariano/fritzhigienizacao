@@ -39,3 +39,7 @@ Preservar fotos, conteúdo, paleta, dimensões e seções da Fritz. Reproduzir o
 
 ### Estabilidade da galeria em celular e tablet
 A galeria em larguras até 991 px deve abrir uma vez ao alcançar a área central e permanecer aberta enquanto qualquer parte da seção estiver na tela. Usar o retângulo estável da seção, sem depender de uma foto rotacionada. Recolher apenas após saída completa; pequenas inversões de scroll e mudanças de altura da barra do navegador não podem reiniciar a entrada. Preservar rotação, conteúdo, fotos, composição e comportamento desktop.
+
+
+### Organização do rodapé em celular
+Até 767 px, contato ocupa uma linha completa, seguido de duas colunas para páginas e cuidados. Informações/redes ocupam a largura total, com ícone colorido do Instagram junto ao nome. Usar divisórias sutis, espaçamento consistente e áreas de toque de 44 px. Formulário de região em um bloco separado, sem apertar títulos, telefone e CTA em meia coluna. Manter links, identidade e comportamento de revelação.
